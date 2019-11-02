@@ -1,0 +1,36 @@
+/* Arquivo _buttons.scss */
+
+.btn-cor-principal {
+    color: #fff;
+    background-color: $cor-principal;
+    border-color: $cor-principal;
+
+    &:hover {
+        color: #fff;
+        background-color: lighten($cor-principal,30%);
+        border-color: lighten($cor-principal,30%);
+    }
+
+}
+
+.btn-cor-secundaria {
+    color: #fff;
+    background-color: $cor-secundaria;
+    border-color: $cor-secundaria;
+
+    &:hover {
+        background-color: lighten($cor-secundaria,30%);
+        border-color: lighten($cor-secundaria,30%);
+    }
+}
+
+.btn-cor-auxiliar {
+    color: $cor-auxiliar-3;
+    background-color: $cor-auxiliar-2;
+    border-color: #ddd;
+
+    &:hover {
+        background-color: lighten($cor-auxiliar-2,30%);
+        border-color: lighten(#ddd,0);
+    }
+}

@@ -1,0 +1,26 @@
+/* Arquivo _entrar.scss */
+
+.entrar {
+
+
+    padding: 8rem 0;
+
+    form {
+
+        input {
+            margin: 15px 0;
+        }
+
+        .info {
+            padding: 15px 0;
+            border-top: 1px solid $cor-secundaria;
+            font-weight: bold;
+        }
+
+        .borda {
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+    }
+
+}

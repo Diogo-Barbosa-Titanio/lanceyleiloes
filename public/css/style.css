@@ -1,0 +1,426 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,500i,700,700i,900,900i&display=swap);/* Arquivo _variables.scss */
+
+/* Arquivo _mixins.scss */
+
+/* Arquivo _placeholders.scss */
+
+/* Arquivo _reset.scss */
+
+/* Arquivo _fonts.scss */
+
+/* Arquivo _base.scss */
+
+body {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+body ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+body ul li a {
+  color: #ffffff;
+}
+
+body h2 .texto {
+  color: #f57e20;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.fonte-cor-principal {
+  color: #652c88;
+}
+
+.fonte-cor-secundaria {
+  color: #f57e20;
+}
+
+.fonte-cor-auxiliar {
+  color: #ffffff;
+}
+
+.icone_brasilbrokers {
+  background: url("http://192.168.50.71/lancey/public/images/icones/logo-brasilbrokers.png") no-repeat 0px 0px;
+  padding: 7px 60px 7px 60px;
+}
+
+/* Arquivo _leilao_box.scss */
+
+.leilao_info,
+.leilao_lance,
+.leilao_caracteristicas,
+.leilao_topo {
+  margin: 15px auto;
+}
+
+.leilao_link {
+  color: unset;
+  background-color: unset;
+}
+
+.leilao_link:hover {
+  color: unset;
+  text-decoration: unset;
+  background-color: unset;
+}
+
+.leilao_box {
+  border: 1px solid #D9D9D9;
+  border-radius: 16px;
+  margin: 10px auto;
+}
+
+.leilao_box_espaco {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.leilao_natureza {
+  display: inline-block;
+  min-width: 49%;
+}
+
+.leilao_natureza .texto {
+  background-color: #ededed;
+  border-radius: 5px;
+  padding: 8px 15px;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.leilao_tipo {
+  display: inline-block;
+  min-width: 49%;
+  font-style: italic;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.leilao_foto img {
+  max-width: 300px;
+  max-height: 200px;
+  width: 100%;
+}
+
+.leilao_situacao {
+  text-align: center;
+  color: white;
+}
+
+.leilao_situacao[situacao=em_breve] {
+  background-color: #f26c4f;
+}
+
+.leilao_situacao[situacao=aberto] {
+  background-color: #82ca9c;
+}
+
+.leilao_situacao[situacao=arrematado] {
+  background-color: #8c6239;
+}
+
+.leilao_situacao[situacao=nao_arrematado] {
+  background-color: #ed1c24;
+}
+
+.leilao_situacao[situacao=condicional] {
+  background-color: #fbaf5d;
+}
+
+.leilao_situacao[situacao=venda_direta] {
+  background-color: #0072bc;
+}
+
+.leilao_praca_1 .texto {
+  font-weight: bold;
+}
+
+.leilao_praca_2 .texto {
+  font-weight: bold;
+}
+
+.leilao_nome {
+  min-height: 50px;
+}
+
+.leilao_nome .texto {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.leilao_caracteristicas .icone {
+  display: inline-block;
+  width: 68px;
+}
+
+.leilao_caracteristicas .icone .figura {
+  text-align: center;
+}
+
+.leilao_caracteristicas .icone .figura i {
+  font-size: 22px;
+}
+
+.leilao_caracteristicas .icone .texto {
+  text-align: center;
+}
+
+.leilao_lance {
+  border-top: 1px solid #F0F0F0;
+}
+
+.leilao_lance .atual,
+.leilao_lance .inicial {
+  padding-top: 15px;
+}
+
+.leilao_lance .atual .texto,
+.leilao_lance .inicial .texto {
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.leilao_lance .atual .valor,
+.leilao_lance .inicial .valor {
+  color: #652c88;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.leilao_info .dados {
+  padding: 5px 0;
+}
+
+.leilao_info .dados .figura i {
+  color: #f57e20;
+}
+
+.leilao_info .dados .texto {
+  font-weight: bold;
+}
+
+/* Arquivo _buttons.scss */
+
+.btn-cor-principal {
+  color: #fff;
+  background-color: #652c88;
+  border-color: #652c88;
+}
+
+.btn-cor-principal:hover {
+  color: #fff;
+  background-color: #b179d4;
+  border-color: #b179d4;
+}
+
+.btn-cor-secundaria {
+  color: #fff;
+  background-color: #f57e20;
+  border-color: #f57e20;
+}
+
+.btn-cor-secundaria:hover {
+  background-color: #fcd3b2;
+  border-color: #fcd3b2;
+}
+
+.btn-cor-auxiliar {
+  color: #333;
+  background-color: #ededed;
+  border-color: #ddd;
+}
+
+.btn-cor-auxiliar:hover {
+  background-color: white;
+  border-color: #dddddd;
+}
+
+/* Arquivo _header.scss */
+
+header {
+  background-color: #652c88;
+}
+
+header.topo {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Arquivo _menu.scss */
+
+header .menu .icone i {
+  font-size: 16px;
+}
+
+header .menu .texto {
+  font-weight: bold;
+}
+
+/* Arquivo _footer.scss */
+
+footer {
+  background-color: #652c88;
+  color: #ffffff;
+}
+
+footer .copyright {
+  background-color: #f57e20;
+}
+
+footer .linha_branca_footer {
+  border-top: 1px solid #f0f0f052;
+  max-width: 330px;
+  margin: 0 auto;
+}
+
+footer form .email {
+  width: 260px;
+}
+
+/* Arquivo _desktop.scss */
+
+/* Arquivo _tablet.scss */
+
+/* Arquivo _mobile.scss */
+
+/* Arquivo _home.scss */
+
+/* Arquivo _entrar.scss */
+
+.entrar {
+  padding: 8rem 0;
+}
+
+.entrar form input {
+  margin: 15px 0;
+}
+
+.entrar form .info {
+  padding: 15px 0;
+  border-top: 1px solid #f57e20;
+  font-weight: bold;
+}
+
+.entrar form .borda {
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+/* Arquivo _lote.scss */
+
+.lote h2 .texto {
+  color: #652c88;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.lote .cabecalho {
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.lote .cabecalho .texto {
+  font-weight: bold;
+}
+
+.lote .espacamento {
+  padding: 1rem 0;
+}
+
+.lote .informacoes {
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.lote .informacoes .dados {
+  padding: 10px 0;
+}
+
+.lote .informacoes .dados .texto {
+  font-weight: bold;
+}
+
+.lote i {
+  color: #f57e20;
+}
+
+.lote .cronometro_leilao {
+  text-align: center;
+}
+
+.lote .cronometro_leilao .data_hora {
+  color: #fff;
+  background-color: #652c88;
+  margin: 5px auto;
+}
+
+.lote .cronometro_leilao .data_hora .tempo_restante {
+  font-size: 23px;
+}
+
+.lote .cronometro_leilao .data_hora .texto {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.lote .cronometro_leilao .lance {
+  margin: 5px auto;
+  background-color: #ededed;
+  padding: 0.5rem 0;
+}
+
+.lote .cronometro_leilao .lance .texto {
+  text-align: left;
+  color: #652c88;
+  padding: 0.5rem;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.lote .cronometro_leilao .lance .formulario {
+  padding: 0.5rem;
+}
+
+.lote .cronometro_leilao .lance_atual {
+  margin: 5px auto;
+  border: 1px solid #652c88;
+  background-color: unset;
+}
+
+.lote .icones i {
+  font-size: 22px;
+  padding: 0 0 2px 0;
+}
+
+.lote .icones .texto {
+  padding: 0px;
+}
+
+.lote .icones .valor {
+  padding: 0 5px;
+}
+
+/* Arquivo _pessoa_fisica.scss */
+
+.pessoa_fisica form label {
+  font-weight: bold;
+}
+
+.pessoa_fisica form .botoes {
+  margin: 0.5rem 0 1rem 0;
+}
+
+/* Arquivo _pessoa_juridica.scss */
+
+.pessoa_juridica form label {
+  font-weight: bold;
+}
+
+.pessoa_juridica form .botoes {
+  margin: 0.5rem 0 1rem 0;
+}
+

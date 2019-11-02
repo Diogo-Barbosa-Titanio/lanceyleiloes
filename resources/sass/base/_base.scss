@@ -1,0 +1,43 @@
+/* Arquivo _base.scss */
+
+body {
+    font-family: $font-family-sans-serif;
+    font-size: $font-size-base;
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+            a {
+                color: $cor-auxiliar;
+            }
+        }
+    }
+
+    h2 {
+        .texto {
+            color: $cor-secundaria;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    }
+
+}
+
+.fonte-cor-principal {
+    color: $cor-principal;
+}
+
+.fonte-cor-secundaria {
+    color: $cor-secundaria;
+}
+
+.fonte-cor-auxiliar {
+    color: $cor-auxiliar;
+}
+
+.icone_brasilbrokers {
+    background: url($url_icones + 'logo-brasilbrokers.png') no-repeat 0px 0px;
+    padding: 7px 60px 7px 60px;
+}

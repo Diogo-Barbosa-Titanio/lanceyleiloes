@@ -1,0 +1,104 @@
+/* Arquivo _lote.scss */
+
+.lote {
+    h2 {
+        .texto {
+            color: $cor-principal;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    }
+
+    .cabecalho {
+        padding: 1rem;
+        border-radius: 1rem;
+
+        .texto {
+           font-weight: bold;
+        }
+    }
+
+    .espacamento {
+        padding: 1rem 0;
+    }
+
+    .informacoes {
+        border-radius: 1rem;
+        padding: 1.5rem;
+
+        .dados {
+
+            padding: 10px 0;
+
+            .texto {
+               font-weight: bold;
+            }
+        }
+
+    }
+
+    i {
+        color: $cor-secundaria;
+    }
+
+    .cronometro_leilao {
+
+        text-align: center;
+
+        .data_hora {
+            color: #fff;
+            background-color: $cor-principal;
+            margin: 5px auto;
+
+            .tempo_restante {
+                font-size: 23px;
+            }
+
+            .texto {
+                font-weight: bold;
+                font-size: 12px;
+            }
+
+        }
+
+        .lance {
+            margin: 5px auto;
+            background-color: $cor-auxiliar-2;
+            padding: 0.5rem 0;
+
+            .texto {
+                text-align: left;
+                color: $cor-principal;
+                padding: 0.5rem;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            .formulario {
+                padding: 0.5rem;
+            }
+
+            &_atual {
+                margin: 5px auto;
+                border: 1px solid $cor-principal;
+                background-color: unset;
+            }
+
+        }
+    }
+
+    .icones {
+        i {
+            font-size: 22px;
+            padding: 0 0 2px 0;
+        }
+
+        .texto {
+            padding: 0px;
+        }
+
+        .valor {
+            padding: 0 5px;
+        }
+    }
+}

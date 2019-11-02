@@ -1,0 +1,23 @@
+@import "helpers/variables";
+@import "helpers/mixins";
+@import "helpers/placeholders";
+
+@import "base/reset";
+@import "base/fonts";
+@import "base/base";
+
+@import "components/leilao_box";
+@import "components/buttons";
+
+@import "layout/header";
+@import "layout/menu";
+@import "layout/footer";
+@import "layout/desktop";
+@import "layout/tablet";
+@import "layout/mobile";
+
+@import "pages/home";
+@import "pages/entrar";
+@import "pages/lote";
+@import "pages/pessoa_fisica";
+@import "pages/pessoa_juridica";
