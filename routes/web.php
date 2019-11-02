@@ -28,7 +28,11 @@ Route::get('/admin','Admin\LoginController@index');
 Route::get('/admin/login','Admin\LoginController@index');
 Route::post('/admin/login','Admin\LoginController@index')->name('admin_login');
 Route::get('/admin/home','Admin\HomeController@index');
+
+//Lotes
 Route::get('/admin/lotes','Admin\LoteController@index');
+Route::get('/admin/lotes/create','Admin\LoteController@create');
+Route::get('/admin/lotes/store','Admin\LoteController@store');
 
 
 //Leilões

@@ -4,7 +4,7 @@
     @include('admin.components.table.style')
 @endsection
 
-@section('titulo','Cadastro de administradores')
+@section('titulo','Cadastro de Lotes')
 
 @section('content')
 
@@ -19,51 +19,51 @@
     @component('admin.components.table.content')
 
         @slot('title')
-            <h1 class="h3 mb-2 text-gray-800">Cadastro de administradores</h1>
+            <h1 class="h3 mb-2 text-gray-800">Lotes</h1>
         @endslot
 
         @slot('helper')
-            <a href="{{url('/admin/administradores/create')}}" class="btn btn-primary btn-icon-split btn-sm">
+            <a href="{{url('/admin/lotes/create')}}" class="btn btn-primary btn-icon-split btn-sm">
                     <span class="icon text-white-50">
                       <i class="fas fa-plus"></i>
                     </span>
-                <span class="text">Novo administrador</span>
+                <span class="text">Novo Lote</span>
             </a>
         @endslot
 
         <thead>
         <tr>
             <th>Nome</th>
-            <th>Email</th>
-            <th>Login</th>
+            <th>Lance Atual</th>
+            <th>Leilões</th>
             <th>Editar / Apagar</th>
         </tr>
         </thead>
         <tfoot>
         <tr>
             <th>Nome</th>
-            <th>Email</th>
-            <th>Login</th>
+            <th>Lance Atual</th>
+            <th>Leilões</th>
             <th>Editar / Apagar</th>
         </tr>
         </tfoot>
         <tbody>
 
-        @foreach($cadastros as $cadastro)
+        @foreach($lotes as $lote)
             <tr>
-                <td class="align-middle">{{$cadastro->nome}}</td>
-                <td class="align-middle">{{$cadastro->email}}</td>
-                <td class="align-middle">{{$cadastro->login}}</td>
+                <td>{{$lote->nome_leilao}}</td>
+                <td>{{$lote->nome_situacao}}</td>
+                <td>{{$lote->nome_categoria}}</td>
 
                 <td class="align-middle">
-                    <a href="{{url('/admin/administradores/edit')}}?id={{$cadastro->id}}" class="btn btn-info btn-icon-split btn-sm">
+                    <a href="{{url('/admin/lotes/edit')}}?id={{$cadastro->id}}" class="btn btn-info btn-icon-split btn-sm">
                         <span class="icon text-white-50">
                           <i class="fas fa-pen"></i>
                         </span>
                         <span class="text">Editar</span>
                     </a>
 
-                    <form method="post" action="{{url('/admin/administradores/delete')}}" class="d-inline-block" onsubmit="return confirm('Confirma exclusão de {{addslashes($cadastro->nome)}} ?')">
+                    <form method="post" action="{{url('/admin/lotes/delete')}}" class="d-inline-block" onsubmit="return confirm('Confirma exclusão de {{addslashes($cadastro->nome)}} ?')">
                         @csrf
                         @method('delete')
 
