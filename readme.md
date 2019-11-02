@@ -1,6 +1,6 @@
-## About Laravel
+## Sobre o Lancey Leiloes
 
-Sistema que substituirá o projeto fo Bolsa de Leilões. Estamo usando o Lavavel 6.*
+Sistema que substituirá o projeto do Bolsa de Leilões. Estamos usando o Lavavel 6.*
 
 ## License
 
