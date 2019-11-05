@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Leilao;
 use App\Lote;
+use App\LoteCategoria;
+use App\LoteFaseDaObra;
+use App\LoteSituacao;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -12,7 +16,7 @@ class LoteController extends Controller
     public function index()
     {
         $lotes = new Lote();
-        $listarLotes = $lotes->listarLotes();
+        $listarLotes = $lotes->listarCadastros();
 
         $success = Session::get('lote_status');
 
@@ -21,7 +25,23 @@ class LoteController extends Controller
 
     public function create(Request $request)
     {
-        return view('admin/lotes/lote_create');
+        $leiloes = new Leilao();
+        $listarLeiloes = $leiloes->listarCadastros();
+
+        $categorias = new LoteCategoria();
+        $listarCategorias = $categorias->listarCadastros();
+
+        $situacoes = new LoteSituacao();
+        $listarSituacoes = $situacoes->listarCadastros();
+
+        $fases_das_obras = new LoteFaseDaObra();
+        $listarFasesDasObras = $fases_das_obras->listarCadastros();
+
+        return view('admin/lotes/lote_create',[
+                                         'leiloes' => $listarLeiloes,
+                                         'categorias' => $listarCategorias,
+                                         'situacoes' => $listarSituacoes,
+                                         'fases_das_obras' => $listarFasesDasObras]);
     }
 
     public function store(Request $request)

@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class Lote extends Model
 {
-    public function listarLotes()
+
+    public function listarCadastros()
     {
         $query = $this->sqlQuery();
 

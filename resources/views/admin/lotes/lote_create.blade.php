@@ -25,259 +25,239 @@
                             @csrf
 
 
-                            <div class="form-row">
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="leilao">
-                                            Leilão
-                                        </label>
-                                        <select name="leilao" id="leilao"
-                                                class="custom-select form-control @error('leilao') is-invalid @enderror">
-                                            <option value="">Selecione</option>
-                                            <option value="F" {{old('leilao') == 'F' ? 'selected' : ''}}>Feminino</option>
-                                            <option value="M" {{old('leilao') == 'M' ? 'selected' : ''}}>Masculino
-                                            </option>
-                                        </select>
+                            <fieldset>
+                                <legend>
+                                    Dados do lote
+                                </legend>
+
+
+                                <div class="form-row">
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="leilao">
+                                                Leilão
+                                            </label>
+                                            <select name="leilao" id="leilao"
+                                                    class="custom-select form-control @error('leilao') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                @foreach($leiloes as $leilao)
+                                                    <option value="{{$leilao->id}}" {{old('leilao') == $leilao->id ? 'selected' : ''}}>{{$leilao->nome}}</option>
+                                                @endforeach
+
+                                            </select>
+                                        </div>
                                     </div>
+
+
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="categoria">
+                                                Categoria
+                                            </label>
+                                            <select name="categoria" id="categoria"
+                                                    class="custom-select form-control @error('categoria') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                @foreach($categorias as $categoria)
+                                                    <option value="{{$categoria->id}}" {{old('categoria') == $categoria->id ? 'selected' : ''}}>{{$categoria->nome}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
                                 </div>
 
 
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="categoria">
-                                            Categoria
-                                        </label>
-                                        <select name="categoria" id="categoria"
-                                                class="custom-select form-control @error('categoria') is-invalid @enderror">
-                                            <option value="">Selecione</option>
-                                            <option value="F" {{old('categoria') == 'F' ? 'selected' : ''}}>Feminino</option>
-                                            <option value="M" {{old('categoria') == 'M' ? 'selected' : ''}}>Masculino
-                                            </option>
-                                        </select>
+                                <div class="form-row">
+
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="lance_inicial">
+                                                Lance inicial
+                                            </label>
+                                            <input type="text" id="lance_inicial" name="lance_inicial"
+                                                   class="form-control @error('lance_inicial') is-invalid @enderror" value="{{ old('lance_inicial') }}">
+                                        </div>
                                     </div>
+
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="lance_minimo">
+                                                Lance mínimo
+                                            </label>
+                                            <input type="text" id="lance_minimo" name="lance_minimo"
+                                                   class="form-control @error('lance_minimo') is-invalid @enderror" value="{{ old('lance_minimo') }}">
+                                        </div>
+                                    </div>
+
                                 </div>
 
-                            </div>
 
+                                <div class="form-row">
 
-                            <div class="form-row">
-
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="nome">
-                                            Nome
-                                        </label>
-                                        <input type="text" id="nome" name="nome"
-                                               class="form-control @error('nome') is-invalid @enderror"
-                                               value="{{ old('nome') }}">
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="data_inicio">
+                                                Data de início
+                                            </label>
+                                            <input type="text"
+                                                   class="form-control @error('data_inicio') is-invalid @enderror"
+                                                   value="{{ old('data_inicio') }}" name="data_inicio" id="data_inicio"
+                                                   placeholder="00/00/0000">
+                                        </div>
                                     </div>
+
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="data_fim">
+                                                Data de Encerramento
+                                            </label>
+                                            <input type="text"
+                                                   class="form-control @error('data_fim') is-invalid @enderror"
+                                                   value="{{ old('data_fim') }}" name="data_fim" id="data_fim"
+                                                   placeholder="00/00/0000">
+                                        </div>
+                                    </div>
+
                                 </div>
 
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="email">
-                                            Email
-                                        </label>
-                                        <input type="email" id="email" name="email"
-                                               class="form-control @error('email') is-invalid @enderror"
-                                               value="{{ old('email') }}">
+
+                                <div class="form-row">
+
+                                    <div class="col-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="nome">
+                                                Nome
+                                            </label>
+                                            <input type="text" id="nome" name="nome"
+                                                   class="form-control @error('nome') is-invalid @enderror" value="{{ old('nome') }}">
+                                        </div>
                                     </div>
+
                                 </div>
 
-                            </div>
+                                <div class="form-row">
 
-                            <div class="form-row">
-
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="cpf">
-                                            CPF
-                                        </label>
-                                        <input type="text" id="cpf" name="cpf"
-                                               class="form-control @error('cpf') is-invalid @enderror"
-                                               value="{{ old('cpf') }}">
+                                    <div class="col-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="descricao">
+                                                Descrição
+                                            </label>
+                                            <textarea class="form-control" id="descricao" name="descricao" rows="3">
+                                            {{old('descricao')}}
+                                        </textarea>
+                                        </div>
                                     </div>
+
                                 </div>
 
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="rg">
-                                            RG
-                                        </label>
-                                        <input type="text" id="rg" name="rg"
-                                               class="form-control @error('rg') is-invalid @enderror"
-                                               value="{{ old('rg') }}">
+
+                            </fieldset>
+
+
+                            <fieldset>
+                                <legend>Endereço do imóvel</legend>
+
+
+                                <div class="form-row">
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="cep">Cep*</label>
+                                            <input type="text" class="form-control @error('cep') is-invalid @enderror"
+                                                   value="{{ old('cep') }}" name="cep" id="cep" placeholder="">
+                                        </div>
                                     </div>
+
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="endereco">Endereço</label>
+                                            <input type="text" class="form-control" value="{{ old('endereco') }}"
+                                                   name="endereco" id="endereco" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="numero">Número</label>
+                                            <input type="number" class="form-control" value="{{ old('numero') }}"
+                                                   name="numero" id="numero" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="complemento">Complemento</label>
+                                            <input type="text" class="form-control" value="{{ old('complemento') }}"
+                                                   name="complemento" id="complemento" placeholder="">
+                                        </div>
+                                    </div>
+
                                 </div>
 
-                            </div>
 
-                            <div class="form-row">
-
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="telefone">
-                                            Telefone
-                                        </label>
-                                        <input type="text" id="telefone" name="telefone"
-                                               class="form-control @error('telefone') is-invalid @enderror"
-                                               value="{{ old('telefone') }}">
+                                <div class="form-row">
+                                    <div class="col-12 col-sm-3">
+                                        <div class="form-group">
+                                            <label for="bairro">Bairro</label>
+                                            <input type="text" class="form-control" value="{{ old('bairro') }}"
+                                                   name="bairro" id="bairro" placeholder="">
+                                        </div>
                                     </div>
+
+                                    <div class="col-12 col-sm-3">
+                                        <div class="form-group">
+                                            <label for="cidade">Cidade</label>
+                                            <input type="text" class="form-control" value="{{ old('cidade') }}"
+                                                   name="cidade" id="cidade" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-3">
+                                        <div class="form-group">
+                                            <label for="estado">Estado</label>
+                                            <input type="text" class="form-control" value="{{ old('estado') }}"
+                                                   name="estado" id="estado" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-3">
+                                        <div class="form-group">
+                                            <label for="pais">País</label>
+                                            <input type="text" class="form-control" value="{{ old('pais') }}" name="pais"
+                                                   id="pais" placeholder="">
+                                        </div>
+                                    </div>
+
                                 </div>
 
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="celular">
-                                            Celular
-                                        </label>
-                                        <input type="text" id="celular" name="celular"
-                                               class="form-control @error('celular') is-invalid @enderror"
-                                               value="{{ old('celular') }}">
+                            </fieldset>
+
+                            <fieldset>
+                                 <legend>Características do Imóvel</legend>
+
+                                <div class="form-row">
+
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="fase_da_obra">
+                                                Fase da Obra
+                                            </label>
+                                            <select name="leilao" id="leilao"
+                                                    class="custom-select form-control @error('fase_da_obra') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                @foreach($fases_das_obras as $fase_da_obra)
+                                                    <option value="{{$fase_da_obra->id}}" {{old('$fase_da_obra') == $fase_da_obra->id ? 'selected' : ''}}>{{$fase_da_obra->nome}}</option>
+                                                @endforeach
+
+                                            </select>
+                                        </div>
                                     </div>
+
                                 </div>
 
-                            </div>
-
-                            <div class="form-row">
-
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="sexo">
-                                            Sexo
-                                        </label>
-                                        <select name="sexo" id="sexo"
-                                                class="custom-select form-control @error('sexo') is-invalid @enderror">
-                                            <option value="">Selecione</option>
-                                            <option value="F" {{old('sexo') == 'F' ? 'selected' : ''}}>Feminino</option>
-                                            <option value="M" {{old('sexo') == 'M' ? 'selected' : ''}}>Masculino
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="nascimento">
-                                            Data de Nascimento
-                                        </label>
-                                        <input type="text"
-                                               class="form-control @error('nascimento') is-invalid @enderror"
-                                               value="{{ old('nascimento') }}" name="nascimento" id="nascimento"
-                                               placeholder="00/00/0000">
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="form-row">
-
-                                <div class="col-12 col-sm-2">
-                                    <div class="form-group">
-                                        <label for="cep">Cep*</label>
-                                        <input type="text" class="form-control @error('cep') is-invalid @enderror"
-                                               value="{{ old('cep') }}" name="cep" id="cep" placeholder="">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="endereco">Endereço</label>
-                                        <input type="text" class="form-control" value="{{ old('endereco') }}"
-                                               name="endereco" id="endereco" placeholder="">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-2">
-                                    <div class="form-group">
-                                        <label for="numero">Número</label>
-                                        <input type="number" class="form-control" value="{{ old('numero') }}"
-                                               name="numero" id="numero" placeholder="">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-2">
-                                    <div class="form-group">
-                                        <label for="complemento">Complemento</label>
-                                        <input type="text" class="form-control" value="{{ old('complemento') }}"
-                                               name="complemento" id="complemento" placeholder="">
-                                    </div>
-                                </div>
-
-                            </div>
+                            </fieldset>
 
 
-                            <div class="form-row">
-                                <div class="col-12 col-sm-3">
-                                    <div class="form-group">
-                                        <label for="bairro">Bairro</label>
-                                        <input type="text" class="form-control" value="{{ old('bairro') }}"
-                                               name="bairro" id="bairro" placeholder="">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-3">
-                                    <div class="form-group">
-                                        <label for="cidade">Cidade</label>
-                                        <input type="text" class="form-control" value="{{ old('cidade') }}"
-                                               name="cidade" id="cidade" placeholder="">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-3">
-                                    <div class="form-group">
-                                        <label for="estado">Estado</label>
-                                        <input type="text" class="form-control" value="{{ old('estado') }}"
-                                               name="estado" id="estado" placeholder="">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-3">
-                                    <div class="form-group">
-                                        <label for="pais">País</label>
-                                        <input type="text" class="form-control" value="{{ old('pais') }}" name="pais"
-                                               id="pais" placeholder="">
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                            <div class="form-row">
-
-                                <div class="col-12 col-sm-4">
-                                    <div class="form-group">
-                                        <label for="login">
-                                            Login
-                                        </label>
-                                        <input type="text" id="login" name="login"
-                                               class="form-control @error('login') is-invalid @enderror"
-                                               value="{{ old('login') }}">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-4">
-                                    <div class="form-group">
-                                        <label for="password">
-                                            Senha
-                                        </label>
-                                        <input type="password" id="password" name="password"
-                                               class="form-control @error('password') is-invalid @enderror"
-                                               value="{{ old('password') }}">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-4">
-                                    <div class="form-group">
-                                        <label for="password">
-                                            Confirmar Senha
-                                        </label>
-                                        <input type="password" id="confirm_password" name="confirm_password"
-                                               class="form-control @error('confirm_password') is-invalid @enderror"
-                                               value="{{ old('confirm_password') }}">
-                                    </div>
-                                </div>
-
-                            </div>
 
                             <button type="submit" class="btn btn-primary">
                                 <span class="text">Enviar</span>
