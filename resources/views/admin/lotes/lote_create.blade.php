@@ -24,7 +24,6 @@
                         <form method="post" action="{{url('/admin/lotes/store')}}" enctype="multipart/form-data">
                             @csrf
 
-
                             <fieldset>
                                 <legend>
                                     Dados do lote
@@ -233,7 +232,7 @@
                             </fieldset>
 
                             <fieldset>
-                                 <legend>Características do Imóvel</legend>
+                                <legend>Características do Imóvel</legend>
 
                                 <div class="form-row">
 
@@ -246,14 +245,342 @@
                                                     class="custom-select form-control @error('fase_da_obra') is-invalid @enderror">
                                                 <option value="">Selecione</option>
                                                 @foreach($fases_das_obras as $fase_da_obra)
-                                                    <option value="{{$fase_da_obra->id}}" {{old('$fase_da_obra') == $fase_da_obra->id ? 'selected' : ''}}>{{$fase_da_obra->nome}}</option>
+                                                    <option value="{{$fase_da_obra->id}}" {{old('fase_da_obra') == $fase_da_obra->id ? 'selected' : ''}}>{{$fase_da_obra->nome}}</option>
                                                 @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
 
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="desocupado">
+                                                Desocupado
+                                            </label>
+                                            <select name="desocupado" id="descoupado"
+                                                    class="custom-select form-control @error('desocupado') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="1" {{old('desocupado') == 1 ? 'selected' : ''}}>Sim</option>
+                                                <option value="0" {{old('desocupado') == 0 ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="col-12 col-sm-3">
+                                        <div class="form-group">
+                                            <label for="area_privativa">Área privativa</label>
+                                            <input type="text" class="form-control" value="{{ old('area_privativa') }}"
+                                                   name="area_privativa" id="area_privativa" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-3">
+                                        <div class="form-group">
+                                            <label for="vagas">Vagas</label>
+                                            <input type="text" class="form-control" value="{{ old('vagas') }}" name="vagas"
+                                                   id="vagas" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="quartos">Quartos</label>
+                                            <input type="text" class="form-control" value="{{ old('quartos') }}"
+                                                   name="quartos" id="cidade" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="suites">Suítes</label>
+                                            <input type="text" class="form-control" value="{{ old('suites') }}"
+                                                   name="suites" id="suites" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="banheiros">Banheiros</label>
+                                            <input type="text" class="form-control" value="{{ old('banheiros') }}" name="banheiros"
+                                                   id="banheiros" placeholder="">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-row">
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="academia">Academia</label>
+                                            <select name="academia" id="academia"
+                                                    class="custom-select form-control @error('academia') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('academia') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('academia') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="bicicletario">Bicicletário</label>
+                                            <select name="bicicletario" id="bicicletario"
+                                                    class="custom-select form-control @error('bicicletario') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('bicicletario') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('bicicletario') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="brinquedoteca">Brinquedoteca</label>
+                                            <select name="brinquedoteca" id="brinquedoteca"
+                                                    class="custom-select form-control @error('brinquedoteca') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('brinquedoteca') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('brinquedoteca') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="campo_de_futebol">Campo de futebol</label>
+                                            <select name="campo_de_futebol" id="campo_de_futebol"
+                                                    class="custom-select form-control @error('brinquedoteca') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('campo_de_futebol') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('campo_de_futebol') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="churrasqueira">Churrasqueira</label>
+                                            <select name="churrasqueira" id="churrasqueira"
+                                                    class="custom-select form-control @error('churrasqueira') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('churrasqueira') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('churrasqueira') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="cinema">cinema</label>
+                                            <select name="cinema" id="cinema"
+                                                    class="custom-select form-control @error('cinema') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('cinema') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('cinema') == 'N' ? 'selected' : ''}}>Não</option>
                                             </select>
                                         </div>
                                     </div>
 
                                 </div>
+
+
+
+                                <div class="form-row">
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="pet_care">Pet Care</label>
+                                            <select name="pet_care" id="pet_care"
+                                                    class="custom-select form-control @error('pet_care') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('pet_care') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('pet_care') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="piscina">Piscina</label>
+                                            <select name="piscina" id="piscina"
+                                                    class="custom-select form-control @error('piscina') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('piscina') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('piscina') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="piscina_infantil">Piscina infantil</label>
+                                            <select name="piscina_infantil" id="piscina_infantil"
+                                                    class="custom-select form-control @error('piscina_infantil') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('piscina_infantil') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('piscina_infantil') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="pista_de_skate">Pista de Skate</label>
+                                            <select name="pista_de_skate" id="pista_de_skate"
+                                                    class="custom-select form-control @error('pista_de_skate') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('pista_de_skate') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('pista_de_skate') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="playground">Playground</label>
+                                            <select name="playground" id="playground"
+                                                    class="custom-select form-control @error('playground') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('playground') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('playground') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="quadra_de_squash">Quadra de squash</label>
+                                            <select name="quadra_de_squash" id="quadra_de_squash"
+                                                    class="custom-select form-control @error('quadra_de_squash') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('quadra_de_squash') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('quadra_de_squash') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="form-row">
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="quadra_de_tenis">Quadra de tênis</label>
+                                            <select name="quadra_de_tenis" id="quadra_de_tenis"
+                                                    class="custom-select form-control @error('quadra_de_tenis') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('quadra_de_tenis') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('quadra_de_tenis') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="restaurante">Restaurante</label>
+                                            <select name="restaurante" id="restaurante"
+                                                    class="custom-select form-control @error('restaurante') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('restaurante') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('restaurante') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="sala_de_massagem">Sala de massagem</label>
+                                            <select name="sala_de_massagem" id="sala_de_massagem"
+                                                    class="custom-select form-control @error('sala_de_massagem') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('sala_de_massagem') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('sala_de_massagem') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="salao_de_beleza">Salão de festas</label>
+                                            <select name="salao_de_beleza" id="salao_de_beleza"
+                                                    class="custom-select form-control @error('salao_de_beleza') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('salao_de_beleza') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('salao_de_beleza') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="salao_de_festas_infantil">Salão de festas infantil</label>
+                                            <select name="salao_de_festas_infantil" id="salao_de_festas_infantil"
+                                                    class="custom-select form-control @error('salao_de_festas_infantil') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('salao_de_festas_infantil') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('salao_de_festas_infantil') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="salao_de_jogos">Salão de jogos</label>
+                                            <select name="salao_de_jogos" id="salao_de_jogos"
+                                                    class="custom-select form-control @error('salao_de_jogos') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('salao_de_jogos') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('salao_de_jogos') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="form-row">
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="sauna">Sauna</label>
+                                            <select name="sauna" id="sauna"
+                                                    class="custom-select form-control @error('sauna') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('sauna') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('sauna') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="spa">Spa</label>
+                                            <select name="spa" id="spa"
+                                                    class="custom-select form-control @error('spa') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('spa') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('spa') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-2">
+                                        <div class="form-group">
+                                            <label for="vagas_de_visitantes">Vagas de visitantes</label>
+                                            <select name="vagas_de_visitantes" id="vagas_de_visitantes"
+                                                    class="custom-select form-control @error('vagas_de_visitantes') is-invalid @enderror">
+                                                <option value="">Selecione</option>
+                                                <option value="S" {{old('vagas_de_visitantes') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('vagas_de_visitantes') == 'N' ? 'selected' : ''}}>Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
 
                             </fieldset>
 
