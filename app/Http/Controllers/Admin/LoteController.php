@@ -48,11 +48,11 @@ class LoteController extends Controller
     {
 
         $validatedData = $request->validate([
-            'nome' => 'required',
-            'email' => 'required',
-            'login' => 'required',
-            'password' => 'required',
-            'confirm_password' => 'required|same:password'
+            'leilao' => 'required',
+            'categoria' => 'required',
+            'lance_inicial' => 'required',
+            'lance_minimo' => 'required'
+
 
         ],$this->messages(),$this->attributes());
 
@@ -74,4 +74,22 @@ class LoteController extends Controller
         return redirect('/admin/lotes/create');
 
     }
+
+    protected function messages() {
+        //Example: return ['nome.required' => 'O :attribute é obrigatório.'];
+        return [];
+    }
+
+    protected function attributes() {
+        return [
+            'nome' => 'Nome',
+            'codigo' => 'Código',
+            'descricao' => 'Descrição',
+            'tipo' => 'Tipo de leilão',
+            'comitente' => 'Comitentes',
+            'natureza' => 'Natureza',
+            'edital' => 'Edital'
+        ];
+    }
+
 }

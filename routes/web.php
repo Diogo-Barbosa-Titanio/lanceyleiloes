@@ -32,7 +32,7 @@ Route::get('/admin/home','Admin\HomeController@index');
 //Lotes
 Route::get('/admin/lotes','Admin\LoteController@index');
 Route::get('/admin/lotes/create','Admin\LoteController@create');
-Route::get('/admin/lotes/store','Admin\LoteController@store');
+Route::post('/admin/lotes/store','Admin\LoteController@store');
 
 
 //Leilões
