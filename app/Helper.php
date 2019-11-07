@@ -54,7 +54,7 @@ class Helper extends Model
 
 
     /**
-     * Com esta função formato a data de d/m/Y para o padrão Y-m-d
+     * Com esta função formato a data de d/m/Y H:i:s para o padrão Y-m-d H:i:s
      * @param string $data
      * @param string $delimitador
      * @return string
@@ -62,12 +62,16 @@ class Helper extends Model
 
     public static function data(string $data, string $delimitador = '/')
     {
-        $data = explode($delimitador,$data);
-        $ano = $data[2];
+        $data = explode($delimitador,$data[0]);
+        $ano_hora = explode(' ',$data[2]);
+
+        $ano = $ano_hora[0];
+        $hora = $ano_hora[1];
+
         $mes = $data[1];
         $dia = $data[0];
 
-        return $ano.'-'.$mes.'-'.$dia;
+        return $ano.'-'.$mes.'-'.$dia.' '.$hora;
     }
 
 }

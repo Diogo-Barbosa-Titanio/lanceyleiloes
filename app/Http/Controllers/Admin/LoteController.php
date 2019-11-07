@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helper;
 use App\Leilao;
 use App\Lote;
 use App\LoteCategoria;
@@ -51,17 +52,60 @@ class LoteController extends Controller
             'leilao' => 'required',
             'categoria' => 'required',
             'lance_inicial' => 'required',
-            'lance_minimo' => 'required'
-
-
+            'lance_minimo' => 'required',
+            'data_inicio'  => 'required',
+            'data_fim' => 'required',
+            'nome' => 'required',
+            'cep' => 'required',
+            'fase_da_obra' => 'required'
         ],$this->messages(),$this->attributes());
 
-
+        $lance_inicial = str_replace('.','',$request->post('lance_inicial'));
+        $lance_inicial = str_replace(',','.',$lance_inicial);
         $dados = [
+            ':id_leiloes' => $request->post('leilao'),
+            ':id_lotes_categorias' => $request->post('categoria'),
             ':nome' => $request->post('nome'),
-            ':email' => $request->post('email'),
-            ':password' => $request->post('password'),
-            ':login' => $request->post('login')
+            ':descricao' => $request->post('descricao'),
+            ':lance_inicial' => $lance_inicial,
+            ':lance_minimo' => $request->post('lance_minimo'),
+            ':data_inicio'=> Helper::data($request->post('data_inicio')),
+            ':data_fim'=> Helper::data($request->post('data_fim')),
+            ':cep'=> $request->post('cep'),
+            ':pais'=> $request->post('pais'),
+            ':estado'=> $request->post('estado'),
+            ':cidade'=> $request->post('cidade'),
+            ':bairro'=> $request->post('bairro'),
+            ':endereco'=> $request->post('endereco'),
+            ':id_lotes_fases_das_obras' => $request->post('fase_da_obra'),
+            ':area_privativa'=> $request->post('area_privativa'),
+            ':quartos'=> $request->post('quartos'),
+            ':suites'=> $request->post('suites'),
+            ':vagas'=> $request->post('vagas'),
+            ':banheiros'=> $request->post('banheiros'),
+            ':desocupado'=> $request->post('desocupado'),
+            ':academia'=> $request->post('academia'),
+            ':bicicletario'=> $request->post('bicicletario'),
+            ':brinquedoteca'=> $request->post('brinquedoteca'),
+            ':campo_de_futebol'=> $request->post('campo_de_futebol'),
+            ':churrasqueira'=> $request->post('churrasqueira'),
+            ':cinema'=> $request->post('cinema'),
+            ':pet_care'=> $request->post('pet_care'),
+            ':piscina'=> $request->post('piscina'),
+            ':piscina_infantil'=> $request->post('piscina_infantil'),
+            ':pista_de_skate'=> $request->post('pista_de_skate'),
+            ':playground'=> $request->post('playground'),
+            ':quadra_de_squash'=> $request->post('quadra_de_squash'),
+            ':quadra_de_tenis'=> $request->post('quadra_de_tenis'),
+            ':restaurante'=> $request->post('restaurante'),
+            ':sala_de_massagem'=> $request->post('sala_de_massagem'),
+            ':salao_de_beleza'=> $request->post('salao_de_beleza'),
+            ':salao_de_festas'=> $request->post('salao_de_festas'),
+            ':salao_de_festas_infantil'=> $request->post('salao_de_festas_infantil'),
+            ':salao_de_jogos'=> $request->post('salao_de_jogos'),
+            ':sauna'=> $request->post('sauna'),
+            ':spa'=> $request->post('spa'),
+            ':vagas_de_visitantes'=> $request->post('vagas_de_visitantes')
         ];
 
         $cadastro = new Lote();

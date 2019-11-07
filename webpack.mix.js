@@ -31,3 +31,6 @@ mix.copyDirectory('./node_modules/@fortawesome/fontawesome-free/webfonts/*','pub
 // SB Admin 2
 mix.copy('./node_modules/startbootstrap-sb-admin-2/css/sb-admin-2.min.css','public/css');
 mix.copy('./node_modules/startbootstrap-sb-admin-2/js/sb-admin-2.min.js','public/js');
+
+//Máscaras para formuários
+mix.js('resources/js/formulario_mascaras.js', 'public/js');

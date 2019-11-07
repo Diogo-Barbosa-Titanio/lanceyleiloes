@@ -74,7 +74,7 @@
                                                 Lance inicial
                                             </label>
                                             <input type="text" id="lance_inicial" name="lance_inicial"
-                                                   class="form-control @error('lance_inicial') is-invalid @enderror" value="{{ old('lance_inicial') }}">
+                                                   class="form-control dinheiro @error('lance_inicial') is-invalid @enderror" value="{{ old('lance_inicial') }}">
                                         </div>
                                     </div>
 
@@ -84,7 +84,7 @@
                                                 Lance mínimo
                                             </label>
                                             <input type="text" id="lance_minimo" name="lance_minimo"
-                                                   class="form-control @error('lance_minimo') is-invalid @enderror" value="{{ old('lance_minimo') }}">
+                                                   class="form-control dinheiro @error('lance_minimo') is-invalid @enderror" value="{{ old('lance_minimo') }}">
                                         </div>
                                     </div>
 
@@ -99,9 +99,9 @@
                                                 Data de início
                                             </label>
                                             <input type="text"
-                                                   class="form-control @error('data_inicio') is-invalid @enderror"
+                                                   class="form-control data_hora @error('data_inicio') is-invalid @enderror"
                                                    value="{{ old('data_inicio') }}" name="data_inicio" id="data_inicio"
-                                                   placeholder="00/00/0000">
+                                                   placeholder="00/00/0000 00:00:00">
                                         </div>
                                     </div>
 
@@ -111,9 +111,9 @@
                                                 Data de Encerramento
                                             </label>
                                             <input type="text"
-                                                   class="form-control @error('data_fim') is-invalid @enderror"
+                                                   class="form-control data_hora @error('data_fim') is-invalid @enderror"
                                                    value="{{ old('data_fim') }}" name="data_fim" id="data_fim"
-                                                   placeholder="00/00/0000">
+                                                   placeholder="00/00/0000 00:00:00">
                                         </div>
                                     </div>
 
@@ -162,7 +162,7 @@
                                     <div class="col-12 col-sm-2">
                                         <div class="form-group">
                                             <label for="cep">Cep*</label>
-                                            <input type="text" class="form-control @error('cep') is-invalid @enderror"
+                                            <input type="text" class="form-control cep @error('cep') is-invalid @enderror"
                                                    value="{{ old('cep') }}" name="cep" id="cep" placeholder="">
                                         </div>
                                     </div>
@@ -241,7 +241,7 @@
                                             <label for="fase_da_obra">
                                                 Fase da Obra
                                             </label>
-                                            <select name="leilao" id="leilao"
+                                            <select name="fase_da_obra" id="fase_da_obra"
                                                     class="custom-select form-control @error('fase_da_obra') is-invalid @enderror">
                                                 <option value="">Selecione</option>
                                                 @foreach($fases_das_obras as $fase_da_obra)
@@ -259,8 +259,8 @@
                                             <select name="desocupado" id="descoupado"
                                                     class="custom-select form-control @error('desocupado') is-invalid @enderror">
                                                 <option value="">Selecione</option>
-                                                <option value="1" {{old('desocupado') == 1 ? 'selected' : ''}}>Sim</option>
-                                                <option value="0" {{old('desocupado') == 0 ? 'selected' : ''}}>Não</option>
+                                                <option value="S" {{old('desocupado') == 'S' ? 'selected' : ''}}>Sim</option>
+                                                <option value="N" {{old('desocupado') == 'N' ? 'selected' : ''}}>Não</option>
                                             </select>
                                         </div>
                                     </div>
@@ -270,7 +270,7 @@
                                     <div class="col-12 col-sm-3">
                                         <div class="form-group">
                                             <label for="area_privativa">Área privativa</label>
-                                            <input type="text" class="form-control" value="{{ old('area_privativa') }}"
+                                            <input type="number" class="form-control" value="{{ old('area_privativa') }}"
                                                    name="area_privativa" id="area_privativa" placeholder="">
                                         </div>
                                     </div>
@@ -278,15 +278,15 @@
                                     <div class="col-12 col-sm-3">
                                         <div class="form-group">
                                             <label for="vagas">Vagas</label>
-                                            <input type="text" class="form-control" value="{{ old('vagas') }}" name="vagas"
+                                            <input type="number" class="form-control" value="{{ old('vagas') }}" name="vagas"
                                                    id="vagas" placeholder="">
                                         </div>
                                     </div>
 
                                     <div class="col-12 col-sm-2">
                                         <div class="form-group">
-                                            <label for="quartos">Quartos</label>
-                                            <input type="text" class="form-control" value="{{ old('quartos') }}"
+                                            <label for="number">Quartos</label>
+                                            <input type="number" class="form-control" value="{{ old('quartos') }}"
                                                    name="quartos" id="cidade" placeholder="">
                                         </div>
                                     </div>
@@ -294,7 +294,7 @@
                                     <div class="col-12 col-sm-2">
                                         <div class="form-group">
                                             <label for="suites">Suítes</label>
-                                            <input type="text" class="form-control" value="{{ old('suites') }}"
+                                            <input type="number" class="form-control" value="{{ old('suites') }}"
                                                    name="suites" id="suites" placeholder="">
                                         </div>
                                     </div>
@@ -302,13 +302,12 @@
                                     <div class="col-12 col-sm-2">
                                         <div class="form-group">
                                             <label for="banheiros">Banheiros</label>
-                                            <input type="text" class="form-control" value="{{ old('banheiros') }}" name="banheiros"
+                                            <input type="number" class="form-control" value="{{ old('banheiros') }}" name="banheiros"
                                                    id="banheiros" placeholder="">
                                         </div>
                                     </div>
 
                                 </div>
-
 
                                 <div class="form-row">
                                     <div class="col-12 col-sm-2">
@@ -607,31 +606,7 @@
 
 @section('scripts')
 
-    <script>
-
-        $(document).ready(function () {
-
-            $('#cpf').mask('000.000.000-00', {reverse: true});
-            $('#cep').mask('00000-000');
-            $('#telefone').mask('(00) 0000-0000');
-            $('#nascimento').mask('00/00/0000');
-
-            let CLMaskBehavior = function (val) {
-                    return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
-                };
-
-            let clOptions = {
-                    onKeyPress: function(val, e, field, options) {
-                        field.mask(CLMaskBehavior.apply({}, arguments), options);
-                    }
-                };
-
-            $('#celular').mask(CLMaskBehavior, clOptions);
-
-            $('#rg').mask('99.999.999-9')
-
-        });
-
-    </script>
+    <!-- Máscara de formulários -->
+    <script src="{{asset('/js/formulario_mascaras.js')}}"></script>
 
 @endsection

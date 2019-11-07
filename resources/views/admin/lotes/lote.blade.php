@@ -56,18 +56,18 @@
                 <td>{{$lote->nome_categoria}}</td>
 
                 <td class="align-middle">
-                    <a href="{{url('/admin/lotes/edit')}}?id={{$cadastro->id}}" class="btn btn-info btn-icon-split btn-sm">
+                    <a href="{{url('/admin/lotes/edit')}}?id={{$lote->id}}" class="btn btn-info btn-icon-split btn-sm">
                         <span class="icon text-white-50">
                           <i class="fas fa-pen"></i>
                         </span>
                         <span class="text">Editar</span>
                     </a>
 
-                    <form method="post" action="{{url('/admin/lotes/delete')}}" class="d-inline-block" onsubmit="return confirm('Confirma exclusão de {{addslashes($cadastro->nome)}} ?')">
+                    <form method="post" action="{{url('/admin/lotes/delete')}}" class="d-inline-block" onsubmit="return confirm('Confirma exclusão de {{addslashes($lote->nome_lote)}} ?')">
                         @csrf
                         @method('delete')
 
-                        <input type="hidden" name="id" value="{{$cadastro->id}}">
+                        <input type="hidden" name="id" value="{{$lote->id}}">
 
                         <button class="btn btn-danger btn-icon-split btn-sm">
                             <span class="icon text-white-50">

@@ -76,17 +76,3 @@
     </div>
 
 @endsection
-
-@section('scripts')
-
-    <script>
-
-        $(document).ready(function () {
-
-             $('#cpf_cnpj').mask('000.000.000-00', {reverse: true});
-
-        });
-
-    </script>
-
-@endsection
