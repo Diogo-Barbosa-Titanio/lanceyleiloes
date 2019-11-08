@@ -3,8 +3,9 @@ $(document).ready(function () {
     $('.cpf').mask('000.000.000-00', {reverse: true});
     $('.cep').mask('00000-000');
     $('.telefone').mask('(00) 0000-0000');
-    $('.nascimento').mask('00/00/0000');
     $('.data_hora').mask('00/00/0000 00:00:00');
+    $('.data').mask('00/00/0000');
+    $('.hora').mask('00:00:00');
     $('.dinheiro').mask('#.##0,00', {reverse: true});
 
     let CLMaskBehavior = function (val) {

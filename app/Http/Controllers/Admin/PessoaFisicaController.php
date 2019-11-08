@@ -130,6 +130,7 @@ class PessoaFisicaController extends Controller
             return redirect('/admin/pessoa_fisica');
         }
 
+        return redirect('/admin/pessoa_fisica/');
     }
 
 

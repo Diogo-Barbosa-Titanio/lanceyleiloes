@@ -33,6 +33,9 @@ Route::get('/admin/home','Admin\HomeController@index');
 Route::get('/admin/lotes','Admin\LoteController@index');
 Route::get('/admin/lotes/create','Admin\LoteController@create');
 Route::post('/admin/lotes/store','Admin\LoteController@store');
+Route::get('/admin/lotes/edit','Admin\LoteController@edit');
+Route::put('/admin/lotes/update','Admin\LoteController@update');
+Route::delete('/admin/lotes/delete','Admin\LoteController@destroy');
 
 
 //Leilões

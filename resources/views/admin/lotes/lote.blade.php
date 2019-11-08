@@ -34,16 +34,18 @@
         <thead>
         <tr>
             <th>Nome</th>
-            <th>Lance Atual</th>
-            <th>Leilões</th>
+            <th>Leilão</th>
+            <th>Situação</th>
+            <th>Categoria</th>
             <th>Editar / Apagar</th>
         </tr>
         </thead>
         <tfoot>
         <tr>
             <th>Nome</th>
-            <th>Lance Atual</th>
-            <th>Leilões</th>
+            <th>Leilão</th>
+            <th>Situação</th>
+            <th>Categoria</th>
             <th>Editar / Apagar</th>
         </tr>
         </tfoot>
@@ -51,6 +53,7 @@
 
         @foreach($lotes as $lote)
             <tr>
+                <td>{{$lote->nome_lote}}</td>
                 <td>{{$lote->nome_leilao}}</td>
                 <td>{{$lote->nome_situacao}}</td>
                 <td>{{$lote->nome_categoria}}</td>
