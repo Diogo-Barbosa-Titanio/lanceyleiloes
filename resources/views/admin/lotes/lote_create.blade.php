@@ -604,6 +604,102 @@
 
                             </fieldset>
 
+                            <fieldset>
+                                <legend>Fotos</legend>
+
+                                <div class="col-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="foto" class="font-weight-bold">
+                                            Enviar Foto 1
+                                        </label>
+                                        <input type="file" id="foto_1" name="foto_1" class="form-control-file">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="foto" class="font-weight-bold">
+                                            Enviar Foto 2
+                                        </label>
+                                        <input type="file" id="foto_2" name="foto_2" class="form-control-file">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="foto" class="font-weight-bold">
+                                            Enviar Foto 3
+                                        </label>
+                                        <input type="file" id="foto_3" name="foto_3" class="form-control-file">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="foto" class="font-weight-bold">
+                                            Enviar Foto 4
+                                        </label>
+                                        <input type="file" id="foto_4" name="foto_4" class="form-control-file">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="foto" class="font-weight-bold">
+                                            Enviar Foto 5
+                                        </label>
+                                        <input type="file" id="foto_5" name="foto_5" class="form-control-file">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="foto" class="font-weight-bold">
+                                            Enviar Foto 6
+                                        </label>
+                                        <input type="file" id="foto_6" name="foto_6" class="form-control-file">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="foto" class="font-weight-bold">
+                                            Enviar Foto 7
+                                        </label>
+                                        <input type="file" id="foto_7" name="foto_7" class="form-control-file">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="foto" class="font-weight-bold">
+                                            Enviar Foto 8
+                                        </label>
+                                        <input type="file" id="foto_8" name="foto_8" class="form-control-file">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="foto" class="font-weight-bold">
+                                            Enviar Foto 9
+                                        </label>
+                                        <input type="file" id="foto_9" name="foto_9" class="form-control-file">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="foto" class="font-weight-bold">
+                                            Enviar Foto 10
+                                        </label>
+                                        <input type="file" id="foto_10" name="foto_10" class="form-control-file">
+                                    </div>
+                                </div>
+
+                            </fieldset>
 
 
                             <button type="submit" class="btn btn-primary">

@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class Lote extends Model
 {
+    //Aqui posso guardar o id do lote e recuperar
+    private $id_lote;
 
     protected function sqlQuerySelect(array $campos)
     {
@@ -201,6 +203,8 @@ class Lote extends Model
 
             $id_lote = DB::table('lotes')->insertGetId($dados_lote);
 
+            $this->setIdLote($id_lote);
+
             $dados_lote_endereco = [
                 'id_lotes' => $id_lote,
                 'cep' => $dados[':cep'],
@@ -254,11 +258,10 @@ class Lote extends Model
 
         });
 
+        if()
+
         return true;
     }
-
-
-
 
 
     public function apagar(array $dados)
@@ -277,6 +280,17 @@ class Lote extends Model
 
         return true;
 
+    }
+
+
+    final private function setIdLote(int $id) {
+        $this->id_lote = id;
+    }
+
+
+    final public function getIdLote()
+    {
+        return $this->id_lote;
     }
 
 

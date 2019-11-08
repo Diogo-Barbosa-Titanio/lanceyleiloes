@@ -53,9 +53,7 @@ class LeilaoController extends Controller
         $naturezas = new LeilaoNatureza();
         $listarNaturezas = $naturezas->listarCadastros();
 
-
         return view('admin/leiloes/leilao_update',['leiloes' => $listarLeiloes,'comitentes' => $listarComitentes, 'tipos' => $listarTipos, 'naturezas' => $listarNaturezas]);
-
 
     }
 
@@ -124,7 +122,6 @@ class LeilaoController extends Controller
         } else {
             $pathFoto = $request->post('foto_atual');
         }
-
 
         $fileEdital = $request->file('edital');
 
