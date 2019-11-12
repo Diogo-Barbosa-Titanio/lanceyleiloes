@@ -123,6 +123,8 @@ class Lote extends Model
                 'updated_at' => date('Y-m-d H:i:s')
             ];
 
+            $this->setIdLote($dados[':id']);
+
             DB::table('lotes')->where('id',$dados[':id'])->update($dados_lote);
 
             $dados_lote_endereco = [
@@ -258,8 +260,6 @@ class Lote extends Model
 
         });
 
-        if()
-
         return true;
     }
 
@@ -269,6 +269,7 @@ class Lote extends Model
 
         DB::transaction(function () use ($dados) {
 
+            DB::table('lotes_fotos')->where('id_lotes','=',$dados[':id'])->delete();
 
             DB::table('lotes_caracteristicas')->where('id_lotes','=',$dados[':id'])->delete();
 
@@ -284,7 +285,7 @@ class Lote extends Model
 
 
     final private function setIdLote(int $id) {
-        $this->id_lote = id;
+        $this->id_lote = $id;
     }
 
 

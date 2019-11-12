@@ -7,6 +7,7 @@ use App\Leilao;
 use App\Lote;
 use App\LoteCategoria;
 use App\LoteFaseDaObra;
+use App\LoteFoto;
 use App\LoteSituacao;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -63,11 +64,16 @@ class LoteController extends Controller
         $fases_das_obras = new LoteFaseDaObra();
         $listarFasesDasObras = $fases_das_obras->listarCadastros();
 
-        return view('admin/lotes/lote_update',['lote'=>$lote,
-            'leiloes' => $listarLeiloes,
-            'categorias' => $listarCategorias,
-            'situacoes' => $listarSituacoes,
-            'fases_das_obras' => $listarFasesDasObras]);
+        $lotes_fotos = new LoteFoto();
+        $listarLoteFoto = $lotes_fotos->listarCadastro($id);
+
+        return view('admin/lotes/lote_update',[
+                          'lote'=>$lote,
+                          'leiloes' => $listarLeiloes,
+                          'categorias' => $listarCategorias,
+                          'situacoes' => $listarSituacoes,
+                          'fases_das_obras' => $listarFasesDasObras,
+                          'fotos' => $listarLoteFoto]);
 
     }
 
@@ -141,8 +147,12 @@ class LoteController extends Controller
         ];
 
         $cadastro = new Lote();
+        $cadastroFoto = new LoteFoto();
 
         if($cadastro->gravar($dados)){
+
+            $this->inclusaoDeFotos($cadastro,$cadastroFoto,$request);
+
             $request->session()->flash('lote_status', 'Novo lote gravado com sucesso.');
             return redirect('/admin/lotes');
         }
@@ -222,8 +232,12 @@ class LoteController extends Controller
         ];
 
         $cadastro = new Lote();
+        $cadastroFoto = new LoteFoto();
 
         if($cadastro->alterar($dados)){
+
+            $this->alterarFotos($cadastro,$cadastroFoto,$request);
+
             $request->session()->flash('lote_status', 'Novo lote alterado com sucesso.');
             return redirect('/admin/lotes');
         }
@@ -235,12 +249,14 @@ class LoteController extends Controller
 
     public function destroy(Request $request)
     {
-
         $dados = [
             ':id' => $request->post('id')
         ];
 
         $cadastro = new Lote();
+
+        $cadastroFoto = new LoteFoto();
+        $this->apagarFotos($cadastroFoto,$dados[':id']);
 
         if($cadastro->apagar($dados)){
             $request->session()->flash('lote_status', 'Lote apagado com sucesso.');
@@ -264,6 +280,90 @@ class LoteController extends Controller
             'natureza' => 'Natureza',
             'edital' => 'Edital'
         ];
+    }
+
+    /**
+     * Esta função incluí o local das fotos na tabela LotesFotos ou NULL caso não possua uma foto correspondente
+     * os ids gerados são usados posteriormente para Updates na tabela LotesFotos
+     * @param Lote $cadastro
+     * @param LoteFoto $cadastroFoto
+     * @param Request $request
+     * @return void
+     */
+    protected function inclusaoDeFotos(Lote $cadastro, LoteFoto $cadastroFoto, Request $request)
+    {
+        $id_lote = $cadastro->getIdLote();
+
+        //Verifico os 10 campos de fotos
+        for ($i = 1; $i <= 10; $i++) {
+
+            $nome_foto = 'foto_' . $i;
+            $pathFoto = null;
+
+            $foto = $request->file($nome_foto);
+
+            if(!empty($arquivoFoto)){
+                if ($foto->isValid()) {
+                    $pathFoto = Helper::createFile($foto, 'lotes');
+                }
+            }
+
+            $cadastroFoto->gravar([':id_lotes' => $id_lote, ':foto' => $pathFoto]);
+        }
+    }
+
+    /**
+     * Esta função ajuda a alterar a foto
+     * os ids gerados são usados posteriormente para Updates na tabela LotesFotos
+     * @param Lote $cadastro
+     * @param LoteFoto $cadastroFoto
+     * @param Request $request
+     * @return void
+     */
+    protected function alterarFotos(Lote $cadastro, LoteFoto $cadastroFoto, Request $request)
+    {
+        $id_lote = $cadastro->getIdLote();
+
+        $fotos = $cadastroFoto->listarCadastro($id_lote);
+
+        foreach ($fotos as $foto){
+
+            $nome_foto = 'foto_'.$foto->id;
+
+            $pathFoto = null;
+
+            $arquivoFoto = $request->file($nome_foto);
+
+            if(!empty($arquivoFoto)){
+                if ($arquivoFoto->isValid()) {
+                    $pathFoto = Helper::createFile($arquivoFoto, 'lotes');
+
+                    $cadastroFoto->alterar([':id' => $foto->id, ':foto' => $pathFoto]);
+
+                    $foto_antiga = 'public'.$foto->foto;
+                    Helper::deleteFile($foto_antiga);
+                }
+            }
+
+        }
+
+    }
+
+    /**
+     * Com esta função apago todas as fotos na pasta referentes ao lote específico
+     * @param LoteFoto $cadastroFoto
+     * @param int $id
+     * @return void
+     */
+
+    protected function apagarFotos(LoteFoto $cadastroFoto, int $id_lote){
+
+        $listarLoteFoto = $cadastroFoto->listarCadastro($id_lote);
+
+        foreach ($listarLoteFoto as $foto){
+            $foto_antiga = 'public'.$foto->foto;
+            Helper::deleteFile($foto_antiga);
+        }
     }
 
 }

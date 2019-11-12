@@ -605,6 +605,43 @@
                             </fieldset>
 
 
+                            <fieldset>
+                                <legend>Fotos</legend>
+
+                               @php
+                                 $a=1;
+                               @endphp
+
+                               @foreach($fotos as $foto)
+
+                                      <div class="form-row">
+                                        <div class="col-12 col-sm-8 align-middle">
+                                            <div class="form-group">
+                                                <label for="foto" class="font-weight-bold">
+                                                    Enviar Foto {{$a++}}
+                                                </label>
+                                                <input type="file" id="foto_{{$foto->id}}" name="foto_{{$foto->id}}" class="form-control-file">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-4 align-middle">
+                                            @if($foto->foto)
+                                                <img src="{{asset('/storage')}}/{{$foto->foto}}" class="img-fluid" style="max-width: 80px;">
+                                            @else
+                                                <a href="#" class="btn btn-warning btn-icon-split btn-sm">
+                                                    <span class="icon text-white-50">
+                                                      <i class="fas fa-exclamation-triangle"></i>
+                                                    </span>
+                                                    <span class="text">Sem imagem</span>
+                                                </a>
+                                            @endif
+                                        </div>
+                                      </div>
+
+                                @endforeach
+
+                            </fieldset>
+
 
                             <button type="submit" class="btn btn-primary">
                                 <span class="text">Alterar</span>

@@ -27,7 +27,8 @@ class Helper extends Model
             if($file->isValid()) {
                 $id_user = Auth::user()->id;
                 $data = date('Ymd_His');
-                $arquivo_nome = $subPasta.'_'.$id_user.'_'.$data;
+                $numero_aleatorio = mt_rand(1,1000);
+                $arquivo_nome = $subPasta.'_'.$id_user.'_'.$data.'_'.$numero_aleatorio;
                 $arquivo_extensao = $file->extension();
                 $arquivo = $arquivo_nome.'.'.$arquivo_extensao;
                 $path = Storage::putFileAs('public/'.$pasta.'/'.$subPasta, $file,$arquivo);
