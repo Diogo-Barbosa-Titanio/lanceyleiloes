@@ -17,6 +17,8 @@ class LoteController extends Controller
 {
     public function index()
     {
+        $this->verificaSituacoes();
+
         $lotes = new Lote();
         $listarLotes = $lotes->listarCadastros();
 
@@ -27,6 +29,9 @@ class LoteController extends Controller
 
     public function create()
     {
+
+        $this->verificaSituacoes();
+
         $leiloes = new Leilao();
         $listarLeiloes = $leiloes->listarCadastros();
 
@@ -48,6 +53,8 @@ class LoteController extends Controller
 
     public function edit(Request $request)
     {
+        $this->verificaSituacoes();
+
         $id = $request->get('id');
         $cadastro = new Lote();
         $lote = $cadastro->listarCadastro($id);
@@ -96,7 +103,7 @@ class LoteController extends Controller
         $lance_inicial = str_replace(',','.',$lance_inicial);
 
         $lance_minimo = str_replace('.','',$request->post('lance_minimo'));
-        $lance_minimo = str_replace(',','',$lance_minimo);
+        $lance_minimo = str_replace(',','.',$lance_minimo);
 
         $dados = [
             ':id_leiloes' => $request->post('leilao'),
@@ -188,7 +195,7 @@ class LoteController extends Controller
             ':id_lotes_categorias' => $request->post('categoria'),
             ':nome' => $request->post('nome'),
             ':descricao' => $request->post('descricao'),
-            ':lance_inicial' => $lance_inicial,
+            ':lance_inicial' =>$lance_inicial,
             ':lance_minimo' => $lance_minimo,
             ':data_inicio'=> Helper::data($request->post('data_inicio')),
             ':data_fim'=> Helper::data($request->post('data_fim')),
@@ -300,11 +307,11 @@ class LoteController extends Controller
             $nome_foto = 'foto_' . $i;
             $pathFoto = null;
 
-            $foto = $request->file($nome_foto);
+            $arquivoFoto = $request->file($nome_foto);
 
             if(!empty($arquivoFoto)){
-                if ($foto->isValid()) {
-                    $pathFoto = Helper::createFile($foto, 'lotes');
+                if ($arquivoFoto->isValid()) {
+                    $pathFoto = Helper::createFile($arquivoFoto, 'lotes');
                 }
             }
 
@@ -364,6 +371,16 @@ class LoteController extends Controller
             $foto_antiga = 'public'.$foto->foto;
             Helper::deleteFile($foto_antiga);
         }
+    }
+
+    /**
+     * Com esta função verifico e atualizo a situação dos lotes no sistema na tabela lotes
+     * @return void
+     */
+    protected function verificaSituacoes(){
+        $cadastroSituacao = new LoteSituacao();
+        $cadastroSituacao->emLoteamento();
+        $cadastroSituacao->aberto();
     }
 
 }

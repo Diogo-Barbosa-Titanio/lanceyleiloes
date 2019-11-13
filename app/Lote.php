@@ -7,19 +7,47 @@ use Illuminate\Support\Facades\DB;
 
 class Lote extends Model
 {
-    //Aqui posso guardar o id do lote e recuperar
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'lotes';
+
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id';
+
+
+    /**
+     * Aqui posso guardar o id do lote e recuperar
+     *
+     * @var int
+     */
     private $id_lote;
 
     protected function sqlQuerySelect(array $campos)
     {
 
-        $lotes = DB::table('lotes')
+        $lotes = Lote::select($campos)
+                    ->leftJoin('leiloes', 'lotes.id_leiloes', '=', 'leiloes.id' )
+                    ->leftJoin('lotes_situacoes', 'lotes.id_lotes_situacoes', '=', 'lotes_situacoes.id' )
+                    ->leftJoin('lotes_categorias', 'lotes.id_lotes_categorias', '=', 'lotes_categorias.id' )
+                    ->leftJoin('lotes_enderecos', 'lotes.id', '=', 'lotes_enderecos.id_lotes')
+                    ->leftJoin('lotes_caracteristicas', 'lotes.id', '=', 'lotes_caracteristicas.id_lotes');
+
+
+        /*$lotes = DB::table('lotes')
             ->leftJoin('leiloes', 'lotes.id_leiloes', '=', 'leiloes.id' )
             ->leftJoin('lotes_situacoes', 'lotes.id_lotes_situacoes', '=', 'lotes_situacoes.id' )
             ->leftJoin('lotes_categorias', 'lotes.id_lotes_categorias', '=', 'lotes_categorias.id' )
             ->leftJoin('lotes_enderecos', 'lotes.id', '=', 'lotes_enderecos.id_lotes')
             ->leftJoin('lotes_caracteristicas', 'lotes.id', '=', 'lotes_caracteristicas.id_lotes')
-            ->select($campos);
+            ->select($campos);*/
 
         return $lotes;
     }
@@ -106,6 +134,7 @@ class Lote extends Model
 
     public function alterar(array $dados)
     {
+
         DB::transaction(function () use ($dados) {
 
             $dados_lote = [
@@ -125,7 +154,9 @@ class Lote extends Model
 
             $this->setIdLote($dados[':id']);
 
-            DB::table('lotes')->where('id',$dados[':id'])->update($dados_lote);
+            Lote::where('id',$dados[':id'])->update($dados_lote);
+
+            /*DB::table('lotes')->where('id',$dados[':id'])->update($dados_lote);*/
 
             $dados_lote_endereco = [
                 'cep' => $dados[':cep'],

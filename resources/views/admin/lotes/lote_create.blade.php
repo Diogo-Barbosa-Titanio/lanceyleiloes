@@ -613,7 +613,7 @@
 
                                         <div class="col-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="foto" class="font-weight-bold">
+                                                <label for="foto_{{{$a}}}" class="font-weight-bold">
                                                     Enviar Foto {{$a}}
                                                 </label>
                                                 <input type="file" id="foto_{{$a}}" name="foto_{{$a}}" class="form-control-file">
