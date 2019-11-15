@@ -5,8 +5,9 @@
                 <div class="card">
                     <div class="card-header">Example Component</div>
 
-                    <div class="card-body">
-                        I'm an example component.
+                    <div class="card-body" v-for="comitente in cadastros">
+                        {{comitente.nome}}
+                       <img :src="'storage'+comitente.foto">
                     </div>
                 </div>
             </div>
@@ -16,8 +17,19 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        data() {
+            return {
+                cadastros:[]
+            }
+        },
+        created() {
+
+            //let promise = axios.get('http://lanceyleiloes.com/api/comitentes');
+            let promise = this.$http.get('http://lanceyleiloes.com/api/comitentes');
+            promise
+                .then(res => res.json())
+                .then(data => this.cadastros = data);
+
         }
     }
 </script>

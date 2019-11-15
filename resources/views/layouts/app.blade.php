@@ -115,6 +115,7 @@
 
 
     <main role="main">
+        <example-component></example-component>
 
         @yield('content')
 

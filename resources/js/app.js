@@ -8,6 +8,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+VueResource = require('vue-resource');
+
 /**
  * Cronômetro em Javascript para aplicação.
  * http://hilios.github.io/jQuery.countdown/
@@ -48,6 +50,7 @@ require('jquery-mask-plugin');
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+Vue.use(VueResource);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('criando-exibindo-dados', require('./components/CriandoExibindoDados.vue').default);

@@ -151,6 +151,14 @@ class ComitenteController extends Controller
         }
     }
 
+    public function comitenteJson()
+    {
+        $comitentes = new Comitente();
+        $listarComitentes = $comitentes->listarCadastros();
+
+        return response()->json($listarComitentes);
+    }
+
     protected function messages() {
         //Example: return ['nome.required' => 'O :attribute é obrigatório.'];
         return [];
