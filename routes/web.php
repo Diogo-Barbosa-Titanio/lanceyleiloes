@@ -13,15 +13,15 @@
 
 use App\Mail\TestAmazonSes;
 
-Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'Front\HomeController@index');
+Route::get('/home', 'Front\HomeController@index')->name('home');
 Route::get('/lote/{id}', 'LoteController@index');
 Route::get('/pessoa_fisica', 'PessoaFisicaController@create');
 Route::post('/pessoa_fisica/store', 'PessoaFisicaController@store');
 Route::get('/pessoa_juridica', 'PessoaJuridicaController@create');
 Route::post('/pessoa_juridica/store', 'PessoaJuridicaController@store');
 Route::get('/quem_somos', function () {
-    return view('quem_somos');
+    return view('front/quem_somos');
 });
 
 Route::get('/admin','Admin\LoginController@index');

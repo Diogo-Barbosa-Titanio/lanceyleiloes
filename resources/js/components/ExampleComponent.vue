@@ -24,11 +24,10 @@
         },
         created() {
 
-            //let promise = axios.get('http://lanceyleiloes.com/api/comitentes');
-            let promise = this.$http.get('http://lanceyleiloes.com/api/comitentes');
+            let promise = axios.get('http://lanceyleiloes.com/api/comitentes');
+            //let promise = this.$http.get('http://lanceyleiloes.com/api/comitentes');
             promise
-                .then(res => res.json())
-                .then(data => this.cadastros = data);
+                .then(res => this.cadastros = res.data);
 
         }
     }

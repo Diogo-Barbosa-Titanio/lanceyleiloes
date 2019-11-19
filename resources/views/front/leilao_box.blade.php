@@ -10,11 +10,11 @@
             </div>
         </div>
         <div class="leilao_foto">
-            <img src="{{url('/')}}/../../web/fotos/{{$leilao->foto}}" alt="{{$leilao->nome_lote}}">
+            <img src="{{asset('storage')}}{{$leilao->foto}}" alt="{{$leilao->nome_lote}}">
         </div>
 
-        <div class="leilao_situacao" situacao= {{$leilao->situacao_cor}}>
-            {{$leilao->situacao_nome}}
+        <div class="leilao_situacao" situacao= {{Illuminate\Support\Str::kebab($leilao->nome_situacao)}}>
+            {{$leilao->nome_situacao}}
         </div>
 
         <div class="leilao_praca_1">
@@ -77,11 +77,11 @@
         <div class="leilao_lance">
             <div class="inicial">
                 <span class="texto">Lance inicial:</span>
-                <span class="valor">R$ {{$leilao->lance_ini}}</span>
+                <span class="valor">R$ {{$leilao->lance_inicial}}</span>
             </div>
 
             <div class="atual">
-                <span class="texto">Lance inicial:</span>
+                <span class="texto">Lance atual:</span>
                 <span class="valor">R$ {{$leilao->lance_recente}}</span>
             </div>
         </div>
@@ -94,24 +94,24 @@
 
             <div class="dados">
                 <span class="figura"><i class="fas fa-map-marker-alt"></i></span>
-                <span class="valor">{{$leilao->cidade_lote}},{{$leilao->estado_lote}}</span>
+                <span class="valor">{{$leilao->cidade}} , {{$leilao->estado}}</span>
             </div>
 
             <div class="dados">
                 <span class="figura"><i class="fas fa-calendar-alt"></i></span>
                 <span class="texto">Início:</span>
-                <span class="valor">{{$leilao->data_ini}}</span>
+                <span class="valor">{{date('d-m-Y',strtotime($leilao->data_inicio))}} {{$leilao->hora_inicio}}</span>
             </div>
 
             <div class="dados">
                 <span class="figura"><i class="fas fa-calendar-alt"></i></span>
                 <span class="texto">Término:</span>
-                <span class="valor">{{$leilao->data_fim}}</span>
+                <span class="valor">{{date('d-m-Y',strtotime($leilao->data_fim))}} {{$leilao->hora_fim}}</span>
             </div>
 
             <div class="dados">
                 <span class="texto">Fase da obra:</span>
-                <span class="valor">{{$leilao->obra}}</span>
+                <span class="valor">{{$leilao->fase_da_obra}}</span>
             </div>
         </div>
     </div>

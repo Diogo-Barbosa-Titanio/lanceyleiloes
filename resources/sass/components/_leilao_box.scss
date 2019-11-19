@@ -62,12 +62,12 @@
         text-align: center;
         color: white;
 
-        &[situacao="em_breve"] { background-color: #f26c4f; }
+        &[situacao="em-loteamento"] { background-color: #f26c4f; }
         &[situacao="aberto"] { background-color: #82ca9c; }
         &[situacao="arrematado"] { background-color: #8c6239; }
-        &[situacao="nao_arrematado"] { background-color: #ed1c24; }
-        &[situacao="condicional"] { background-color: #fbaf5d; }
-        &[situacao="venda_direta"] { background-color: #0072bc; }
+        &[situacao="nao-arrematado"] { background-color: #ed1c24; }
+        &[situacao="em-condicional"] { background-color: #fbaf5d; }
+        &[situacao="venda-direta"] { background-color: #0072bc; }
     }
 
     &_praca_1 {

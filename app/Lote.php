@@ -30,10 +30,72 @@ class Lote extends Model
      */
     private $id_lote;
 
+    /**
+     * Aqui insiro os campos que desejo usar na minha consulta com seus respectivos "aliases"
+     *
+     * @var array
+     */
+    private $campos = ['lotes.id as id',
+                       'lotes.id_leiloes as id_leiloes',
+                       'lotes.id_lotes_categorias as id_lotes_categorias',
+                       'lotes.nome as nome_lote',
+                       'lotes.descricao as descricao_lote',
+                       'lotes.data_inicio as data_inicio',
+                       'lotes.data_fim as data_fim',
+                       'lotes.hora_inicio as hora_inicio',
+                       'lotes.hora_fim as hora_fim',
+                       'lotes.lance_inicial as lance_inicial',
+                       'lotes.lance_minimo as lance_minimo',
+                       'leiloes.nome as nome_leilao',
+                       'lotes_situacoes.nome as nome_situacao',
+                       'lotes_categorias.nome as nome_categoria',
+                       'lotes_enderecos.cep as cep',
+                       'lotes_enderecos.endereco as endereco',
+                       'lotes_enderecos.numero as numero',
+                       'lotes_enderecos.complemento as complemento',
+                       'lotes_enderecos.bairro as bairro',
+                       'lotes_enderecos.cidade as cidade',
+                       'lotes_enderecos.estado as estado',
+                       'lotes_caracteristicas.id_lotes_fases_das_obras as id_lotes_fases_das_obras',
+                       'lotes_caracteristicas.area_privativa as area_privativa',
+                       'lotes_caracteristicas.quartos as quartos',
+                       'lotes_caracteristicas.suites as suites',
+                       'lotes_caracteristicas.vagas as vagas',
+                       'lotes_caracteristicas.banheiros as banheiros',
+                       'lotes_caracteristicas.desocupado as desocupado',
+                       'lotes_caracteristicas.academia as academia',
+                       'lotes_caracteristicas.bicicletario as bicicletario',
+                       'lotes_caracteristicas.brinquedoteca as brinquedoteca',
+                       'lotes_caracteristicas.campo_de_futebol as campo_de_futebol',
+                       'lotes_caracteristicas.churrasqueira as churrasqueira',
+                       'lotes_caracteristicas.cinema as cinema',
+                       'lotes_caracteristicas.pet_care as pet_care',
+                       'lotes_caracteristicas.piscina as piscina',
+                       'lotes_caracteristicas.piscina_infantil as piscina_infantil',
+                       'lotes_caracteristicas.pista_de_skate as pista_de_skate',
+                       'lotes_caracteristicas.playground as playground',
+                       'lotes_caracteristicas.quadra_de_squash as quadra_de_squash',
+                       'lotes_caracteristicas.quadra_de_tenis as quadra_de_tenis',
+                       'lotes_caracteristicas.restaurante as restaurante',
+                       'lotes_caracteristicas.sala_de_massagem as sala_de_massagem',
+                       'lotes_caracteristicas.salao_de_beleza as salao_de_beleza',
+                       'lotes_caracteristicas.salao_de_festas as salao_de_festas',
+                       'lotes_caracteristicas.salao_de_festas_infantil as salao_de_festas_infantil',
+                       'lotes_caracteristicas.salao_de_jogos as salao_de_jogos',
+                       'lotes_caracteristicas.sauna as sauna',
+                       'lotes_caracteristicas.spa as spa',
+                       'lotes_caracteristicas.vagas_de_visitantes as vagas_de_visitantes'];
+
+
+
     protected function sqlQuerySelect(array $campos)
     {
 
         $lotes = Lote::select($campos)
+                    ->selectRaw('(select nome from leiloes_tipos where id = leiloes.id_leiloes_tipos) as tipo_leilao')
+                    ->selectRaw('(select nome from leiloes_naturezas where id = leiloes.id_leiloes_naturezas) as natureza')
+                    ->selectRaw('(select nome from lotes_fases_das_obras where id = lotes_caracteristicas.id_lotes_fases_das_obras) as fase_da_obra')
+                    ->selectRaw('(select foto from lotes_fotos where id_lotes = lotes.id and foto is not NULL order by id limit 1) as foto')
                     ->leftJoin('leiloes', 'lotes.id_leiloes', '=', 'leiloes.id' )
                     ->leftJoin('lotes_situacoes', 'lotes.id_lotes_situacoes', '=', 'lotes_situacoes.id' )
                     ->leftJoin('lotes_categorias', 'lotes.id_lotes_categorias', '=', 'lotes_categorias.id' )
@@ -55,60 +117,8 @@ class Lote extends Model
 
     public function listarCadastro(int $id)
     {
-        $campos = ['lotes.id as id',
-                   'lotes.id_leiloes as id_leiloes',
-                   'lotes.id_lotes_categorias as id_lotes_categorias',
-                   'lotes.nome as nome_lote',
-                   'lotes.descricao as descricao_lote',
-                   'lotes.data_inicio as data_inicio',
-                   'lotes.data_fim as data_fim',
-                   'lotes.hora_inicio as hora_inicio',
-                   'lotes.hora_fim as hora_fim',
-                   'lotes.lance_inicial as lance_inicial',
-                   'lotes.lance_minimo as lance_minimo',
-                   'leiloes.nome as nome_leilao',
-                   'lotes_situacoes.nome as nome_situacao',
-                   'lotes_categorias.nome as nome_categoria',
-                   'lotes_enderecos.cep as cep',
-                   'lotes_enderecos.endereco as endereco',
-                   'lotes_enderecos.numero as numero',
-                   'lotes_enderecos.complemento as complemento',
-                   'lotes_enderecos.bairro as bairro',
-                   'lotes_enderecos.cidade as cidade',
-                   'lotes_enderecos.estado as estado',
-                   'lotes_caracteristicas.id_lotes_fases_das_obras as id_lotes_fases_das_obras',
-                   'lotes_caracteristicas.area_privativa as area_privativa',
-                   'lotes_caracteristicas.quartos as quartos',
-                   'lotes_caracteristicas.suites as suites',
-                   'lotes_caracteristicas.vagas as vagas',
-                   'lotes_caracteristicas.banheiros as banheiros',
-                   'lotes_caracteristicas.desocupado as desocupado',
-                   'lotes_caracteristicas.academia as academia',
-                   'lotes_caracteristicas.bicicletario as bicicletario',
-                   'lotes_caracteristicas.brinquedoteca as brinquedoteca',
-                   'lotes_caracteristicas.campo_de_futebol as campo_de_futebol',
-                   'lotes_caracteristicas.churrasqueira as churrasqueira',
-                   'lotes_caracteristicas.cinema as cinema',
-                   'lotes_caracteristicas.pet_care as pet_care',
-                   'lotes_caracteristicas.piscina as piscina',
-                   'lotes_caracteristicas.piscina_infantil as piscina_infantil',
-                   'lotes_caracteristicas.pista_de_skate as pista_de_skate',
-                   'lotes_caracteristicas.playground as playground',
-                   'lotes_caracteristicas.quadra_de_squash as quadra_de_squash',
-                   'lotes_caracteristicas.quadra_de_tenis as quadra_de_tenis',
-                   'lotes_caracteristicas.restaurante as restaurante',
-                   'lotes_caracteristicas.sala_de_massagem as sala_de_massagem',
-                   'lotes_caracteristicas.salao_de_beleza as salao_de_beleza',
-                   'lotes_caracteristicas.salao_de_festas as salao_de_festas',
-                   'lotes_caracteristicas.salao_de_festas_infantil as salao_de_festas_infantil',
-                   'lotes_caracteristicas.salao_de_jogos as salao_de_jogos',
-                   'lotes_caracteristicas.sauna as sauna',
-                   'lotes_caracteristicas.spa as spa',
-                   'lotes_caracteristicas.vagas_de_visitantes as vagas_de_visitantes'
 
-                   ];
-
-        $lotes = $this->sqlQuerySelect($campos)
+        $lotes = $this->sqlQuerySelect($this->campos)
                       ->where('lotes.id','=',$id)
                       ->get();
 
@@ -118,19 +128,21 @@ class Lote extends Model
 
     public function listarCadastros()
     {
-        $campos = ['lotes.id as id',
-                   'lotes.id_leiloes as id_leiloes',
-                   'lotes.nome as nome_lote',
-                   'leiloes.nome as nome_leilao',
-                   'lotes_situacoes.nome as nome_situacao',
-                   'lotes_categorias.nome as nome_categoria'];
 
-        $lotes = $this->sqlQuerySelect($campos)->get();
+        $lotes = $this->sqlQuerySelect($this->campos)->get();
 
         return $lotes;
 
     }
 
+    public function listarLeiloesAbertos()
+    {
+        $lotes = $this->sqlQuerySelect($this->campos)
+                      ->where('lotes_situacoes.id','=',2)
+                      ->get();
+
+        return $lotes;
+    }
 
     public function alterar(array $dados)
     {

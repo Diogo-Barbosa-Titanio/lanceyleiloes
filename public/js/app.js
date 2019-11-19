@@ -2010,12 +2010,10 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    //let promise = axios.get('http://lanceyleiloes.com/api/comitentes');
-    var promise = this.$http.get('http://lanceyleiloes.com/api/comitentes');
+    var promise = axios.get('http://lanceyleiloes.com/api/comitentes'); //let promise = this.$http.get('http://lanceyleiloes.com/api/comitentes');
+
     promise.then(function (res) {
-      return res.json();
-    }).then(function (data) {
-      return _this.cadastros = data;
+      return _this.cadastros = res.data;
     });
   }
 });
