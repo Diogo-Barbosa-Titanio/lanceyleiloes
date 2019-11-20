@@ -17,10 +17,11 @@ class HomeController extends Controller
 
         $leiloesAbertos = $leiloes->listarLeiloesAbertos();
 
-       /* $leiloesNaoArrematados = $leiloes->leiloesNaoArrematados();
-        $leiloesArrematados = $leiloes->leiloesArrematados();*/
+        $leiloesNaoArrematados = $leiloes->listarLeiloesNaoArrematados();
+      //  $leiloesArrematados = $leiloes->leiloesArrematados();
 
 
-        return view('front/home',['leiloesAbertos' => $leiloesAbertos]);
+        return view('front/home',['leiloesAbertos' => $leiloesAbertos,
+                                        'leiloesNaoArrematados' => $leiloesNaoArrematados ]);
     }
 }

@@ -30,6 +30,13 @@
         </div>
         <div class="row">
 
+            @foreach($leiloesNaoArrematados as $leilao)
+
+                <div class="col-sm-4">
+                    @include('front.leilao_box',['leilao' => $leilao])
+                </div>
+
+            @endforeach
 
         </div>
     </div>

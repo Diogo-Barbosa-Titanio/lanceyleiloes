@@ -381,6 +381,7 @@ class LoteController extends Controller
         $cadastroSituacao = new LoteSituacao();
         $cadastroSituacao->emLoteamento();
         $cadastroSituacao->aberto();
+        $cadastroSituacao->naoArrematado();
     }
 
 }

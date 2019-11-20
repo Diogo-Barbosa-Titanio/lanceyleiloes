@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
-use App\LeiloesCadastrados;
+use App\Lote;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class LoteController extends Controller
 {
@@ -13,11 +14,9 @@ class LoteController extends Controller
 
         $id_lote = $request->id;
 
-        $leilao = new LeiloesCadastrados();
-        $listarLeilao = $leilao->listarLeilao($id_lote);
-        $loteDescricao = $leilao->leilaoLoteDescricao($id_lote);
+        $leilao = new Lote();
+        $listarLeilao = $leilao->listarCadastro($id_lote);
 
-
-        return view('lote', ['leilao' => $listarLeilao, 'loteDescricao' => $loteDescricao]);
+        return view('front/lote', ['leilao' => $listarLeilao]);
     }
 }

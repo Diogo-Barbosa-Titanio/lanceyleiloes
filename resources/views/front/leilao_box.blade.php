@@ -1,5 +1,5 @@
 <div class="leilao_box">
-<a href="{{url('/')}}/lote/{{$leilao->id_lote}}" class="leilao_link">
+<a href="{{url('/')}}/lote/{{$leilao->id}}" class="leilao_link">
     <div class="leilao_box_espaco">
         <div class="leilao_topo">
             <div class="leilao_natureza">
@@ -10,10 +10,10 @@
             </div>
         </div>
         <div class="leilao_foto">
-            <img src="{{asset('storage')}}{{$leilao->foto}}" alt="{{$leilao->nome_lote}}">
+            <img src="{{asset('storage')}}{{$leilao->foto}}" class="img-fluid" alt="{{$leilao->nome_lote}}">
         </div>
 
-        <div class="leilao_situacao" situacao= {{Illuminate\Support\Str::kebab($leilao->nome_situacao)}}>
+        <div class="leilao_situacao" situacao= {{App\Helper::kebabComRemoverAcentos($leilao->nome_situacao)}}>
             {{$leilao->nome_situacao}}
         </div>
 
@@ -77,12 +77,12 @@
         <div class="leilao_lance">
             <div class="inicial">
                 <span class="texto">Lance inicial:</span>
-                <span class="valor">R$ {{$leilao->lance_inicial}}</span>
+                <span class="valor">R$ {{number_format($leilao->lance_inicial,2,',','.')}}</span>
             </div>
 
             <div class="atual">
                 <span class="texto">Lance atual:</span>
-                <span class="valor">R$ {{$leilao->lance_recente}}</span>
+                <span class="valor">R$ {{number_format($leilao->lance_atual,2,',','.')}}</span>
             </div>
         </div>
 

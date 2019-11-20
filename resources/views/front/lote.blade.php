@@ -185,7 +185,7 @@
 
         <div class="espacamento">
 
-            @if(!empty($loteDescricao))
+            @if(!empty($leilao[0]->descricao))
                 <div class="row">
                     <div class="col-md-12">
                       <h2>
@@ -193,7 +193,7 @@
                       </h2>
 
                       <div>
-                          {!! $loteDescricao !!}
+                          {{$leilao[0]->descricao}}
                       </div>
 
                     </div>
@@ -231,7 +231,7 @@
 
     <script type="text/javascript">
 
-        const data_fim_contador = new Date('{{$leilao[0]->data_fim_contador}}');
+        const data_fim_contador = new Date('{{ date('Y/m/d',strtotime($leilao[0]->data_fim)) }} {{ $leilao[0]->hora_fim }}');
 
         $(".tempo_restante")
             .countdown(data_fim_contador, function(event) {

@@ -96,6 +96,7 @@ class Lote extends Model
                     ->selectRaw('(select nome from leiloes_naturezas where id = leiloes.id_leiloes_naturezas) as natureza')
                     ->selectRaw('(select nome from lotes_fases_das_obras where id = lotes_caracteristicas.id_lotes_fases_das_obras) as fase_da_obra')
                     ->selectRaw('(select foto from lotes_fotos where id_lotes = lotes.id and foto is not NULL order by id limit 1) as foto')
+                    ->selectRaw('(select max(lances) from lotes_lances where id_lotes = lotes.id) as lance_atual')
                     ->leftJoin('leiloes', 'lotes.id_leiloes', '=', 'leiloes.id' )
                     ->leftJoin('lotes_situacoes', 'lotes.id_lotes_situacoes', '=', 'lotes_situacoes.id' )
                     ->leftJoin('lotes_categorias', 'lotes.id_lotes_categorias', '=', 'lotes_categorias.id' )
@@ -140,6 +141,15 @@ class Lote extends Model
         $lotes = $this->sqlQuerySelect($this->campos)
                       ->where('lotes_situacoes.id','=',2)
                       ->get();
+
+        return $lotes;
+    }
+
+    public function listarLeiloesNaoArrematados()
+    {
+        $lotes = $this->sqlQuerySelect($this->campos)
+            ->where('lotes_situacoes.id','=',4)
+            ->get();
 
         return $lotes;
     }

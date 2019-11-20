@@ -103,6 +103,7 @@ body h2 .texto {
 .leilao_foto img {
   max-width: 300px;
   max-height: 200px;
+  height: 200px;
   width: 100%;
 }
 
@@ -111,7 +112,7 @@ body h2 .texto {
   color: white;
 }
 
-.leilao_situacao[situacao=em_breve] {
+.leilao_situacao[situacao=em-loteamento] {
   background-color: #f26c4f;
 }
 
@@ -123,15 +124,15 @@ body h2 .texto {
   background-color: #8c6239;
 }
 
-.leilao_situacao[situacao=nao_arrematado] {
+.leilao_situacao[situacao=nao-arrematado] {
   background-color: #ed1c24;
 }
 
-.leilao_situacao[situacao=condicional] {
+.leilao_situacao[situacao=em-condicional] {
   background-color: #fbaf5d;
 }
 
-.leilao_situacao[situacao=venda_direta] {
+.leilao_situacao[situacao=venda-direta] {
   background-color: #0072bc;
 }
 
