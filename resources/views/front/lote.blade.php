@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+@section('styles')
+
+    <!-- CSS Slideshow -->
+    <link href="{{ asset('/css/slideshow.css') }}" rel="stylesheet">
+
+
+@endsection
+
+
 @section('content')
     <div class="container lote">
 
@@ -24,7 +33,8 @@
                     @if(!empty($leilao[0]->foto_leilao))
                         <a href="#">
                             <img src="{{url('/')}}/../../web/fotos/{{$leilao[0]->foto_leilao}}"
-                                 style="max-width: 150px; max-height: 100px;" class="db w100p" alt="{{$leilao[0]->nome_leilao}}">
+                                 style="max-width: 150px; max-height: 100px;" class="db w100p"
+                                 alt="{{$leilao[0]->nome_leilao}}">
                         </a>
                     @endif
                 </div>
@@ -87,58 +97,88 @@
             </div>
 
             <div class="row">
-                <div class="col-md-4">
-                    <img src="{{url('/')}}/../../web/fotos/lotes_30_casa-prime-itau-290-m-sup2-vila-kosmos-rio-de-janeiro_192.168.50.71_zz87e8bb4569.jpg" style="max-width: 350px; max-height: 250px;">
-                </div>
+                <div class="col-12 col-md-4">
+                    <div id="container">
+                        <div id="slideshow" class="fullscreen">
+                            <!-- Below are the images in the gallery -->
+                            <div id="img-1" data-img-id="1" class="img-wrapper active"
+                                 style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_163649_800.jpeg')}}')"></div>
+                            <div id="img-2" data-img-id="2" class="img-wrapper"
+                                 style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_170206_651.jpeg')}}')"></div>
+                            <div id="img-3" data-img-id="3" class="img-wrapper"
+                                 style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_170207_711.jpeg')}}')"></div>
 
-                <div class="col-md-4">
-                        <div class="border informacoes">
+                            <!-- Below are the thumbnails of above images -->
+                            <div class="thumbs-container bottom">
+                                <div id="prev-btn" class="prev">
+                                    <i class="fa fa-chevron-left fa-3x"></i>
+                                </div>
 
-                            <div>
-                                 <h2>
-                                     <span class="texto">Informações</span>
-                                 </h2>
+                                <ul class="thumbs">
+                                    <li data-thumb-id="1" class="thumb active"
+                                        style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_163649_800.jpeg')}}')"></li>
+                                    <li data-thumb-id="2" class="thumb"
+                                        style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_170206_651.jpeg')}}')"></li>
+                                    <li data-thumb-id="3" class="thumb"
+                                        style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_170207_711.jpeg')}}')"></li>
+                                </ul>
+
+                                <div id="next-btn" class="next">
+                                    <i class="fa fa-chevron-right fa-3x"></i>
+                                </div>
                             </div>
-
-                            <div class="dados">
-                               <span class="icone"><i class="fas fa-flag"></i></span>
-                               <span class="texto">Lote</span>
-                               <span class="valor">2345 / 2</span>
-                            </div>
-
-                            <div class="dados">
-                                <span class="icone"><i class="fas fa-calendar-alt"></i></span>
-                                <span class="texto">Início:</span>
-                                <span class="valor"> {{$leilao[0]->data_ini}}</span>
-                            </div>
-
-                            <div class="dados">
-                                <span class="icone"><i class="fas fa-calendar-alt"></i></span>
-                                <span class="texto">Término:</span>
-                                <span class="valor"> {{$leilao[0]->data_fim}}</span>
-                            </div>
-
-                            <div class="dados">
-                                <span class="icone"><i class="fas fa-map-marker-alt"></i></span>
-                                <span class="texto">Localidade:</span>
-                                <span class="valor"> {{$leilao[0]->cidade_lote}}, {{$leilao[0]->estado_lote}}</span>
-                            </div>
-
-                            <div class="dados">
-                                <span class="icone"><i class="fas fa-database"></i></span>
-                                <span class="texto">Comissão do Leiloeiro:</span>
-                                <span class="valor"> {{$leilao[0]->comissao}} %</span>
-                            </div>
-
-                            <div class="dados">
-                                <div><span class="texto">Lance Inicial:</span></div>
-                                <h2><span class="texto">R$ {{$leilao[0]->lance_ini}}</span></h2>
-                            </div>
-
                         </div>
+                    </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-12 col-md-4">
+                    <div class="border informacoes">
+
+                        <div>
+                            <h2>
+                                <span class="texto">Informações</span>
+                            </h2>
+                        </div>
+
+                        <div class="dados">
+                            <span class="icone"><i class="fas fa-flag"></i></span>
+                            <span class="texto">Lote: </span>
+                            <span class="valor">2345 / 2</span>
+                        </div>
+
+                        <div class="dados">
+                            <span class="icone"><i class="fas fa-calendar-alt"></i></span>
+                            <span class="texto">Início: </span>
+                            <span class="valor"> {{$leilao[0]->data_inicio}} {{$leilao[0]->hora_inicio}}</span>
+                        </div>
+
+                        <div class="dados">
+                            <span class="icone"><i class="fas fa-calendar-alt"></i></span>
+                            <span class="texto">Término: </span>
+                            <span class="valor"> {{$leilao[0]->data_fim}} {{$leilao[0]->hora_fim}}</span>
+                        </div>
+
+                        <div class="dados">
+                            <span class="icone"><i class="fas fa-map-marker-alt"></i></span>
+                            <span class="texto">Localidade: </span>
+                            <span class="valor"> {{$leilao[0]->cidade}} , {{$leilao[0]->estado}}</span>
+                        </div>
+
+                        <div class="dados">
+                            <span class="icone"><i class="fas fa-database"></i></span>
+                            <span class="texto">Comissão do Leiloeiro: </span>
+                            <span class="valor">5% </span>
+                        </div>
+
+                        <div class="dados">
+                            <div><span class="texto">Lance Inicial:</span></div>
+                            <h2><span class="texto">R$ {{$leilao[0]->lance_inicial}}</span></h2>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
                     <div class="cronometro_leilao">
                         <div class="leilao_situacao" situacao="{{$leilao[0]->situacao_cor}}">
                             {{$leilao[0]->situacao_nome}}
@@ -147,7 +187,8 @@
                         <div class="data_hora">
                             <div>LEILÃO ENCERRA EM</div>
                             <div class="tempo_restante"></div>
-                            <div class="texto">DIAS &nbsp;&nbsp;&nbsp; HORAS &nbsp;&nbsp;&nbsp; MIN &nbsp;&nbsp; SEG  </div>
+                            <div class="texto">DIAS &nbsp;&nbsp;&nbsp; HORAS &nbsp;&nbsp;&nbsp; MIN &nbsp;&nbsp; SEG
+                            </div>
                         </div>
 
                         <div class="lance_atual">
@@ -171,7 +212,8 @@
                             </div>
                             <div class="formulario">
                                 <form>
-                                    <input type="text" class="form-control mb-1" placeholder="Informe o valor (Ex. R$ 15.000,00)">
+                                    <input type="text" class="form-control mb-1"
+                                           placeholder="Informe o valor (Ex. R$ 15.000,00)">
 
                                     <button class="btn btn-cor-secundaria btn-block">Confirmar lance</button>
                                 </form>
@@ -185,16 +227,16 @@
 
         <div class="espacamento">
 
-            @if(!empty($leilao[0]->descricao))
+            @if(!empty($leilao[0]->descricao_lote))
                 <div class="row">
                     <div class="col-md-12">
-                      <h2>
-                          <span class="texto"> Descrição </span>
-                      </h2>
+                        <h2>
+                            <span class="texto"> Descrição </span>
+                        </h2>
 
-                      <div>
-                          {{$leilao[0]->descricao}}
-                      </div>
+                        <div>
+                            {{$leilao[0]->descricao_lote}}
+                        </div>
 
                     </div>
                 </div>
@@ -210,10 +252,120 @@
                     </h2>
 
                     <div class="icones">
-                        <i class="far fa-object-ungroup"></i> <span class="texto">Tamanho do móvel:</span><span class="valor"> {{$leilao[0]->area_privativa}} m²</span>
-                        <i class="fas fa-car"></i> <span class="texto">Número de vagas: </span><span class="valor">{{$leilao[0]->vagas}}</span>
-                        <i class="fas fa-bed"></i> <span class="texto">Número de quartos: </span><span class="valor">{{$leilao[0]->quartos}}</span>
-                        <i class="fas fa-crown"></i> <span class="texto">Número de suítes: </span><span class="valor">{{$leilao[0]->suites}}</span>
+                        <i class="far fa-object-ungroup"></i> <span class="texto">Tamanho do móvel:</span><span
+                            class="valor"> {{$leilao[0]->area_privativa}} m²</span>
+                        <i class="fas fa-car"></i> <span class="texto">Número de vagas: </span><span
+                            class="valor">{{$leilao[0]->vagas}}</span>
+                        <i class="fas fa-bed"></i> <span class="texto">Número de quartos: </span><span
+                            class="valor">{{$leilao[0]->quartos}}</span>
+                        <i class="fas fa-crown"></i> <span class="texto">Número de suítes: </span><span
+                            class="valor">{{$leilao[0]->suites}}</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>
+                        <span class="texto"> Infraestrutura </span>
+                    </h2>
+
+                    <div class="infraestrutura">
+
+                        <p>
+                            @if($leilao[0]->academia == 'S')
+                                <span class="infra">Academia</span>
+                            @endif
+
+                            @if($leilao[0]->bicicletario == 'S')
+                                <span class="infra">Bicicletário</span>
+                            @endif
+
+                            @if($leilao[0]->brinquedoteca == 'S')
+                                <span class="infra">Brinquedoteca</span>
+                            @endif
+
+                            @if($leilao[0]->campo_de_futebol == 'S')
+                                <span class="infra">Campo de futebol</span>
+                            @endif
+
+                            @if($leilao[0]->churrasqueira == 'S')
+                                <span class="infra">Churrasqueira</span>
+                            @endif
+
+                            @if($leilao[0]->cinema == 'S')
+                                <span class="infra">Cinema</span>
+                            @endif
+
+
+                            @if($leilao[0]->pet_care == 'S')
+                                <span class="infra">Pet care</span>
+                            @endif
+
+                            @if($leilao[0]->piscina == 'S')
+                                <span class="infra">Piscina</span>
+                            @endif
+
+                            @if($leilao[0]->piscina_infantil == 'S')
+                                <span class="infra">Piscina infantil</span>
+                            @endif
+
+                            @if($leilao[0]->pista_de_skate == 'S')
+                                <span class="infra">Pista de skate</span>
+                            @endif
+
+                            @if($leilao[0]->playground == 'S')
+                                <span class="infra">Playground</span>
+                            @endif
+
+                            @if($leilao[0]->quadra_de_squash == 'S')
+                                <span class="infra">Quadra de squash</span>
+                            @endif
+
+                            @if($leilao[0]->quadra_de_tenis == 'S')
+                                <span class="infra">Quadra de tênis</span>
+                            @endif
+
+                            @if($leilao[0]->restaurante == 'S')
+                                <span class="infra">Restaurante</span>
+                            @endif
+
+                            @if($leilao[0]->sala_de_massagem == 'S')
+                                <span class="infra">Sala de massagem</span>
+                            @endif
+
+                            @if($leilao[0]->salao_de_beleza == 'S')
+                                <span class="infra">Salão de beleza</span>
+                            @endif
+
+                            @if($leilao[0]->salao_de_festas == 'S')
+                                <span class="infra">Salão de festas</span>
+                            @endif
+
+                            @if($leilao[0]->salao_de_festas_infantil == 'S')
+                                <span class="infra">Salão de festas infantil</span>
+                            @endif
+
+                            @if($leilao[0]->salao_de_jogos == 'S')
+                                <span class="infra">Salão de jogos</span>
+                            @endif
+
+                            @if($leilao[0]->sauna == 'S')
+                                <span class="infra">Sauna</span>
+                            @endif
+
+                            @if($leilao[0]->spa == 'S')
+                                <span class="infra">Spa</span>
+                            @endif
+
+                            @if($leilao[0]->vagas_de_visitantes == 'S')
+                                <span class="infra">Vagas de visitantes</span>
+                            @endif
+                        </p>
+
                     </div>
 
                 </div>
@@ -229,22 +381,25 @@
 @section('scripts')
 
 
+    <!-- Galeria de imagens -->
+    <script src="{{asset('/js/gallery.js')}}"></script>
+
     <script type="text/javascript">
 
         const data_fim_contador = new Date('{{ date('Y/m/d',strtotime($leilao[0]->data_fim)) }} {{ $leilao[0]->hora_fim }}');
 
         $(".tempo_restante")
-            .countdown(data_fim_contador, function(event) {
+            .countdown(data_fim_contador, function (event) {
                 $(this).text(
                     event.strftime('%D : %H : %M : %S')
                 );
 
                 console.log(event);
 
-                if(event.type == 'finish'){
+                if (event.type == 'finish') {
                     alert('Operação chegou ao final');
                 }
-        });
+            });
     </script>
 
 @endsection

@@ -24,5 +24,7 @@
     "/vendor/fontawesome-free/webfonts/fa-solid-900.woff": "/vendor/fontawesome-free/webfonts/fa-solid-900.woff?id=c640f3305d6baed26d81",
     "/vendor/fontawesome-free/webfonts/fa-solid-900.woff2": "/vendor/fontawesome-free/webfonts/fa-solid-900.woff2?id=743423887f20ef541bdf",
     "/css/sb-admin-2.min.css": "/css/sb-admin-2.min.css?id=90b6fd06bb0078c49d91",
-    "/js/sb-admin-2.min.js": "/js/sb-admin-2.min.js?id=35981960a6594dbe56f6"
+    "/js/sb-admin-2.min.js": "/js/sb-admin-2.min.js?id=35981960a6594dbe56f6",
+    "/css/slideshow.css": "/css/slideshow.css?id=c579928f8acf970417b1",
+    "/js/gallery.js": "/js/gallery.js?id=ab6c58d6e57ac998fc41"
 }

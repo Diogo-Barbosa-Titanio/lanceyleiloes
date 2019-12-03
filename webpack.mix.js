@@ -34,3 +34,7 @@ mix.copy('./node_modules/startbootstrap-sb-admin-2/js/sb-admin-2.min.js','public
 
 //Máscaras para formuários
 mix.js('resources/js/formulario_mascaras.js', 'public/js');
+
+//Galeria de Imagens
+mix.copy('resources/css/slideshow.css', 'public/css');
+mix.copy('resources/js/gallery.js', 'public/js');
