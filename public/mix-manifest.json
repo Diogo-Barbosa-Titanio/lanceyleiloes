@@ -2,7 +2,7 @@
     "/js/app.js": "/js/app.js?id=f6e97630355c198d598c",
     "/css/app.css": "/css/app.css?id=967ca48a54e34d21ffa3",
     "/css/style.css": "/css/style.css?id=9d3d66c2e97291d2a3c7",
-    "/js/formulario_mascaras.js": "/js/formulario_mascaras.js?id=349c7a11a896e8d10dca",
+    "/js/formulario_mascaras.js": "/js/formulario_mascaras.js?id=569d2f6c6685b11363a2",
     "/vendor/chart_js/Chart.css": "/vendor/chart_js/Chart.css?id=28dc89b92b7e59392029",
     "/vendor/chart_js/Chart.min.css": "/vendor/chart_js/Chart.min.css?id=7d8693e997109f2aeac0",
     "/vendor/datatables/dataTables.bootstrap4.css": "/vendor/datatables/dataTables.bootstrap4.css?id=1758e9d3c2304ff1d0d8",
@@ -23,8 +23,8 @@
     "/vendor/fontawesome-free/webfonts/fa-solid-900.ttf": "/vendor/fontawesome-free/webfonts/fa-solid-900.ttf?id=9d5a3dcfd0e683e476a4",
     "/vendor/fontawesome-free/webfonts/fa-solid-900.woff": "/vendor/fontawesome-free/webfonts/fa-solid-900.woff?id=c640f3305d6baed26d81",
     "/vendor/fontawesome-free/webfonts/fa-solid-900.woff2": "/vendor/fontawesome-free/webfonts/fa-solid-900.woff2?id=743423887f20ef541bdf",
-    "/css/sb-admin-2.min.css": "/css/sb-admin-2.min.css?id=90b6fd06bb0078c49d91",
-    "/js/sb-admin-2.min.js": "/js/sb-admin-2.min.js?id=35981960a6594dbe56f6",
+    "/vendor/startbootstrap-sb-admin-2/css/sb-admin-2.min.css": "/vendor/startbootstrap-sb-admin-2/css/sb-admin-2.min.css?id=90b6fd06bb0078c49d91",
+    "/vendor/startbootstrap-sb-admin-2/js/sb-admin-2.min.js": "/vendor/startbootstrap-sb-admin-2/js/sb-admin-2.min.js?id=35981960a6594dbe56f6",
     "/css/slideshow.css": "/css/slideshow.css?id=c579928f8acf970417b1",
     "/js/gallery.js": "/js/gallery.js?id=ab6c58d6e57ac998fc41"
 }

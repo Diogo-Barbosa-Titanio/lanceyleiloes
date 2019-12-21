@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="post" action="{{url('/admin/lotes/update')}}" enctype="multipart/form-data">
+                        <form method="post" action="{{url('/admin/lotes/update')}}" enctype="multipart/form-data" autocomplete="off">
                             @csrf
                             @method('PUT')
                             <input type="hidden" value="{{$lote[0]->id}}" name="id" id="id">

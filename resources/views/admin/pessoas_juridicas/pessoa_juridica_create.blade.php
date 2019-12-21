@@ -22,7 +22,7 @@
 
                     <div class="card-body">
                         <form method="post" action="{{url('/admin/pessoa_juridica/store')}}"
-                              enctype="multipart/form-data">
+                              enctype="multipart/form-data" autocomplete="off">
                             @csrf
                             <div class="form-row">
 
@@ -58,7 +58,7 @@
                                             CNPJ
                                         </label>
                                         <input type="text" id="cnpj" name="cnpj"
-                                               class="form-control @error('cnpj') is-invalid @enderror"
+                                               class="form-control cnpj @error('cnpj') is-invalid @enderror"
                                                value="{{ old('cnpj') }}">
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@
                                             Telefone
                                         </label>
                                         <input type="text" id="telefone" name="telefone"
-                                               class="form-control @error('telefone') is-invalid @enderror"
+                                               class="form-control telefone @error('telefone') is-invalid @enderror"
                                                value="{{ old('telefone') }}">
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                                             Celular
                                         </label>
                                         <input type="text" id="celular" name="celular"
-                                               class="form-control @error('celular') is-invalid @enderror"
+                                               class="form-control celular @error('celular') is-invalid @enderror"
                                                value="{{ old('celular') }}">
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@
                                 <div class="col-12 col-sm-2">
                                     <div class="form-group">
                                         <label for="cep">Cep</label>
-                                        <input type="text" class="form-control @error('cep') is-invalid @enderror"
+                                        <input type="text" class="form-control cep @error('cep') is-invalid @enderror"
                                                value="{{ old('cep') }}" name="cep" id="cep" placeholder="">
                                     </div>
                                 </div>
@@ -233,31 +233,7 @@
 
 @section('scripts')
 
-    <script>
-
-        $(document).ready(function () {
-
-            $('#cnpj').mask('00.000.000/0000-00', {reverse: true});
-            $('#cep').mask('00000-000');
-            $('#nascimento').mask('00/00/0000');
-            $('#telefone').mask('(00) 0000-0000');
-
-            let CLMaskBehavior = function (val) {
-                    return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
-                };
-
-            let clOptions = {
-                    onKeyPress: function(val, e, field, options) {
-                        field.mask(CLMaskBehavior.apply({}, arguments), options);
-                    }
-                };
-
-            $('#celular').mask(CLMaskBehavior, clOptions);
-
-            $('#rg').mask('99.999.999-9')
-
-        });
-
-    </script>
+    <!-- Máscara de formulários -->
+    <script src="{{asset('/js/formulario_mascaras.js')}}"></script>
 
 @endsection

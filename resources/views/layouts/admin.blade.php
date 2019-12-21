@@ -12,12 +12,16 @@
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{asset('/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/vendor/startbootstrap-sb-admin-2/css/sb-admin-2.min.css')}}" rel="stylesheet" type="text/css">
+
+    <!-- jQuery UI CSS -->
+    <link href="{{asset('/vendor/jquery-ui/jquery-ui.min.css')}}" rel="stylesheet" type="text/css">
 
     @guest
         <style>
@@ -343,11 +347,25 @@
 <script src="{{ asset(mix('/js/app.js')) }}"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="{{asset('/js/sb-admin-2.min.js')}}"></script>
+<script src="{{asset('/vendor/startbootstrap-sb-admin-2/js/sb-admin-2.min.js')}}"></script>
+
+<!-- jQuery UI -->
+<script src="{{asset('/vendor/jquery-ui/jquery-ui.min.js')}}"></script>
+
+<!-- jQuery UI tradução do datepicker -->
+<script src="{{asset('/vendor/jquery-ui/i18n/datepicker-pt-BR.js')}}"></script>
 
 @hasSection('scripts')
     @yield('scripts')
 @endif
+
+<script>
+    $(document).ready(function () {
+        if($(document).width() > 767) {
+            $(".active").parent().parent().addClass('show');
+        }
+    });
+</script>
 
 </body>
 </html>

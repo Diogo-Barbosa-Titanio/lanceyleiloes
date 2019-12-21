@@ -28,6 +28,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
+
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-users"></i>
             <span>Cadastros</span>
@@ -35,9 +36,9 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Formulários:</h6>
-                <a class="collapse-item" href="{{url('/admin/administradores')}}">Administradores</a>
-                <a class="collapse-item" href="{{url('/admin/pessoa_fisica')}}">Pessoa Física</a>
-                <a class="collapse-item" href="{{url('/admin/pessoa_juridica')}}">Pessoa Jurídica</a>
+                <a class="collapse-item {{ Request()->is('admin/administradores') ? 'active':'' }}" href="{{url('/admin/administradores')}}">Administradores</a>
+                <a class="collapse-item {{ Request()->is('admin/pessoa_fisica') ? 'active':'' }}" href="{{url('/admin/pessoa_fisica')}}">Pessoa Física</a>
+                <a class="collapse-item {{ Request()->is('admin/pessoa_juridica') ? 'active':'' }}" href="{{url('/admin/pessoa_juridica')}}">Pessoa Jurídica</a>
             </div>
         </div>
     </li>
@@ -51,7 +52,7 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Leilão:</h6>
-                <a class="collapse-item" href="{{url('/admin/leiloes')}}">Leilões</a>
+                <a class="collapse-item {{ Request()->is('admin/leiloes') ? 'active':'' }}" href="{{url('/admin/leiloes')}}">Leilões</a>
                 <a class="collapse-item" href="{{url('/')}}/admin/lotes">Lotes</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Outros:</h6>

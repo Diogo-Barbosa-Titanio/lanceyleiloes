@@ -29,8 +29,8 @@ mix.copy('./node_modules/@fortawesome/fontawesome-free/css/all.min.css','public/
 mix.copyDirectory('./node_modules/@fortawesome/fontawesome-free/webfonts/*','public/vendor/fontawesome-free/webfonts');
 
 // SB Admin 2
-mix.copy('./node_modules/startbootstrap-sb-admin-2/css/sb-admin-2.min.css','public/css');
-mix.copy('./node_modules/startbootstrap-sb-admin-2/js/sb-admin-2.min.js','public/js');
+mix.copy('./node_modules/startbootstrap-sb-admin-2/css/sb-admin-2.min.css','public/vendor/startbootstrap-sb-admin-2/css/sb-admin-2.min.css');
+mix.copy('./node_modules/startbootstrap-sb-admin-2/js/sb-admin-2.min.js','public/vendor/startbootstrap-sb-admin-2/js/sb-admin-2.min.js');
 
 //Máscaras para formuários
 mix.js('resources/js/formulario_mascaras.js', 'public/js');
@@ -38,3 +38,6 @@ mix.js('resources/js/formulario_mascaras.js', 'public/js');
 //Galeria de Imagens
 mix.copy('resources/css/slideshow.css', 'public/css');
 mix.copy('resources/js/gallery.js', 'public/js');
+
+//jQuery UI
+mix.copyDirectory('resources/js/jquery-ui', 'public/vendor/jquery-ui');

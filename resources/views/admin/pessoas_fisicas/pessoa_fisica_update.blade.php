@@ -22,7 +22,7 @@
 
                     <div class="card-body">
                         <form method="post" action="{{url('/admin/pessoa_fisica/update')}}"
-                              enctype="multipart/form-data">
+                              enctype="multipart/form-data" autocomplete="off">
                             @csrf
                             @method('PUT')
                             <input type="hidden" value="{{$pessoa_fisica[0]->id}}" name="id" id="id">
@@ -60,7 +60,7 @@
                                             CPF
                                         </label>
                                         <input type="text" id="cpf" name="cpf"
-                                               class="form-control @error('cpf') is-invalid @enderror"
+                                               class="form-control cpf @error('cpf') is-invalid @enderror"
                                                value="{{ old('cpf',$pessoa_fisica[0]->cpf) }}">
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@
                                             RG
                                         </label>
                                         <input type="text" id="rg" name="rg"
-                                               class="form-control @error('rg') is-invalid @enderror"
+                                               class="form-control rg @error('rg') is-invalid @enderror"
                                                value="{{ old('rg',$pessoa_fisica[0]->rg) }}">
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                                             Telefone
                                         </label>
                                         <input type="text" id="telefone" name="telefone"
-                                               class="form-control @error('telefone') is-invalid @enderror"
+                                               class="form-control telefone @error('telefone') is-invalid @enderror"
                                                value="{{ old('telefone',$pessoa_fisica[0]->telefone) }}">
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
                                             Celular
                                         </label>
                                         <input type="text" id="celular" name="celular"
-                                               class="form-control @error('celular') is-invalid @enderror"
+                                               class="form-control celular @error('celular') is-invalid @enderror"
                                                value="{{ old('celular',$pessoa_fisica[0]->celular) }}">
                                     </div>
                                 </div>
@@ -127,7 +127,7 @@
                                             Data de Nascimento
                                         </label>
                                         <input type="text"
-                                               class="form-control @error('nascimento') is-invalid @enderror"
+                                               class="form-control data @error('nascimento') is-invalid @enderror"
                                                value="{{ old('nascimento', date('d/m/Y',strtotime($pessoa_fisica[0]->nascimento))) }}" name="nascimento" id="nascimento">
                                     </div>
                                 </div>
@@ -139,7 +139,7 @@
                                 <div class="col-12 col-sm-2">
                                     <div class="form-group">
                                         <label for="cep">Cep*</label>
-                                        <input type="text" class="form-control @error('cep') is-invalid @enderror"
+                                        <input type="text" class="form-control cep @error('cep') is-invalid @enderror"
                                                value="{{ old('cep', $pessoa_fisica[0]->cep) }}" name="cep" id="cep" placeholder="">
                                     </div>
                                 </div>
@@ -265,31 +265,7 @@
 
 @section('scripts')
 
-    <script>
-
-        $(document).ready(function () {
-
-            $('#cpf').mask('000.000.000-00', {reverse: true});
-            $('#cep').mask('00000-000');
-            $('#nascimento').mask('00/00/0000');
-            $('#telefone').mask('(00) 0000-0000');
-
-            let CLMaskBehavior = function (val) {
-                    return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
-                };
-
-            let clOptions = {
-                    onKeyPress: function(val, e, field, options) {
-                        field.mask(CLMaskBehavior.apply({}, arguments), options);
-                    }
-                };
-
-            $('#celular').mask(CLMaskBehavior, clOptions);
-
-            $('#rg').mask('99.999.999-9')
-
-        });
-
-    </script>
+    <!-- Máscara de formulários -->
+    <script src="{{asset('/js/formulario_mascaras.js')}}"></script>
 
 @endsection

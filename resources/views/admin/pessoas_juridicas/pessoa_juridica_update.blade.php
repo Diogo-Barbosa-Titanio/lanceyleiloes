@@ -22,10 +22,10 @@
 
                     <div class="card-body">
                         <form method="post" action="{{url('/admin/pessoa_juridica/update')}}"
-                              enctype="multipart/form-data">
+                              enctype="multipart/form-data" autocomplete="off">
                             @csrf
                             @method('PUT')
-                            <input type="hidden" value="{{$pessoa_juridica[0]->id}}" id="id" name="id" >
+                            <input type="hidden" value="{{$pessoa_juridica[0]->id}}" id="id" name="id">
                             <div class="form-row">
 
                                 <div class="col-12 col-sm-6">
@@ -60,7 +60,7 @@
                                             CNPJ
                                         </label>
                                         <input type="text" id="cnpj" name="cnpj"
-                                               class="form-control @error('cnpj') is-invalid @enderror"
+                                               class="form-control cnpj @error('cnpj') is-invalid @enderror"
                                                value="{{ old('cnpj',$pessoa_juridica[0]->cnpj) }}">
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                                             Telefone
                                         </label>
                                         <input type="text" id="telefone" name="telefone"
-                                               class="form-control @error('telefone') is-invalid @enderror"
+                                               class="form-control telefone @error('telefone') is-invalid @enderror"
                                                value="{{ old('telefone',$pessoa_juridica[0]->telefone) }}">
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
                                             Celular
                                         </label>
                                         <input type="text" id="celular" name="celular"
-                                               class="form-control @error('celular') is-invalid @enderror"
+                                               class="form-control celular @error('celular') is-invalid @enderror"
                                                value="{{ old('celular',$pessoa_juridica[0]->celular) }}">
                                     </div>
                                 </div>
@@ -109,15 +109,17 @@
                                 <div class="col-12 col-sm-2">
                                     <div class="form-group">
                                         <label for="cep">Cep</label>
-                                        <input type="text" class="form-control @error('cep') is-invalid @enderror"
-                                               value="{{ old('cep',$pessoa_juridica[0]->cep) }}" name="cep" id="cep" placeholder="">
+                                        <input type="text" class="form-control cep @error('cep') is-invalid @enderror"
+                                               value="{{ old('cep',$pessoa_juridica[0]->cep) }}" name="cep" id="cep"
+                                               placeholder="">
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                         <label for="endereco">Endereço</label>
-                                        <input type="text" class="form-control" value="{{ old('endereco',$pessoa_juridica[0]->endereco) }}"
+                                        <input type="text" class="form-control"
+                                               value="{{ old('endereco',$pessoa_juridica[0]->endereco) }}"
                                                name="endereco" id="endereco" placeholder="">
                                     </div>
                                 </div>
@@ -125,7 +127,8 @@
                                 <div class="col-12 col-sm-2">
                                     <div class="form-group">
                                         <label for="numero">Número</label>
-                                        <input type="number" class="form-control" value="{{ old('numero',$pessoa_juridica[0]->numero) }}"
+                                        <input type="number" class="form-control"
+                                               value="{{ old('numero',$pessoa_juridica[0]->numero) }}"
                                                name="numero" id="numero" placeholder="">
                                     </div>
                                 </div>
@@ -133,7 +136,8 @@
                                 <div class="col-12 col-sm-2">
                                     <div class="form-group">
                                         <label for="complemento">Complemento</label>
-                                        <input type="text" class="form-control" value="{{ old('complemento',$pessoa_juridica[0]->complemento) }}"
+                                        <input type="text" class="form-control"
+                                               value="{{ old('complemento',$pessoa_juridica[0]->complemento) }}"
                                                name="complemento" id="complemento" placeholder="">
                                     </div>
                                 </div>
@@ -145,7 +149,8 @@
                                 <div class="col-12 col-sm-3">
                                     <div class="form-group">
                                         <label for="bairro">Bairro</label>
-                                        <input type="text" class="form-control" value="{{ old('bairro',$pessoa_juridica[0]->bairro) }}"
+                                        <input type="text" class="form-control"
+                                               value="{{ old('bairro',$pessoa_juridica[0]->bairro) }}"
                                                name="bairro" id="bairro" placeholder="">
                                     </div>
                                 </div>
@@ -153,7 +158,8 @@
                                 <div class="col-12 col-sm-3">
                                     <div class="form-group">
                                         <label for="cidade">Cidade</label>
-                                        <input type="text" class="form-control" value="{{ old('cidade',$pessoa_juridica[0]->cidade) }}"
+                                        <input type="text" class="form-control"
+                                               value="{{ old('cidade',$pessoa_juridica[0]->cidade) }}"
                                                name="cidade" id="cidade" placeholder="">
                                     </div>
                                 </div>
@@ -161,7 +167,8 @@
                                 <div class="col-12 col-sm-3">
                                     <div class="form-group">
                                         <label for="estado">Estado</label>
-                                        <input type="text" class="form-control" value="{{ old('estado',$pessoa_juridica[0]->estado) }}"
+                                        <input type="text" class="form-control"
+                                               value="{{ old('estado',$pessoa_juridica[0]->estado) }}"
                                                name="estado" id="estado" placeholder="">
                                     </div>
                                 </div>
@@ -169,7 +176,8 @@
                                 <div class="col-12 col-sm-3">
                                     <div class="form-group">
                                         <label for="pais">País</label>
-                                        <input type="text" class="form-control" value="{{ old('pais',$pessoa_juridica[0]->pais) }}" name="pais"
+                                        <input type="text" class="form-control"
+                                               value="{{ old('pais',$pessoa_juridica[0]->pais) }}" name="pais"
                                                id="pais" placeholder="">
                                     </div>
                                 </div>
@@ -235,31 +243,7 @@
 
 @section('scripts')
 
-    <script>
-
-        $(document).ready(function () {
-
-            $('#cnpj').mask('00.000.000/0000-00', {reverse: true});
-            $('#cep').mask('00000-000');
-            $('#nascimento').mask('00/00/0000');
-            $('#telefone').mask('(00) 0000-0000');
-
-            let CLMaskBehavior = function (val) {
-                    return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
-                };
-
-            let clOptions = {
-                    onKeyPress: function(val, e, field, options) {
-                        field.mask(CLMaskBehavior.apply({}, arguments), options);
-                    }
-                };
-
-            $('#celular').mask(CLMaskBehavior, clOptions);
-
-            $('#rg').mask('99.999.999-9')
-
-        });
-
-    </script>
+    <!-- Máscara de formulários -->
+    <script src="{{asset('/js/formulario_mascaras.js')}}"></script>
 
 @endsection

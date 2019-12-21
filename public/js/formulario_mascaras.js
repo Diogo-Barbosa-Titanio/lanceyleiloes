@@ -94,6 +94,9 @@
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
+  $('.cnpj').mask('00.000.000/0000-00', {
+    reverse: true
+  });
   $('.cpf').mask('000.000.000-00', {
     reverse: true
   });
@@ -117,6 +120,7 @@ $(document).ready(function () {
   };
   $('.celular').mask(CLMaskBehavior, clOptions);
   $('.rg').mask('99.999.999-9');
+  $('.data').datepicker($.datepicker.regional['pt-BR']);
 });
 
 /***/ }),

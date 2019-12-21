@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="post" action="{{url('/admin/lotes/store')}}" enctype="multipart/form-data">
+                        <form method="post" action="{{url('/admin/lotes/store')}}" enctype="multipart/form-data" autocomplete="off">
                             @csrf
 
                             <fieldset>
