@@ -57,7 +57,7 @@
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Outros:</h6>
                 <a class="collapse-item" href="#">Banners</a>
-                <a class="collapse-item" href="#">Categorias</a>
+                <a class="collapse-item {{ Request()->is('admin/lotes_categorias') ? 'active':'' }}" href="{{url('/admin/lotes_categorias')}}">Categorias</a>
                 <a class="collapse-item" href="{{url('/admin/comitentes')}}">Comitentes</a>
                 <a class="collapse-item" href="#">Frases</a>
                 <a class="collapse-item" href="#">Faq</a>

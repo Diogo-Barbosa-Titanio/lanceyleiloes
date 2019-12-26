@@ -29,7 +29,7 @@ Route::get('/admin/login','Admin\LoginController@index');
 Route::post('/admin/login','Admin\LoginController@index')->name('admin_login');
 Route::get('/admin/home','Admin\HomeController@index');
 
-//Lotes
+//Admin - Lotes
 Route::get('/admin/lotes','Admin\LoteController@index');
 Route::get('/admin/lotes/create','Admin\LoteController@create');
 Route::post('/admin/lotes/store','Admin\LoteController@store');
@@ -38,7 +38,15 @@ Route::put('/admin/lotes/update','Admin\LoteController@update');
 Route::delete('/admin/lotes/delete','Admin\LoteController@destroy');
 
 
-//Leilões
+//Admin - Categorias
+Route::get('/admin/lotes_categorias','Admin\LoteCategoriaController@index');
+Route::get('/admin/lotes_categorias/create','Admin\LoteCategoriaController@create');
+Route::post('/admin/lotes_categorias/store','Admin\LoteCategoriaController@store');
+Route::get('/admin/lotes_categorias/edit','Admin\LoteCategoriaController@edit');
+Route::put('/admin/lotes_categorias/update','Admin\LoteCategoriaController@update');
+Route::delete('/admin/lotes_categorias/delete','Admin\LoteCategoriaController@destroy');
+
+//Admin - Leilões
 Route::get('/admin/leiloes','Admin\LeilaoController@index');
 Route::get('/admin/leiloes/create','Admin\LeilaoController@create');
 Route::post('/admin/leiloes/store','Admin\LeilaoController@store');
@@ -48,7 +56,7 @@ Route::delete('/admin/leiloes/delete','Admin\LeilaoController@destroy');
 
 
 
-//Comitentes
+//Admin - Comitentes
 Route::get('/admin/comitentes','Admin\ComitenteController@index');
 Route::get('/admin/comitentes/create','Admin\ComitenteController@create');
 Route::post('/admin/comitentes/store','Admin\ComitenteController@store');
