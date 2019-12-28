@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
 use App\PessoaJuridica;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
 class PessoaJuridicaController extends Controller
 {
     public function create()
     {
-       return view('pessoa_juridica');
+       return view('front/pessoa_juridica');
     }
 
     public function store(Request $request)
