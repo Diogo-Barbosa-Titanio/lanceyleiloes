@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class LoteCategoria extends Model
 {
@@ -36,39 +35,82 @@ class LoteCategoria extends Model
      * @var array
      */
     private $campos = ['lotes_categorias.id as id',
-                       'lotes_categorias.nome as nome',
-                       'lotes_categorias.tipo as tipo'
-        ];
+        'lotes_categorias.nome as nome',
+        'lotes_categorias.tipo as tipo'
+    ];
 
 
     protected function sqlQuerySelect(array $campos)
     {
-        $query = LoteCategoria::select($campos)
-                          ->selectRaw('(CASE
-                                            WHEN lotes_categorias.tipo = 1 THEN "Residencial"
-                                            WHEN lotes_categorias.tipo = 2 THEN "Comercial"
-                                            ELSE "Indefinido"
-                                         END) as tipo_nome');
+        $query = $this->select($campos)
+                      ->selectRaw('(CASE
+                                        WHEN lotes_categorias.tipo = 1 THEN "Residencial"
+                                        WHEN lotes_categorias.tipo = 2 THEN "Comercial"
+                                        ELSE "Indefinido"
+                                    END) as tipo_nome');
         return $query;
     }
 
     public function listarCadastros()
     {
-        $query = $this->sqlQuerySelect($this->campos)->get();
+        $result = $this->sqlQuerySelect($this->campos)->get();
 
-        return $query;
+        return $result;
     }
+
+    public function listarCadastro(int $id)
+    {
+
+        $result = $this->sqlQuerySelect($this->campos)
+            ->where('lotes_categorias.id', '=', $id)
+            ->get();
+
+        return $result;
+    }
+
 
     public function gravar(array $dados)
     {
-        $lotesCategorias = new LoteCategoria();
+        $this->nome = $dados['nome'];
+        $this->tipo = $dados['tipo'];
 
-        $lotesCategorias->nome = $dados['nome'];
-        $lotesCategorias->tipo = $dados['tipo'];
+        if ($this->save()) {
+            return true;
+        }
 
-        $lotesCategorias->save();
+        return false;
 
-        return true;
+    }
+
+    public function alterar(array $dados)
+    {
+        $id = $dados[':id'];
+        $nome = $dados[':nome'];
+        $tipo = $dados[':tipo'];
+
+
+        $lote_categoria = $this->find($id);
+
+        $lote_categoria->nome = $nome;
+        $lote_categoria->tipo = $tipo;
+
+        if ($lote_categoria->save()) {
+            return true;
+        }
+
+        return false;
+
+    }
+
+    public function apagar(array $dados)
+    {
+        $id = $dados[':id'];
+
+        if ($this->destroy($id)) {
+            return true;
+        }
+
+        return false;
     }
 
 }

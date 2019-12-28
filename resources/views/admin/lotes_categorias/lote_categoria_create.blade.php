@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('titulo','Cadastro de Lote')
+@section('titulo','Cadastro de Categoria')
 
 @section('content')
 
@@ -41,8 +41,8 @@
                                             </label>
                                             <select id="tipo" name="tipo" class="form-control">
                                                 <option value="">Selecione</option>
-                                                <option value="1" {{old('desocupado') == 'S' ? 'selected' : ''}}>Residencial</option>
-                                                <option value="2" {{old('desocupado') == 'S' ? 'selected' : ''}}>Comercial</option>
+                                                <option value="1" {{old('tipo') == '1' ? 'selected' : ''}}>Residencial</option>
+                                                <option value="2" {{old('tipo') == '2' ? 'selected' : ''}}>Comercial</option>
                                             </select>
                                         </div>
                                     </div>
