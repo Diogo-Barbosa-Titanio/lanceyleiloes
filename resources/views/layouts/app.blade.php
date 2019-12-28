@@ -31,90 +31,111 @@
 
 <div id="app">
 
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+    <nav class="purple darken-3" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="index.html" class="brand-logo">
+                <div class="valign-wrapper">
+                    <img class="responsive-img" src="{{asset('storage/images/logo.png')}}" alt="Lancey Leilões">
+                </div>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="{{url('/')}}/login">
+                        <div class="valign-wrapper">
+                            <i class="material-icons">account_circle</i><span class="texto">Faça seu login</span>
+                        </div>
+                    </a>
+                </li>
+                <li><a href="{{url('/')}}/pessoa_fisica">Cadastre-se</a></li>
+                <li><a href="{{url('/')}}/quem_somos">Quem Somos</a></li>
+                <li><a href="#">Faq</a></li>
+                <li><a href="#">Fale Conosco</a></li>
+            </ul>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
-
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
-                    @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
-                    @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    @endguest
-                </ul>
-            </div>
+            <ul id="nav-mobile" class="sidenav">
+                <li><a href="#">
+                        <div class="valign-wrapper"><i class="material-icons">account_circle</i><span class="texto">Faça seu login</span>
+                        </div>
+                    </a></li>
+                <li><a href="#">Cadastre-se</a></li>
+                <li><a href="#">Quem Somos</a></li>
+                <li><a href="#">Faq</a></li>
+                <li><a href="#">Fale Conosco</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
     </nav>
 
-    <header class="topo">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-3">
-                    <a href="{{url('/')}}">
-                        <img src="{{asset('storage/images/logo.png')}}" alt="Lancey Leilões">
-                    </a>
+    <header class="purple darken-3">
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <br><br>
+                <h1 class="header center orange-text">Em breve a Lancey</h1>
+                <div class="row center">
+                    <h5 class="header col s12 light white-text">A plataforma que irá democratizar o leilão de imóveis.</h5>
                 </div>
-                <div class="col-xl-3">
+                <div class="row center">
+                    <a href="http://materializecss.com/getting-started.html" id="download-button"
+                       class="btn-large waves-effect waves-light orange">Conheça nossa plataforma</a>
+                </div>
+                <br><br>
 
-                </div>
-                <div class="col-xl-6">
-                    <ul class="nav justify-content-around menu">
-                        <li class="nav-item">
-                            <a href="{{url('/')}}/login">
-                                <span class="icone"><i class="fas fa-user-circle"></i></span>
-                                <span class="texto">Faça seu login</span>
-                            </a>
-                        </li>
-                        <li class="nav-item"><a href="{{url('/')}}/pessoa_fisica"><span class="texto">Cadastre-se</span></a>
-                        </li>
-                        <li class="nav-item"><a href="{{url('/')}}/quem_somos"><span class="texto">Quem Somos</span></a></li>
-                        <li class="nav-item"><a href="#"><span class="texto">Faq</span></a></li>
-                        <li class="nav-item"><a href="#"><span class="texto">Fale Conosco</span></a></li>
-                    </ul>
-                </div>
             </div>
         </div>
+
+        <div class="container">
+            <div class="section pesquisa">
+                <form method="get" action="" class="row">
+                    <div class="col s12 xl3">
+                        <label for="tipo_leilao" class="titulo">SELECIONE SEU INTERESSE</label>
+                        <div class="input-field">
+                            <select name="tipo_leilao" id="tipo_leilao" multiple>
+                                <option value="" disabled>Tipo do Leilão</option>
+                                <option value="1">Judicial</option>
+                                <option value="2">Extrajudicial</option>
+                                <option value="3">Privado</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col s12 xl3">
+                        <label for="tipo_imovel" class="titulo">QUAL TIPO DE IMÓVEL?</label>
+                        <div class="input-field">
+                            <select name="tipo_imovel" id="tipo_imovel" multiple>
+                                <option value="" disabled class="red">Tipo do imóvel</option>
+                                <option value="1">Apartamento</option>
+                                <option value="2">Casa</option>
+                                <option value="3">Loja</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col s12 xl5">
+                        <label for="localidade" class="titulo">ONDE ?</label>
+                        <div class="input-field">
+                            <i class="material-icons prefix">textsms</i>
+                            <input type="text" name="localidade" id="localidade" placeholder="Digite um bairro ou cidade" class="autocomplete">
+                        </div>
+                    </div>
+
+                    <div class="col s12 xl1">
+                        <br>
+                        <div class="input-field center">
+                            <button class="btn waves-effect waves-light" type="submit">Buscar</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <!-- Fim de .container -->
+
     </header>
+
+
+
 
 
     <main role="main">
@@ -177,6 +198,8 @@
 
 <!-- Bootstrap JS, JQuery and Core plugin JavaScript -->
 <script src="{{ asset(mix('/js/app.js')) }}"></script>
+<script src="{{ asset('js/materialize.js')}}"></script>
+<script src="{{ asset('js/init.js') }}"></script>
 
 @hasSection('scripts')
     @yield('scripts')
