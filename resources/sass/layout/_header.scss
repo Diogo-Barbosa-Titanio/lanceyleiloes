@@ -1,9 +1,24 @@
 /* Arquivo _header.scss */
-header {
-    background-color: #652c88;
 
-    &.topo {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
+header {
+  #index-banner {
+
+    background-image: url(../images/banner/banner.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+  }
+
+  .pesquisa {
+
+       form {
+           .titulo{
+             font-weight: bold;
+             color: #fff;
+           }
+       }
+
+   }
+
 }

@@ -10,8 +10,11 @@
 
     <title>@yield('titulo')</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link href="{{ asset('/css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection">
+
+    <!-- Materialize CSS -->
+    <link href="{{ asset('/css/materialize_custom.css') }}" type="text/css" rel="stylesheet" media="screen,projection">
 
     <!-- Custom CSS -->
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">

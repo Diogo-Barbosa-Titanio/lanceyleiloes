@@ -1,15 +1,18 @@
 /* Arquivo _menu.scss */
 
-header {
-    .menu {
-        .icone {
-            i {
-                font-size: 16px;
-            }
-        }
+nav {
 
-        .texto {
-            font-weight: bold;
-        }
-    }
+  a {
+     //Ajustes de para o logo
+     &#logo-container {
+       height: 100%;
+
+       div {
+         height: 100%;
+       }
+
+     }
+
+  }
+
 }

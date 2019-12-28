@@ -1,11 +1,22 @@
+// Color
+@import "materialize_custom/sass/components/color-variables";
+@import "materialize_custom/sass/components/color-classes";
+
+// Variables;
+@import "materialize_custom/sass/components/variables";
+
+
 @import "helpers/variables";
 @import "helpers/mixins";
 @import "helpers/placeholders";
+
+@import "_starter-template";
 
 @import "base/reset";
 @import "base/fonts";
 @import "base/base";
 
+@import "components/login_user";
 @import "components/leilao_box";
 @import "components/buttons";
 
