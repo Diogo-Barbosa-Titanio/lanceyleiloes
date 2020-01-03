@@ -343,7 +343,10 @@
 </div>
 @endauth
 
+
 <!-- Bootstrap JS, JQuery and Core plugin JavaScript -->
+<script src="{{ asset(mix('/js/manifest.js')) }}"></script>
+<script src="{{ asset(mix('/js/vendor.js')) }}"></script>
 <script src="{{ asset(mix('/js/app.js')) }}"></script>
 
 <!-- Custom scripts for all pages-->
@@ -360,6 +363,7 @@
 @endif
 
 <script>
+    //Colocar a classe active quando a janela tiver mais de 767 pixels
     $(document).ready(function () {
         if($(document).width() > 767) {
             $(".active").parent().parent().addClass('show');

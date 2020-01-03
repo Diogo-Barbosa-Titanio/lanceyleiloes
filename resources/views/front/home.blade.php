@@ -1,42 +1,49 @@
 @extends('layouts.app')
 
+@section('titulo','Home')
+
 @section('content')
     <div class="container home">
-        <div class="row">
-            <div class="col-sm-12">
-                <h2>
-                   <span class="texto">Leilões em andamento</span>
-                </h2>
-            </div>
-        </div>
-        <div class="row">
 
-          @foreach($leiloesAbertos as $leilao)
-
-            <div class="col-sm-4">
-               @include('front.leilao_box',['leilao' => $leilao])
+        <div class="section">
+            <div class="row">
+                <div class="col s12">
+                    <h2>
+                       <span class="texto">Leilões em andamento</span>
+                    </h2>
+                </div>
             </div>
 
-           @endforeach
+            <div class="row">
 
-        </div>
+              @foreach($leiloesAbertos as $leilao)
 
-        <div class="row">
-            <div class="col-sm-12">
-                <h2>
-                    <span class="texto">Leilões finalizados</span>
-                </h2>
-            </div>
-        </div>
-        <div class="row">
-
-            @foreach($leiloesNaoArrematados as $leilao)
-
-                <div class="col-sm-4">
-                    @include('front.leilao_box',['leilao' => $leilao])
+                <div class="col s12 xl4">
+                   @include('front.leilao_box',['leilao' => $leilao])
                 </div>
 
-            @endforeach
+               @endforeach
+
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+                    <h2>
+                        <span class="texto">Leilões finalizados</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+
+                @foreach($leiloesNaoArrematados as $leilao)
+
+                    <div class="col s12 xl4">
+                        @include('front.leilao_box',['leilao' => $leilao])
+                    </div>
+
+                @endforeach
+
+            </div>
 
         </div>
     </div>

@@ -13,9 +13,6 @@
     <!-- Materialize CSS -->
     <link href="{{ asset('/css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection">
 
-    <!-- Materialize CSS -->
-    <link href="{{ asset('/css/materialize_custom.css') }}" type="text/css" rel="stylesheet" media="screen,projection">
-
     <!-- Custom CSS -->
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 
@@ -33,7 +30,7 @@
 
     <nav class="purple darken-3" role="navigation">
         <div class="nav-wrapper container">
-            <a id="logo-container" href="index.html" class="brand-logo">
+            <a id="logo-container" href="{{url('/')}}" class="brand-logo">
                 <div class="valign-wrapper">
                     <img class="responsive-img" src="{{asset('storage/images/logo.png')}}" alt="Lancey Leilões">
                 </div>
@@ -197,6 +194,8 @@
 </div>
 
 <!-- Bootstrap JS, JQuery and Core plugin JavaScript -->
+<script src="{{ asset(mix('/js/manifest.js')) }}"></script>
+<script src="{{ asset(mix('/js/vendor.js')) }}"></script>
 <script src="{{ asset(mix('/js/app.js')) }}"></script>
 <script src="{{ asset('js/materialize.js')}}"></script>
 <script src="{{ asset('js/init.js') }}"></script>

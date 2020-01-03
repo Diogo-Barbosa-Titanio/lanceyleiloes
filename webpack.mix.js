@@ -12,7 +12,8 @@ const mix = require('laravel-mix');
  */
 
 // Bootstrap JS
-mix.js('resources/js/app.js', 'public/js').version();
+mix.js('resources/js/app.js', 'public/js')
+   .extract(['jquery', 'bootstrap', 'lodash', 'popper.js','axios','chart.js','datatables.net-bs4','jquery.easing','jquery-mask-plugin']).version();
 
 // Bootstrap SCSS
 mix.sass('resources/sass/app.scss', 'public/css');
@@ -42,9 +43,6 @@ mix.copy('resources/js/gallery.js', 'public/js');
 //jQuery UI
 mix.copyDirectory('resources/js/jquery-ui', 'public/vendor/jquery-ui');
 
-// Sass Materialize Source (Código Sass Materialize)
-mix.sass('./node_modules/materialize-css/sass/materialize.scss', 'public/css');
-
 // Materialize JS
 mix.copy('./node_modules/materialize-css/dist/js/materialize.js', 'public/js');
 
@@ -54,7 +52,10 @@ mix.copyDirectory('./node_modules/material-design-icons/iconfont','public/fonts/
 //Sass Bootstrap Utilities Source (Código Sass contendo só algumas partee do Utilities do Boostrap)
 mix.sass('resources/sass/bootstrap_utilities/sass/bootstrap_custom_utilities.scss','public/css');
 
-// Sass Materialize Source (Código Sass Materialize personalizado)
-mix.sass('resources/sass/materialize_custom/sass/materialize_custom.scss','public/css');
+// Sass Materialize CSS Source (Código Sass Materialize personalizado)
+mix.sass('resources/sass/materialize-css/sass/materialize.scss','public/css');
+
+//Init - Inicializações do javascript
+mix.copy('resources/js/init.js', 'public/js');
 
 
