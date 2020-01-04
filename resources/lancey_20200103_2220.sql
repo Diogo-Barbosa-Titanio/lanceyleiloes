@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 27/12/2019 às 23:17
+-- Tempo de geração: 03/01/2020 às 22:20
 -- Versão do servidor: 5.7.28-0ubuntu0.18.04.4
 -- Versão do PHP: 7.3.10-1+ubuntu18.04.1+deb.sury.org+1
 
@@ -210,6 +210,7 @@ CREATE TABLE `lotes` (
   `data_fim` date DEFAULT NULL COMMENT 'Data de fim do leilão para este lote.',
   `hora_inicio` time DEFAULT NULL COMMENT 'Horário de início do leilão',
   `hora_fim` time DEFAULT NULL COMMENT 'Horário de encerramento do leilão.',
+  `edital` text COLLATE utf8mb4_unicode_ci,
   `codigo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -219,9 +220,9 @@ CREATE TABLE `lotes` (
 -- Fazendo dump de dados para tabela `lotes`
 --
 
-INSERT INTO `lotes` (`id`, `id_leiloes`, `id_lotes_situacoes`, `id_lotes_categorias`, `nome`, `descricao`, `lance_inicial`, `lance_minimo`, `data_inicio`, `data_fim`, `hora_inicio`, `hora_fim`, `codigo`, `created_at`, `updated_at`) VALUES
-(6, 2, 4, 1, 'Casa de 300 m², Vila Kosmos', 'Casa de 300 m² boa localização próximo ao Shopping Carioca, metrô de Vicente de Carvalho e a escola de ensino fundamental e médio PIO XII. Bairro residencial.', 300095.27, 452230.39, '2019-11-13', '2019-12-20', '02:55:22', '20:12:33', NULL, '2019-12-27 19:45:46', '2019-12-27 19:58:49'),
-(8, 2, 4, 1, 'Lote de teste', 'Lote de teste descrição', 80885.08, 90213.09, '2019-11-13', '2019-12-16', '14:35:44', '09:35:00', NULL, '2019-12-02 20:15:31', '2019-12-27 19:58:49');
+INSERT INTO `lotes` (`id`, `id_leiloes`, `id_lotes_situacoes`, `id_lotes_categorias`, `nome`, `descricao`, `lance_inicial`, `lance_minimo`, `data_inicio`, `data_fim`, `hora_inicio`, `hora_fim`, `edital`, `codigo`, `created_at`, `updated_at`) VALUES
+(6, 2, 4, 1, 'Casa de 300 m², Vila Kosmos', 'Casa de 300 m² boa localização próximo ao Shopping Carioca, metrô de Vicente de Carvalho e a escola de ensino fundamental e médio PIO XII. Bairro residencial.', 300095.27, 452230.39, '2019-11-13', '2019-12-20', '02:55:22', '20:12:33', NULL, NULL, '2019-12-27 19:45:46', '2020-01-04 00:55:13'),
+(8, 2, 4, 1, 'Lote de teste', 'Lote de teste descrição', 80885.08, 90213.09, '2019-11-13', '2019-12-16', '14:35:44', '09:35:00', NULL, NULL, '2019-12-02 20:15:31', '2020-01-04 00:55:13');
 
 -- --------------------------------------------------------
 
@@ -490,7 +491,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('aLp8vePXwIBHzhirrrppDCjZ23PPpSC9UKnsExq3', NULL, '192.168.50.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiMWpBU3lMNVE0amxWWlpkUmY0ZEZ3ZG5pU1NIdzNZZmtEWDdqUmRyNCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9kZXYubGFuY2V5bGVpbG9lcy5jb20uYnIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1577499319);
+('zcVrChEq3MDbGj5v0a78WfV5QFKpWaOQJfJu2knI', 1, '192.168.50.1', 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoidE9OR1ZRUHlUcHVDMno0TXc5bW96OEQ1S3VMRldtZkVESnVSRlRPWSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9kZXYubGFuY2V5bGVpbG9lcy5jb20uYnIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1578100606);
 
 -- --------------------------------------------------------
 
@@ -875,7 +876,7 @@ ALTER TABLE `lotes_caracteristicas`
 -- AUTO_INCREMENT de tabela `lotes_categorias`
 --
 ALTER TABLE `lotes_categorias`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de tabela `lotes_enderecos`
 --
