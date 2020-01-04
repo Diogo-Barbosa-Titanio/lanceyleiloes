@@ -2195,6 +2195,11 @@
 
 /* Arquivo _base.scss */
 
+.icone_brasilbrokers {
+  background: url("http://dev.lanceyleiloes.com.br/storage/images/icones/logo-brasilbrokers.png") no-repeat 0px 0px;
+  padding: 2px 60px 2px 60px;
+}
+
 /* Arquivo _login_user.scss */
 
 .login {
@@ -2213,13 +2218,17 @@
 
 /* Arquivo _leilao_box.scss */
 
+.leilao_foto img {
+  max-height: 228px;
+}
+
 .leilao_imovel {
   text-align: center;
 }
 
 .leilao_imovel .detalhes .quantidade {
   display: inline-block;
-  padding: 5%;
+  padding: 4%;
 }
 
 .leilao_imovel .detalhes .quantidade i {
@@ -2266,10 +2275,45 @@
   padding: 0 0 0 5px;
 }
 
+.leilao_natureza {
+  font-weight: bold;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.leilao_tipo {
+  font-weight: bold;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.leilao_situacao {
+  font-weight: bold;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.leilao_detalhes {
+  margin-top: 5px;
+}
+
+.leilao_nome {
+  font-weight: bold;
+}
+
 /* Arquivo _header.scss */
 
 header #index-banner {
-  background-image: url(/images/banner.jpg?c68faf3530516826cd8e9e03792878b0);
+  background-image: url("http://dev.lanceyleiloes.com.br/storage/images/banner/banner.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -2299,6 +2343,10 @@ nav a#logo-container div {
 /* Arquivo _mobile.scss */
 
 /* Arquivo _home.scss */
+
+.home span.texto {
+  font-weight: bold;
+}
 
 /* Arquivo _entrar.scss */
 

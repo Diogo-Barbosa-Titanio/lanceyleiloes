@@ -26,7 +26,6 @@
 </head>
 <body>
 
-<div id="app">
 
     <nav class="purple darken-3" role="navigation">
         <div class="nav-wrapper container">
@@ -83,7 +82,7 @@
         <div class="container">
             <div class="section pesquisa">
                 <form method="get" action="" class="row">
-                    <div class="col s12 xl3">
+                    <div class="col s12 l3">
                         <label for="tipo_leilao" class="titulo">SELECIONE SEU INTERESSE</label>
                         <div class="input-field">
                             <select name="tipo_leilao" id="tipo_leilao" multiple>
@@ -96,7 +95,7 @@
 
                     </div>
 
-                    <div class="col s12 xl3">
+                    <div class="col s12 l3">
                         <label for="tipo_imovel" class="titulo">QUAL TIPO DE IMÓVEL?</label>
                         <div class="input-field">
                             <select name="tipo_imovel" id="tipo_imovel" multiple>
@@ -109,7 +108,7 @@
 
                     </div>
 
-                    <div class="col s12 xl5">
+                    <div class="col s12 l5">
                         <label for="localidade" class="titulo">ONDE ?</label>
                         <div class="input-field">
                             <i class="material-icons prefix">textsms</i>
@@ -117,7 +116,7 @@
                         </div>
                     </div>
 
-                    <div class="col s12 xl1">
+                    <div class="col s12 l1">
                         <br>
                         <div class="input-field center">
                             <button class="btn waves-effect waves-light" type="submit">Buscar</button>
@@ -136,62 +135,72 @@
 
 
     <main role="main">
-
-        @yield('content')
-
+        <div id="app">
+            @yield('content')
+        </div>
     </main>
 
 
-    <footer>
 
-        <div class="container pt-4 pb-5">
+    <footer class="page-footer purple darken-3">
+        <div class="container">
             <div class="row">
-                <div class="col-xl-8">
-                    <h6 class="fonte-cor-secundaria">Newsletter</h6>
-                    <p>Cadastre-se para receber as novidades.</p>
-                    <form id="form_newslleter" class="d-flex justify-content-middle">
-                        <div class="d-inline-block">
-                            <input type="email" name="email" class="form-control email" placeholder="Email">
-                        </div>
-                        <div class="d-inline-block">
-                            <button class=" btn btn-cor-secundaria ml-1 mr-1">Cadastrar</button>
-                        </div>
+                <div class="col s12 l12 xl5">
+                    <h5 class="white-text">Newsletter</h5>
+                    <form>
+                          <div class="input-field">
+                              <input id="email" type="email" class="validate">
+                              <label for="email">Email</label>
+                              Cadastre-se para receber as novidades.
+                          </div>
+
+                          <div class="input-field">
+                                <button class="btn btn-small">Cadastrar</button>
+                          </div>
                     </form>
                 </div>
-                <div class="col-xl-2">
-                    <h6 class="fonte-cor-secundaria">Informações</h6>
+
+                <div class="col s12 l4 xl2">
+                    <h5 class="white-text">Informações</h5>
                     <ul>
-                        <li><a href="{{url('/')}}/quem_somos">Quem Somos</a></li>
-                        <li><a href="{{url('/')}}">Termos de uso</a></li>
-                        <li><a href="{{url('/')}}">Perguntas Frequentes</a></li>
-                        <li><a href="{{url('/')}}">Fale Conosco</a></li>
+                        <li><a class="white-text" href="{{url('/')}}/quem_somos">Quem Somos</a></li>
+                        <li><a class="white-text" href="{{url('/')}}">Termos de uso</a></li>
+                        <li><a class="white-text" href="{{url('/')}}">Perguntas Frequentes</a></li>
+                        <li><a class="white-text" href="{{url('/')}}">Fale Conosco</a></li>
                     </ul>
                 </div>
-                <div class="col-xl-2">
-                    <h6 class="fonte-cor-secundaria">Minha Conta</h6>
+
+                <div class="col s12 l4 xl2">
+                    <h5 class="white-text">Minha Conta</h5>
                     <ul>
-                        <li><a href="{{url('/')}}/pessoa_fisica">Cadastre-se</a></li>
-                        <li><a href="{{url('/')}}/login">Login</a></li>
-                        <li><a href="{{url('/')}}">Esqueci minha senha</a></li>
+                        <li><a class="white-text" href="{{url('/')}}/pessoa_fisica">Cadastre-se</a></li>
+                        <li><a class="white-text" href="{{url('/')}}/login">Login</a></li>
+                        <li><a class="white-text" href="{{url('/')}}">Esqueci minha senha</a></li>
                     </ul>
                 </div>
-            </div>
 
-        </div>
-
-        <div class="container-fluid">
-            <div class="row copyright">
-                <div class="col-xl text-center pt-3 pb-5">
-                    <div>Uma empresa do grupo <i class="icone_brasilbrokers"></i></div>
-                    <div class="linha_branca_footer mt-1 mb-1"></div>
-                    <div>2019 Copyright Brasil Brokers. Todos os direitos reservados</div>
+                <div class="col s12 l4 xl3">
+                    <h5 class="white-text">Localização</h5>
+                    <p>
+                        Rua Dalcídio Jurandir, 115 - Barra da Tijuca <br>
+                        Rio de Janeiro - RJ , Cep: 22631-250
+                    </p>
                 </div>
             </div>
         </div>
+        <div class="footer-copyright yellow darken-4">
+            <div class="container">
 
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <div>Uma empresa do grupo <i class="icone_brasilbrokers"></i></div>
+                        <div>2019 Copyright Brasil Brokers. Todos os direitos reservados</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </footer>
-
-</div>
 
 <!-- Bootstrap JS, JQuery and Core plugin JavaScript -->
 <script src="{{ asset(mix('/js/manifest.js')) }}"></script>

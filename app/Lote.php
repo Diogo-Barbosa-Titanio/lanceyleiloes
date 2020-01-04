@@ -47,6 +47,7 @@ class Lote extends Model
                        'lotes.lance_inicial as lance_inicial',
                        'lotes.lance_minimo as lance_minimo',
                        'leiloes.nome as nome_leilao',
+                       'leiloes.edital as edital_leilao',
                        'lotes_situacoes.nome as nome_situacao',
                        'lotes_categorias.nome as nome_categoria',
                        'lotes_enderecos.cep as cep',

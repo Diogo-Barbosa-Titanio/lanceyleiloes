@@ -1,1 +1,9 @@
 /* Arquivo _home.scss */
+
+.home {
+    span {
+        &.texto {
+            font-weight: bold;
+        }
+    }
+}

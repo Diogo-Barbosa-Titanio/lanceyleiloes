@@ -147,6 +147,28 @@
 
                             </div>
 
+                            <div class="form-row">
+
+                                <div class="col-12 col-sm-6 mt-1 mb-2">
+
+                                    <div class="d-flex align-items-center h-100">
+                                        <div class="font-weight-bold">Foto atual: &nbsp;</div>
+                                        <div><img src="{{asset('storage'.$leiloes[0]->foto)}}" class="img-fluid" style="height:100px;" alt="Foto atual do leilão"></div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-12 col-sm-6 mt-1 mb-2">
+
+                                    <div class="d-flex align-items-center h-100">
+                                        <div class="font-weight-bold">Edital atual: &nbsp;</div>
+                                        <div><a href="{{asset('storage'.$leiloes[0]->edital)}}" target="_blank">Edital documento</a></div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
                             <button type="submit" class="btn btn-primary">
                                  <span class="text">Enviar</span>
                             </button>
