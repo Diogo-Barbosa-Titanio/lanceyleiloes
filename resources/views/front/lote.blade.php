@@ -12,92 +12,90 @@
 @section('content')
     <div class="container lote">
 
-        <div class="espacamento">
             <div class="row">
-                <div class="col-md-7">
-                    <a href="#" class=" btn btn-cor-secundaria ml-1 mr-1 font-weight-bold">REFAZER BUSCA</a>
+                <div class="col s12 xl7">
+
                 </div>
 
-                <div class="col-md-5 text-right">
-                    <a href="#" class=" btn btn-cor-auxiliar ml-1 mr-1 font-weight-bold">{{$leilao[0]->natureza}}</a>
-                    <a href="#" class=" btn btn-cor-principal ml-1 mr-1 font-weight-bold">HABILITAR-SE PARA O
-                        LEILÃO</a>
+                <div class="col s12 xl5">
+
+                </div>
+            </div>
+
+
+        <div class="row">
+            <div class="col s12 xl12">
+                <div class="card horizontal">
+
+                    <div class="card-image">
+                        @if(!empty($leilao[0]->foto_leilao))
+                            <a href="#">
+                                <img src="{{asset('storage'.$leilao[0]->foto_leilao)}}"
+                                      class="responsive-img"
+                                     alt="{{$leilao[0]->nome_leilao}}">
+                            </a>
+                        @endif
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <p>
+                                {{$leilao[0]->codigo_leilao}} - {{$leilao[0]->nome_leilao}}
+                            </p>
+                            <p>
+                                <span class="texto">Comitente:</span>
+                                <span>{{$leilao[0]->comitente_leilao}}</span>
+                            </p>
+
+                            <p>
+                                <span class="texto">Data de início:</span>
+                                <span>{{$leilao[0]->data_inicio}}</span>
+                            </p>
+
+                            <p>
+                                <span class="texto">Data de Término:</span>
+                                <span>{{$leilao[0]->data_fim}}</span>
+                            </p>
+
+                            <p>
+                                <span class="texto">Situação:</span>
+                                <span>{{$leilao[0]->nome_situacao}}</span>
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="btn">{{$leilao[0]->natureza}}</a>
+                            <a href="#" class="btn">HABILITAR-SE PARA O LEILÃO</a>
+                            <a href="#" class="btn">REFAZER BUSCA</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
 
-        <div class="border cabecalho">
-            <div class="row align-items-end">
-                <div class="col-md-2 text-center">
-                    @if(!empty($leilao[0]->foto_leilao))
-                        <a href="#">
-                            <img src="{{url('/')}}/../../web/fotos/{{$leilao[0]->foto_leilao}}"
-                                 style="max-width: 150px; max-height: 100px;" class="db w100p"
-                                 alt="{{$leilao[0]->nome_leilao}}">
-                        </a>
-                    @endif
-                </div>
-
-                <div class="col-md-5">
-                    <h2>
-                        <span class="texto">{{$leilao[0]->codigo_leilao}} - {{$leilao[0]->nome_leilao}}</span>
-                    </h2>
-
-                    <div>
-                        <span class="texto">Comitente:</span>
-                        <span>{{$leilao[0]->nome_comitente}}</span>
-                    </div>
-
-                    <div>
-                        <span class="texto">Data de início:</span>
-                        <span>{{$leilao[0]->data_ini}}</span>
-                    </div>
-                </div>
-
-                <div class="col-md-5">
-                    <div>
-                        <span class="texto">Modalidade:</span>
-                        <span>{{$leilao[0]->situacao_nome}}</span>
-                    </div>
-
-                    <div>
-                        <span class="texto">Data de Término:</span>
-                        <span>{{$leilao[0]->data_fim}}</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="espacamento">
-
             <div class="row">
-                <div class="col-md-12">
+                <div class="col xl12">
                     <h3>Lote {{$leilao[0]->lote_ordem}} - {{$leilao[0]->nome_lote}}</h3>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col xl12">
                     <span class="btn border">{{$leilao[0]->natureza}}</span>
-                    <span class="btn border">{{$leilao[0]->tipo_leilao}}</span>
-                    <span class="btn border">PRAÇA ÚNICA</span>
-                    <hr>
+                    <span class="btn">{{$leilao[0]->tipo_leilao}}</span>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-2">
+                <div class="col xl2">
                     <span class="pr-2"><i class="far fa-eye"></i></span> {{$leilao[0]->count}} <span class="pl-2">visualizações</span>
                 </div>
-                <div class="col-md-2">
+                <div class="col xl2">
                     <span class="pr-2"><i class="far fas fa-gavel"></i></span> 0 <span class="pl-2">lance(s)</span>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-12 col-md-4">
+                <div class="col s12 xl4">
                     <div id="container">
                         <div id="slideshow" class="fullscreen">
                             <!-- Below are the images in the gallery -->
@@ -131,7 +129,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4">
+                <div class="col s12  xl4">
                     <div class="border informacoes">
 
                         <div>
@@ -178,7 +176,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4">
+                <div class="col s12 xl4">
                     <div class="cronometro_leilao">
                         <div class="leilao_situacao" situacao="{{$leilao[0]->situacao_cor}}">
                             {{$leilao[0]->situacao_nome}}
@@ -223,13 +221,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+
+
+        <!-- espacamento -->
 
         <div class="espacamento">
 
             @if(!empty($leilao[0]->descricao_lote))
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col xl12">
                         <h2>
                             <span class="texto"> Descrição </span>
                         </h2>
@@ -246,7 +246,7 @@
 
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col xl12">
                     <h2>
                         <span class="texto"> Detalhes </span>
                     </h2>
@@ -268,7 +268,7 @@
             <hr>
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col xl12">
                     <h2>
                         <span class="texto"> Infraestrutura </span>
                     </h2>
@@ -397,7 +397,7 @@
                 console.log(event);
 
                 if (event.type == 'finish') {
-                    alert('Operação chegou ao final');
+                    console.log('Operação chegou ao final');
                 }
             });
     </script>

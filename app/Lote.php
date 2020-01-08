@@ -46,8 +46,10 @@ class Lote extends Model
                        'lotes.hora_fim as hora_fim',
                        'lotes.lance_inicial as lance_inicial',
                        'lotes.lance_minimo as lance_minimo',
+                       'leiloes.codigo as codigo_leilao',
                        'leiloes.nome as nome_leilao',
                        'leiloes.edital as edital_leilao',
+                       'leiloes.foto as foto_leilao',
                        'lotes_situacoes.nome as nome_situacao',
                        'lotes_categorias.nome as nome_categoria',
                        'lotes_enderecos.cep as cep',
@@ -93,6 +95,7 @@ class Lote extends Model
     {
 
         $lotes = Lote::select($campos)
+                    ->selectRaw('(select nome from leiloes_comitentes where id = leiloes.id_leiloes_comitentes) as comitente_leilao')
                     ->selectRaw('(select nome from leiloes_tipos where id = leiloes.id_leiloes_tipos) as tipo_leilao')
                     ->selectRaw('(select nome from leiloes_naturezas where id = leiloes.id_leiloes_naturezas) as natureza')
                     ->selectRaw('(select nome from lotes_fases_das_obras where id = lotes_caracteristicas.id_lotes_fases_das_obras) as fase_da_obra')
