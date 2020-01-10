@@ -2352,6 +2352,18 @@ nav a#logo-container div {
 
 /* Arquivo _lote.scss */
 
+.lote .informacoes {
+  display: inline-block;
+}
+
+.lote .informacoes .dados {
+  padding: 10px 0;
+}
+
+.lote .informacoes .dados .texto {
+  font-weight: bold;
+}
+
 /* Arquivo _pessoa_fisica.scss */
 
 /* Arquivo _pessoa_juridica.scss */

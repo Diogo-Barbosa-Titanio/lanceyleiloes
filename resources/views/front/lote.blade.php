@@ -13,12 +13,160 @@
     <div class="container lote">
 
             <div class="row">
-                <div class="col s12 xl7">
-
+                <div class="col s12 xl12">
+                    <div class="card">
+                        <div class="card-content">
+                            <h2>
+                               Leilão: {{$leilao[0]->nome_leilao}}
+                            </h2>
+                            <h3>
+                                Código do leilão: {{$leilao[0]->codigo_leilao}}
+                            </h3>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <div class="col s12 xl5">
+           <div class="row">
+                <div class="col s12 xl12">
+                    <div class="card">
+                        <div class="card-content">
 
+                            <div class="row">
+                                <div class="col xl4">
+                                    <div id="container">
+                                        <div id="slideshow" class="fullscreen">
+                                            <!-- Below are the images in the gallery -->
+                                            <div id="img-1" data-img-id="1" class="img-wrapper active"
+                                                 style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_163649_800.jpeg')}}')"></div>
+                                            <div id="img-2" data-img-id="2" class="img-wrapper"
+                                                 style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_170206_651.jpeg')}}')"></div>
+                                            <div id="img-3" data-img-id="3" class="img-wrapper"
+                                                 style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_170207_711.jpeg')}}')"></div>
+
+                                            <!-- Below are the thumbnails of above images -->
+                                            <div class="thumbs-container bottom">
+                                                <div id="prev-btn" class="prev">
+                                                    <i class="fa fa-chevron-left fa-3x"></i>
+                                                </div>
+
+                                                <ul class="thumbs">
+                                                    <li data-thumb-id="1" class="thumb active"
+                                                        style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_163649_800.jpeg')}}')"></li>
+                                                    <li data-thumb-id="2" class="thumb"
+                                                        style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_170206_651.jpeg')}}')"></li>
+                                                    <li data-thumb-id="3" class="thumb"
+                                                        style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_170207_711.jpeg')}}')"></li>
+                                                </ul>
+
+                                                <div id="next-btn" class="next">
+                                                    <i class="fa fa-chevron-right fa-3x"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col xl4">
+                                    <div class="informacoes">
+
+                                        <div>
+                                            <h2>
+                                                <span class="texto">Informações</span>
+                                            </h2>
+                                        </div>
+
+                                        <div class="dados">
+                                            <span class="icone"><i class="fas fa-flag"></i></span>
+                                            <span class="texto">Lote: </span>
+                                            <span class="valor">2345 / 2</span>
+                                        </div>
+
+                                        <div class="dados">
+                                            <span class="icone"><i class="fas fa-calendar-alt"></i></span>
+                                            <span class="texto">Início: </span>
+                                            <span class="valor"> {{$leilao[0]->data_inicio}} {{$leilao[0]->hora_inicio}}</span>
+                                        </div>
+
+                                        <div class="dados">
+                                            <span class="icone"><i class="fas fa-calendar-alt"></i></span>
+                                            <span class="texto">Término: </span>
+                                            <span class="valor"> {{$leilao[0]->data_fim}} {{$leilao[0]->hora_fim}}</span>
+                                        </div>
+
+                                        <div class="dados">
+                                            <span class="icone"><i class="fas fa-map-marker-alt"></i></span>
+                                            <span class="texto">Localidade: </span>
+                                            <span class="valor"> {{$leilao[0]->cidade}} , {{$leilao[0]->estado}}</span>
+                                        </div>
+
+                                        <div class="dados">
+                                            <span class="icone"><i class="fas fa-database"></i></span>
+                                            <span class="texto">Comissão do Leiloeiro: </span>
+                                            <span class="valor">5% </span>
+                                        </div>
+
+                                        <div class="dados">
+                                            <span class="icone"><i class="fas fa-dollar-sign"></i></span>
+                                            <span class="texto">Lance Inicial:</span>
+                                            <span class="valor">R$ {{$leilao[0]->lance_inicial}}</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="col xl4">
+                                    <div class="informacoes">
+
+                                        <div>
+                                            <h2>
+                                                <span class="texto">Informações</span>
+                                            </h2>
+                                        </div>
+
+                                        <div class="dados">
+                                            <span class="icone"><i class="fas fa-flag"></i></span>
+                                            <span class="texto">Lote: </span>
+                                            <span class="valor">2345 / 2</span>
+                                        </div>
+
+                                        <div class="dados">
+                                            <span class="icone"><i class="fas fa-calendar-alt"></i></span>
+                                            <span class="texto">Início: </span>
+                                            <span class="valor"> {{$leilao[0]->data_inicio}} {{$leilao[0]->hora_inicio}}</span>
+                                        </div>
+
+                                        <div class="dados">
+                                            <span class="icone"><i class="fas fa-calendar-alt"></i></span>
+                                            <span class="texto">Término: </span>
+                                            <span class="valor"> {{$leilao[0]->data_fim}} {{$leilao[0]->hora_fim}}</span>
+                                        </div>
+
+                                        <div class="dados">
+                                            <span class="icone"><i class="fas fa-map-marker-alt"></i></span>
+                                            <span class="texto">Localidade: </span>
+                                            <span class="valor"> {{$leilao[0]->cidade}} , {{$leilao[0]->estado}}</span>
+                                        </div>
+
+                                        <div class="dados">
+                                            <span class="icone"><i class="fas fa-database"></i></span>
+                                            <span class="texto">Comissão do Leiloeiro: </span>
+                                            <span class="valor">5% </span>
+                                        </div>
+
+                                        <div class="dados">
+                                            <span class="icone"><i class="fas fa-dollar-sign"></i></span>
+                                            <span class="texto">Lance Inicial:</span>
+                                            <span class="valor">R$ {{$leilao[0]->lance_inicial}}</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -38,9 +186,6 @@
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
-                            <p>
-                                {{$leilao[0]->codigo_leilao}} - {{$leilao[0]->nome_leilao}}
-                            </p>
                             <p>
                                 <span class="texto">Comitente:</span>
                                 <span>{{$leilao[0]->comitente_leilao}}</span>

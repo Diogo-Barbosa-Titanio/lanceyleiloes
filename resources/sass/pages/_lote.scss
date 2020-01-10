@@ -1,1 +1,20 @@
 /* Arquivo _lote.scss */
+
+.lote {
+
+    .informacoes {
+        display: inline-block;
+
+        .dados {
+
+            padding: 10px 0;
+
+            .texto {
+                font-weight: bold;
+            }
+
+        }
+
+    }
+
+}
