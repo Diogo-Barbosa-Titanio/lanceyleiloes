@@ -43,6 +43,9 @@ mix.copy('resources/js/gallery.js', 'public/js');
 //jQuery UI
 mix.copyDirectory('resources/js/jquery-ui', 'public/vendor/jquery-ui');
 
+//Owl Carousel 2 - https://owlcarousel2.github.io/OwlCarousel2/
+mix.copyDirectory('resources/js/owl-carousel', 'public/vendor/owl-carousel');
+
 // Materialize JS
 mix.copy('./node_modules/materialize-css/dist/js/materialize.js', 'public/js');
 
