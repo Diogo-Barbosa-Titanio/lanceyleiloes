@@ -77,6 +77,7 @@
                         <div class="card-action">
                             <a href="#" class="btn">{{$leilao[0]->natureza}}</a>
                             <a href="#" class="btn">HABILITAR-SE PARA O LEILÃO</a>
+                            <a href="#" class="btn">{{$leilao[0]->nome_situacao}}</a>
                             <a href="#" class="btn">REFAZER BUSCA</a>
                         </div>
                     </div>
@@ -196,9 +197,6 @@
                     </div>
                 </div>
             </div>
-
-
-
 
 
             <div class="row">
@@ -334,10 +332,6 @@
 
                 </div>
             </div>
-
-
-
-
 
     </div>
 @endsection

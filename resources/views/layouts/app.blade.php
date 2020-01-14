@@ -35,14 +35,32 @@
                 </div>
             </a>
             <ul class="right hide-on-med-and-down">
-                <li>
-                    <a href="{{url('/')}}/login">
-                        <div class="valign-wrapper">
-                            <i class="material-icons">account_circle</i><span class="texto">Faça seu login</span>
-                        </div>
-                    </a>
-                </li>
-                <li><a href="{{url('/')}}/pessoa_fisica">Cadastre-se</a></li>
+
+                @if(Auth::check())
+                    <li>
+                        <ul id="dropdown2" class="dropdown-content">
+                            <li><a href="#">Perfil</a></li>
+                            <li><a href="{{url('/logout')}}">Sair</a></li>
+                        </ul>
+                        <a class="btn dropdown-trigger" href="#" data-target="dropdown2">Conta<i class="material-icons right">arrow_drop_down</i></a>
+                    </li>
+
+                @else
+
+                    <li>
+                        <a href="{{url('/')}}/login">
+                            <div class="valign-wrapper">
+                                <i class="material-icons">account_circle</i><span class="texto">Faça seu login</span>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li><a href="{{url('/')}}/pessoa_fisica">Cadastre-se</a></li>
+
+                @endif
+
+
+
                 <li><a href="{{url('/')}}/quem_somos">Quem Somos</a></li>
                 <li><a href="#">Faq</a></li>
                 <li><a href="#">Fale Conosco</a></li>

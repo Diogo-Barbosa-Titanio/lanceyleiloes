@@ -1,6 +1,8 @@
 (function ($) {
     $(function () {
 
+       M.AutoInit();
+
         M.updateTextFields();
 
         $('.tabs').tabs();

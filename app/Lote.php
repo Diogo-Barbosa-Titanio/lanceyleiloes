@@ -90,7 +90,6 @@ class Lote extends Model
                        'lotes_caracteristicas.vagas_de_visitantes as vagas_de_visitantes'];
 
 
-
     protected function sqlQuerySelect(array $campos)
     {
 
