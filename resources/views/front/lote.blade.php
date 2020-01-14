@@ -16,73 +16,93 @@
     <div class="container lote">
 
             <div class="row">
+                <div class="col s12 xl6">
+
+                     <h3 class="cabecalho">
+                         <span class="texto">Leilão:</span><span class="valor"> {{$leilao[0]->nome_leilao}}</span>
+                     </h3>
+
+                </div>
+
+                <div class="col s12 xl6">
+                    <h3 class="cabecalho">
+                        <span class="texto">Código do leilão:</span><span class="valor"> {{$leilao[0]->codigo_leilao}}</span>
+                    </h3>
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="col s12 xl12">
-                    <div class="card">
-                        <div class="card-content">
-                            <h2>
-                               Leilão: {{$leilao[0]->nome_leilao}}
-                            </h2>
-                            <h3>
-                                Código do leilão: {{$leilao[0]->codigo_leilao}}
-                            </h3>
-                            <h3>Lote {{$leilao[0]->lote_ordem}} - {{$leilao[0]->nome_lote}}</h3>
-                            <span class="btn">{{$leilao[0]->tipo_leilao}}</span>
+
+                    <h3 class="cabecalho"><span class="texto">Lote:</span><span class="valor">{{$leilao[0]->lote_ordem}} {{$leilao[0]->nome_lote}}</span></h3>
+
+                </div>
+            </div>
+
+        <div class="row">
+            <div class="col s12 xl12">
+                <div class="card horizontal">
+
+                    <div class="card-image">
+                        @if(!empty($leilao[0]->foto_leilao))
+                            <a href="#">
+                                <img src="{{asset('storage'.$leilao[0]->foto_leilao)}}"
+                                     class="responsive-img"
+                                     alt="{{$leilao[0]->nome_leilao}}">
+                            </a>
+                        @endif
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content comitente">
+                            <p>
+                                <span class="texto">Comitente:</span>
+                                <span>{{$leilao[0]->comitente_leilao}}</span>
+                            </p>
+
+                            <p>
+                                <span class="texto">Data de início:</span>
+                                <span>{{$leilao[0]->data_inicio}}</span>
+                            </p>
+
+                            <p>
+                                <span class="texto">Data de Término:</span>
+                                <span>{{$leilao[0]->data_fim}}</span>
+                            </p>
+
+                            <p>
+                                <span class="texto">Situação:</span>
+                                <span>{{$leilao[0]->nome_situacao}}</span>
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="btn">{{$leilao[0]->natureza}}</a>
+                            <a href="#" class="btn">HABILITAR-SE PARA O LEILÃO</a>
+                            <a href="#" class="btn">REFAZER BUSCA</a>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
 
            <div class="row">
                 <div class="col s12 xl12">
-                    <h2>
-                        <span class="texto">Informações</span>
-                    </h2>
-
-
 
                     <div class="card">
 
                         <div class="card-content">
                             <div class="row">
-                                <div class="col xl4">
-                                    <div id="container">
-                                        <div id="slideshow" class="fullscreen">
-                                            <!-- Below are the images in the gallery -->
-                                            <div id="img-1" data-img-id="1" class="img-wrapper active"
-                                                 style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_163649_800.jpeg')}}')"></div>
-                                            <div id="img-2" data-img-id="2" class="img-wrapper"
-                                                 style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_170206_651.jpeg')}}')"></div>
-                                            <div id="img-3" data-img-id="3" class="img-wrapper"
-                                                 style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_170207_711.jpeg')}}')"></div>
+                                <div class="col s12 xl4">
 
-                                            <!-- Below are the thumbnails of above images -->
-                                            <div class="thumbs-container bottom">
-                                                <div id="prev-btn" class="prev">
-                                                    <i class="fa fa-chevron-left fa-3x"></i>
-                                                </div>
-
-                                                <ul class="thumbs">
-                                                    <li data-thumb-id="1" class="thumb active"
-                                                        style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_163649_800.jpeg')}}')"></li>
-                                                    <li data-thumb-id="2" class="thumb"
-                                                        style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_170206_651.jpeg')}}')"></li>
-                                                    <li data-thumb-id="3" class="thumb"
-                                                        style="background-image: url('{{asset('/storage/images/lotes/lotes_1_20191112_170207_711.jpeg')}}')"></li>
-                                                </ul>
-
-                                                <div id="next-btn" class="next">
-                                                    <i class="fa fa-chevron-right fa-3x"></i>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="owl-carousel owl-theme">
+                                        <div class="item"><img src="{{asset('/storage/images/lotes/lotes_1_20191112_163649_800.jpeg')}}"> </div>
+                                        <div class="item"><img src="{{asset('/storage/images/lotes/lotes_1_20191112_170206_651.jpeg')}}"></div>
+                                        <div class="item"><img src="{{asset('/storage/images/lotes/lotes_1_20191112_170207_711.jpeg')}}"></div>
                                     </div>
-
-
 
                                 </div>
 
-
-                                <div class="col xl4">
+                                <div class="col s12 xl4">
 
                                     <div class="informacoes">
 
@@ -126,7 +146,7 @@
 
                                 </div>
 
-                                <div class="col xl4">
+                                <div class="col s12 xl4">
                                     <div class="cronometro_leilao">
                                         <div class="leilao_situacao" situacao="{{$leilao[0]->situacao_cor}}">
                                             {{$leilao[0]->situacao_nome}}
@@ -178,54 +198,11 @@
             </div>
 
 
-        <div class="row">
-            <div class="col s12 xl12">
-                <div class="card horizontal">
 
-                    <div class="card-image">
-                        @if(!empty($leilao[0]->foto_leilao))
-                            <a href="#">
-                                <img src="{{asset('storage'.$leilao[0]->foto_leilao)}}"
-                                      class="responsive-img"
-                                     alt="{{$leilao[0]->nome_leilao}}">
-                            </a>
-                        @endif
-                    </div>
-                    <div class="card-stacked">
-                        <div class="card-content">
-                            <p>
-                                <span class="texto">Comitente:</span>
-                                <span>{{$leilao[0]->comitente_leilao}}</span>
-                            </p>
-
-                            <p>
-                                <span class="texto">Data de início:</span>
-                                <span>{{$leilao[0]->data_inicio}}</span>
-                            </p>
-
-                            <p>
-                                <span class="texto">Data de Término:</span>
-                                <span>{{$leilao[0]->data_fim}}</span>
-                            </p>
-
-                            <p>
-                                <span class="texto">Situação:</span>
-                                <span>{{$leilao[0]->nome_situacao}}</span>
-                            </p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#" class="btn">{{$leilao[0]->natureza}}</a>
-                            <a href="#" class="btn">HABILITAR-SE PARA O LEILÃO</a>
-                            <a href="#" class="btn">REFAZER BUSCA</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
             <div class="row">
-                <div class="col xl12">
+                <div class="col s12 xl12">
 
                     <div class="card">
 
@@ -367,11 +344,6 @@
 
 @section('scripts')
 
-
-    <!-- Galeria de imagens -->
-    <script src="{{asset('/js/gallery.js')}}"></script>
-
-
     <script src="{{ asset('/vendor/owl-carousel/owl.carousel.min.js') }}"></script>
 
     <script type="text/javascript">
@@ -390,6 +362,27 @@
                     console.log('Operação chegou ao final');
                 }
             });
+
+
+        $(document).ready(function(){
+            $(".owl-carousel").owlCarousel({
+                loop:true,
+                margin: 10,
+                nav:true,
+                items: 1,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:1
+                    },
+                    1000:{
+                        items:1
+                    }
+                }
+            });
+        });
 
 
     </script>

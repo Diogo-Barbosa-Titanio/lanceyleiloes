@@ -2364,6 +2364,14 @@ nav a#logo-container div {
   font-weight: bold;
 }
 
+.lote .cabecalho .texto {
+  font-weight: bold;
+}
+
+.lote .comitente .texto {
+  font-weight: bold;
+}
+
 /* Arquivo _pessoa_fisica.scss */
 
 /* Arquivo _pessoa_juridica.scss */
