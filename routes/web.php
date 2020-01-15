@@ -13,6 +13,7 @@
 
 use App\Mail\TestAmazonSes;
 
+// Front - (Visitante)
 Route::get('/', 'Front\HomeController@index');
 Route::get('/home', 'Front\HomeController@index')->name('home');
 Route::get('/lote/{id}', 'Front\LoteController@index');
@@ -24,6 +25,11 @@ Route::get('/quem_somos', function () {
     return view('front/quem_somos');
 });
 
+//Front -(para usuário logado)
+Route::get('/minha_conta/cadastro', 'Front\MinhaContaController@cadastro');
+
+
+//Admin
 Route::get('/admin','Admin\LoginController@index');
 Route::get('/admin/login','Admin\LoginController@index');
 Route::post('/admin/login','Admin\LoginController@index')->name('admin_login');

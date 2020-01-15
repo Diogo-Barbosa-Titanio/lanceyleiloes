@@ -2376,3 +2376,9 @@ nav a#logo-container div {
 
 /* Arquivo _pessoa_juridica.scss */
 
+/* Arquivo _minha_conta.scss */
+
+.minha_conta .menu_lateral li a {
+  margin: 2px 0;
+}
+
