@@ -49,10 +49,7 @@ require('jquery-mask-plugin');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('criando-exibindo-dados', require('./components/CriandoExibindoDados.vue').default);
-Vue.component('manipulando-dados', require('./components/ManipulandoDados.vue').default);
-Vue.component('componentes-juntos', require('./components/ComponentesJuntos.vue').default);
+Vue.component('habilitacao-leilao', require('./components/habilitacao-leilao/HabilitacaoLeilao.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

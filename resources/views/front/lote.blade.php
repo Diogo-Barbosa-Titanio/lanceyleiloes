@@ -76,7 +76,14 @@
                         </div>
                         <div class="card-action">
                             <a href="#" class="btn">{{$leilao[0]->natureza}}</a>
-                            <a href="#" class="btn">HABILITAR-SE PARA O LEILÃO</a>
+
+
+                            @if(Auth::check())
+
+                             <habilitacao-leilao></habilitacao-leilao>
+
+                            @endif
+
                             <a href="#" class="btn">{{$leilao[0]->nome_situacao}}</a>
                             <a href="#" class="btn">REFAZER BUSCA</a>
                         </div>
@@ -180,12 +187,14 @@
                                                 Dê seu lance
                                             </div>
                                             <div class="formulario">
-                                                <form>
-                                                    <input type="text" class="form-control mb-1"
-                                                           placeholder="Informe o valor (Ex. R$ 15.000,00)">
+                                                @if(Auth::check())
+                                                    <form>
+                                                        <input type="text" class="form-control mb-1"
+                                                               placeholder="Informe o valor (Ex. R$ 15.000,00)">
 
-                                                    <button class="btn btn-cor-secundaria btn-block">Confirmar lance</button>
-                                                </form>
+                                                        <button class="btn btn-cor-secundaria btn-block">Confirmar lance</button>
+                                                    </form>
+                                                @endif
                                             </div>
                                         </div>
 
