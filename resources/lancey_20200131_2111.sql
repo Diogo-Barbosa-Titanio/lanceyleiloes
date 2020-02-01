@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 03/01/2020 às 22:20
--- Versão do servidor: 5.7.28-0ubuntu0.18.04.4
+-- Tempo de geração: 31/01/2020 às 21:12
+-- Versão do servidor: 5.7.29-0ubuntu0.18.04.1
 -- Versão do PHP: 7.3.10-1+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -41,12 +41,12 @@ CREATE TABLE `cache` (
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
 ('lancey_leiloes_cache6a6f5187ced4b9b03116fc40f66a84fcdb3afb79', 'i:1;', 1574100872),
 ('lancey_leiloes_cache6a6f5187ced4b9b03116fc40f66a84fcdb3afb79:timer', 'i:1574100872;', 1574100872),
-('lancey_leiloes_cachediogo.barbosa@gm5.com.br|192.168.50.1', 'i:1;', 1576291794),
-('lancey_leiloes_cachediogo.barbosa@gm5.com.br|192.168.50.1:timer', 'i:1576291794;', 1576291794),
+('lancey_leiloes_cachebolsabh|192.168.50.1', 'i:2;', 1579021508),
+('lancey_leiloes_cachebolsabh|192.168.50.1:timer', 'i:1579021508;', 1579021508),
 ('lancey_leiloes_cachediogo|192.168.50.1', 'i:5;', 1576291814),
 ('lancey_leiloes_cachediogo|192.168.50.1:timer', 'i:1576291814;', 1576291814),
-('lancey_leiloes_cachediogobarbosasilva@gmail.com|192.168.50.1', 'i:2;', 1576291830),
-('lancey_leiloes_cachediogobarbosasilva@gmail.com|192.168.50.1:timer', 'i:1576291830;', 1576291830);
+('lancey_leiloes_cachediogobarbosasilva@gmail.com|192.168.50.1', 'i:2;', 1579021555),
+('lancey_leiloes_cachediogobarbosasilva@gmail.com|192.168.50.1:timer', 'i:1579021555;', 1579021555);
 
 -- --------------------------------------------------------
 
@@ -221,8 +221,8 @@ CREATE TABLE `lotes` (
 --
 
 INSERT INTO `lotes` (`id`, `id_leiloes`, `id_lotes_situacoes`, `id_lotes_categorias`, `nome`, `descricao`, `lance_inicial`, `lance_minimo`, `data_inicio`, `data_fim`, `hora_inicio`, `hora_fim`, `edital`, `codigo`, `created_at`, `updated_at`) VALUES
-(6, 2, 4, 1, 'Casa de 300 m², Vila Kosmos', 'Casa de 300 m² boa localização próximo ao Shopping Carioca, metrô de Vicente de Carvalho e a escola de ensino fundamental e médio PIO XII. Bairro residencial.', 300095.27, 452230.39, '2019-11-13', '2019-12-20', '02:55:22', '20:12:33', NULL, NULL, '2019-12-27 19:45:46', '2020-01-04 00:55:13'),
-(8, 2, 4, 1, 'Lote de teste', 'Lote de teste descrição', 80885.08, 90213.09, '2019-11-13', '2019-12-16', '14:35:44', '09:35:00', NULL, NULL, '2019-12-02 20:15:31', '2020-01-04 00:55:13');
+(6, 2, 2, 1, 'Casa de 300 m², Vila Kosmos', 'Casa de 300 m² boa localização próximo ao Shopping Carioca, metrô de Vicente de Carvalho e a escola de ensino fundamental e médio PIO XII. Bairro residencial.', 300095.27, 452230.39, '2020-01-20', '2020-02-20', '02:55:22', '20:12:33', NULL, NULL, '2020-01-31 23:05:06', '2020-01-31 23:05:28'),
+(8, 2, 2, 1, 'Lote de teste', 'Lote de teste descrição', 80885.08, 90213.09, '2020-01-08', '2020-02-14', '14:35:44', '09:35:00', NULL, NULL, '2020-01-31 23:05:27', '2020-01-31 23:05:28');
 
 -- --------------------------------------------------------
 
@@ -271,8 +271,8 @@ CREATE TABLE `lotes_caracteristicas` (
 --
 
 INSERT INTO `lotes_caracteristicas` (`id`, `id_lotes`, `id_lotes_fases_das_obras`, `area_privativa`, `quartos`, `suites`, `vagas`, `banheiros`, `desocupado`, `academia`, `bicicletario`, `brinquedoteca`, `campo_de_futebol`, `churrasqueira`, `cinema`, `pet_care`, `piscina`, `piscina_infantil`, `pista_de_skate`, `playground`, `quadra_de_squash`, `quadra_de_tenis`, `restaurante`, `sala_de_massagem`, `salao_de_beleza`, `salao_de_festas`, `salao_de_festas_infantil`, `salao_de_jogos`, `sauna`, `spa`, `vagas_de_visitantes`, `created_at`, `updated_at`) VALUES
-(5, 6, 4, 300, 2, 0, 0, 2, 'N', 'N', 'N', 'N', 'N', 'S', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', NULL, 'N', 'N', 'N', 'N', 'N', '2019-11-12 15:32:40', '2019-12-27 19:45:46'),
-(7, 8, 2, 2121, 45, 45, 54545, 4, 'S', 'S', 'S', NULL, NULL, NULL, NULL, NULL, NULL, 'N', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-11-12 17:02:06', '2019-12-02 20:15:31');
+(5, 6, 4, 300, 2, 0, 0, 2, 'N', 'N', 'N', 'N', 'N', 'S', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', NULL, 'N', 'N', 'N', 'N', 'N', '2019-11-12 15:32:40', '2020-01-31 23:05:07'),
+(7, 8, 2, 2121, 45, 45, 54545, 4, 'S', 'S', 'S', NULL, NULL, NULL, NULL, NULL, NULL, 'N', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-11-12 17:02:06', '2020-01-31 23:05:27');
 
 -- --------------------------------------------------------
 
@@ -325,8 +325,8 @@ CREATE TABLE `lotes_enderecos` (
 --
 
 INSERT INTO `lotes_enderecos` (`id`, `id_lotes`, `cep`, `estado`, `cidade`, `bairro`, `endereco`, `numero`, `complemento`, `created_at`, `updated_at`) VALUES
-(5, 6, '21220-160', 'RJ', 'Rio de Janeiro', 'RJ', 'Rua Abageru', NULL, NULL, '2019-11-12 15:32:40', '2019-12-27 19:45:46'),
-(7, 8, '21220-160', 'RJ', 'Rio de Janeiro', 'RJ', 'Rua Abageru', NULL, NULL, '2019-11-12 17:02:06', '2019-12-02 20:15:31');
+(5, 6, '21220-160', 'RJ', 'Rio de Janeiro', 'RJ', 'Rua Abageru', NULL, NULL, '2019-11-12 15:32:40', '2020-01-31 23:05:06'),
+(7, 8, '21220-160', 'RJ', 'Rio de Janeiro', 'RJ', 'Rua Abageru', NULL, NULL, '2019-11-12 17:02:06', '2020-01-31 23:05:27');
 
 -- --------------------------------------------------------
 
@@ -491,7 +491,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('zcVrChEq3MDbGj5v0a78WfV5QFKpWaOQJfJu2knI', 1, '192.168.50.1', 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoidE9OR1ZRUHlUcHVDMno0TXc5bW96OEQ1S3VMRldtZkVESnVSRlRPWSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9kZXYubGFuY2V5bGVpbG9lcy5jb20uYnIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1578100606);
+('lakdYK0Q8dBJv222KGv364eTOFVhJaJ4DnApt62U', NULL, '192.168.50.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiaG1kaUhGNEhYcnVUc0o0UDJyZDA3blg0QzNEeU1OTzRjV3F6SFgzcCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1580511249),
+('MyVGgETuaA6rcav7BNLcO1NOq88tHdo6klwMvdW4', 1, '192.168.50.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiOVdUZnlBRnFSRU93aFN0cTU0clJlazlDMnlRMFJTQ2NTWXJPbG8yaCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9kZXYubGFuY2V5bGVpbG9lcy5jb20uYnIvbG90ZS82Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1580515568);
 
 -- --------------------------------------------------------
 
@@ -530,7 +531,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Diogo Barbosa', 'diogo.barbosa@gm5.com.br', NULL, '$2y$10$VwU2dWpoXtjMq87UQt.3UubaMog.4ptfps31ZWYpjUfOelckrNrfW', 'Ytsho6sml0VAte9JkPexNTJ5rl8pwTfeaxBdRyotijsoYJnUhP3JKk4h0MP6', '2019-10-11 23:39:36', '2019-10-31 17:06:20'),
+(1, 'Diogo Barbosa', 'diogo.barbosa@gm5.com.br', NULL, '$2y$10$VwU2dWpoXtjMq87UQt.3UubaMog.4ptfps31ZWYpjUfOelckrNrfW', 'J8a8p6qc3HshfJuxr54NCkLHiuGHOQSuwuvCnUMuPx8aFWhf80GjZhIO4Ou3', '2019-10-11 23:39:36', '2019-10-31 17:06:20'),
 (15, 'Emanuel Masculino Pamiondas 4', 'diogosilva@gmail.com', NULL, '$2y$10$lZ7Xx7xbfbcupq/wn5WD.Ot.WfJkgdbSNse8YQ7wH6ikEHYQ3za.6', NULL, '2019-10-29 14:35:33', '2019-10-31 17:11:08'),
 (19, 'Sala Comercial 1, Grajaú, Rio de Janeiro SP', 'diogo.barbosa777@gm5.com.br', NULL, '$2y$10$Jzuh8OMDxSNUn./zUmo2oe69JL.YfciQo4ysTSeRyAqI1Yhrh1oAS', NULL, '2019-10-31 18:54:50', '2019-10-31 18:55:17');
 
