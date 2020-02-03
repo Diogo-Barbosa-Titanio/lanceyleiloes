@@ -49,6 +49,8 @@ require('jquery-mask-plugin');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.prototype.$http = window.axios;
+
 Vue.component('habilitacao-leilao', require('./components/habilitacao-leilao/HabilitacaoLeilao.vue').default);
 
 /**

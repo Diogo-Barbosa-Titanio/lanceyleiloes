@@ -53,6 +53,33 @@ class Helper extends Model
         return $resultado;
     }
 
+    /**
+     * Com esta função coloco o formato no valor 0.000,00
+     * @param float $numero
+     * @return string
+     */
+    public static function formatoEmReal(float $numero)
+    {
+        return number_format($numero,2,',','.');
+    }
+
+
+
+    /**
+     * Com esta função formato a data Y-m-d para o padrão d-m-Y
+     * @param string $data
+     * @param string $padrao
+     * @return string
+     * @throws \Exception
+     */
+
+    public static function formataData(string $data, string $padrao = 'd-m-Y')
+    {
+        $date = new \DateTime($data);
+
+        return $date->format($padrao);
+    }
+
 
     /**
      * Com esta função formato a data de d/m/Y para o padrão Y-m-d

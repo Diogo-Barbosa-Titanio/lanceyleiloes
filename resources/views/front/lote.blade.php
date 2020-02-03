@@ -80,7 +80,7 @@
 
                             @if(Auth::check())
 
-                             <habilitacao-leilao></habilitacao-leilao>
+                             <habilitacao-leilao lote_id="{{$leilao[0]->id}}" leilao_id="{{$leilao[0]->id_leiloes}}" user_id="{{Auth::id()}}"></habilitacao-leilao>
 
                             @endif
 
@@ -103,9 +103,13 @@
                                 <div class="col s12 xl4">
 
                                     <div class="owl-carousel owl-theme">
-                                        <div class="item"><img src="{{asset('/storage/images/lotes/lotes_1_20191112_163649_800.jpeg')}}"> </div>
-                                        <div class="item"><img src="{{asset('/storage/images/lotes/lotes_1_20191112_170206_651.jpeg')}}"></div>
-                                        <div class="item"><img src="{{asset('/storage/images/lotes/lotes_1_20191112_170207_711.jpeg')}}"></div>
+
+                                        @foreach($fotos as $foto)
+                                            @if(!empty($foto->foto))
+                                                <div class="item"><img src="{{asset('/storage'.$foto->foto)}}"> </div>
+                                            @endif
+                                       @endforeach
+
                                     </div>
 
                                 </div>
@@ -123,13 +127,13 @@
                                         <div class="dados">
                                             <span class="icone"><i class="fas fa-calendar-alt"></i></span>
                                             <span class="texto">Início: </span>
-                                            <span class="valor"> {{$leilao[0]->data_inicio}} {{$leilao[0]->hora_inicio}}</span>
+                                            <span class="valor"> {{\App\Helper::formataData($leilao[0]->data_inicio)}} {{$leilao[0]->hora_inicio}}</span>
                                         </div>
 
                                         <div class="dados">
                                             <span class="icone"><i class="fas fa-calendar-alt"></i></span>
                                             <span class="texto">Término: </span>
-                                            <span class="valor"> {{$leilao[0]->data_fim}} {{$leilao[0]->hora_fim}}</span>
+                                            <span class="valor"> {{\App\Helper::formataData($leilao[0]->data_fim)}} {{$leilao[0]->hora_fim}}</span>
                                         </div>
 
                                         <div class="dados">
@@ -147,7 +151,7 @@
                                         <div class="dados">
                                             <span class="icone"><i class="fas fa-dollar-sign"></i></span>
                                             <span class="texto">Lance Inicial:</span>
-                                            <span class="valor">R$ {{$leilao[0]->lance_inicial}}</span>
+                                            <span class="valor">R$ {{\App\Helper::formatoEmReal($leilao[0]->lance_inicial)}}</span>
                                         </div>
 
                                     </div>
@@ -161,21 +165,31 @@
                                         </div>
 
                                         <div class="data_hora">
-                                            <div>LEILÃO ENCERRA EM</div>
-                                            <div class="tempo_restante"></div>
-                                            <div class="texto">DIAS &nbsp;&nbsp;&nbsp; HORAS &nbsp;&nbsp;&nbsp; MIN &nbsp;&nbsp; SEG
+                                            <div class="titulo">LEILÃO ENCERRA EM</div>
+                                            <div class="tempo_restante row">
+                                                <div class="valor dias tempo_restante_dias col xl3"></div>
+                                                <div class="valor horas tempo_restante_horas col xl3"></div>
+                                                <div class="valor minutos tempo_restante_minutos col xl3"></div>
+                                                <div class="valor segundos tempo_restante_segundos col xl3"></div>
                                             </div>
+                                            <div class="texto row">
+                                                <div class="titulo dias col xl3">DIAS</div>
+                                                <div class="titulo horas col xl3">HORAS</div>
+                                                <div class="titulo minutos col xl3">MIN</div>
+                                                <div class="titulo segundos col xl3">SEG</div>
+                                            </div>
+
                                         </div>
 
                                         <div class="lance_atual">
-                                            <div class="texto">
+                                            <div class="titulo">
                                                 LANCE ATUAL:
                                             </div>
                                             <div class="valor">
                                                 R$ {{$leilao[0]->lance_atual}}
                                             </div>
                                             <div class="data">
-                                                {{$leilao[0]->lance_data_atual}}
+                                                Data: {{$leilao[0]->lance_data_atual}}
                                             </div>
                                             <div class="usuario">
                                                 Usuário: {{$leilao[0]->login}}
@@ -353,10 +367,50 @@
 
         const data_fim_contador = new Date('{{ date('Y/m/d',strtotime($leilao[0]->data_fim)) }} {{ $leilao[0]->hora_fim }}');
 
-        $(".tempo_restante")
+          $(".tempo_restante_dias")
             .countdown(data_fim_contador, function (event) {
                 $(this).text(
-                    event.strftime('%D : %H : %M : %S')
+                    event.strftime('%D')
+                );
+
+                console.log(event);
+
+                if (event.type == 'finish') {
+                    console.log('Operação chegou ao final');
+                }
+            });
+
+         $(".tempo_restante_horas")
+            .countdown(data_fim_contador, function (event) {
+                $(this).text(
+                    event.strftime('%H')
+                );
+
+                console.log(event);
+
+                if (event.type == 'finish') {
+                    console.log('Operação chegou ao final');
+                }
+            });
+
+         $(".tempo_restante_minutos")
+            .countdown(data_fim_contador, function (event) {
+                $(this).text(
+                    event.strftime('%M')
+                );
+
+                console.log(event);
+
+                if (event.type == 'finish') {
+                    console.log('Operação chegou ao final');
+                }
+            });
+
+
+        $(".tempo_restante_segundos")
+            .countdown(data_fim_contador, function (event) {
+                $(this).text(
+                    event.strftime('%S')
                 );
 
                 console.log(event);

@@ -2372,6 +2372,25 @@ nav a#logo-container div {
   font-weight: bold;
 }
 
+.lote .data_hora .titulo {
+  text-align: center;
+  font-weight: bold;
+}
+
+.lote .data_hora .tempo_restante .valor {
+  text-align: center;
+}
+
+.lote .data_hora .texto .titulo {
+  text-align: center;
+  font-weight: normal;
+}
+
+.lote .lance_atual .titulo {
+  text-align: center;
+  font-weight: bold;
+}
+
 /* Arquivo _pessoa_fisica.scss */
 
 /* Arquivo _pessoa_juridica.scss */

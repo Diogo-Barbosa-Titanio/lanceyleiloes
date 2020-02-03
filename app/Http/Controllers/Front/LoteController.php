@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Lote;
+use App\LoteFoto;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -17,6 +18,10 @@ class LoteController extends Controller
         $leilao = new Lote();
         $listarLeilao = $leilao->listarCadastro($id_lote);
 
-        return view('front/lote', ['leilao' => $listarLeilao]);
+        $loteFoto = new LoteFoto();
+
+        $listarFotos = $loteFoto->listarCadastro($id_lote);
+
+        return view('front/lote', ['leilao' => $listarLeilao, 'fotos' => $listarFotos]);
     }
 }

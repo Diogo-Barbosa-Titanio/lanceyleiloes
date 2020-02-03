@@ -28,4 +28,35 @@
             font-weight: bold;
         }
     }
+
+    .data_hora {
+
+        .titulo {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .tempo_restante {
+
+            .valor {
+                text-align: center;
+            }
+
+        }
+
+        .texto {
+            .titulo {
+               text-align: center;
+                font-weight: normal;
+            }
+        }
+    }
+
+    .lance_atual {
+        .titulo {
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+
 }
