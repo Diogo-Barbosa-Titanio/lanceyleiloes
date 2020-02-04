@@ -53,6 +53,21 @@ class LeilaoHabilitacao extends Model
     }
 
 
+    public function verificaHabilitacao(int $id_user, int $id_lote, int $id_leilao) {
+
+        $result = $this->sqlQuerySelect($this->campos)
+                        ->where('id_lotes', '=', $id_lote)
+                        ->where('id_leiloes', '=', $id_leilao)
+                        ->where('id_users', '=', $id_user)->get();
+
+        foreach ($result as $habilitacao){
+            return true;
+        }
+
+        return false;
+
+    }
+
     public function gravar(array $dados)
     {
         $this->id_lotes = $dados['id_lote'];

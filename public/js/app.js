@@ -1,8 +1,8 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/app"],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -21,15 +21,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "HabilitacaoLeilao",
+  name: "LeilaoHabilitacao",
   data: function data() {
     return {
-      habilitacao: {
-        id_lote: '',
-        id_leilao: '',
-        id_user: ''
-      }
+      visivel: true
     };
   },
   props: {
@@ -44,19 +47,26 @@ __webpack_require__.r(__webpack_exports__);
     user_id: {
       required: true,
       type: String
+    },
+    habilitado: {
+      required: false,
+      "default": true,
+      type: Boolean
     }
   },
   methods: {
     grava: function grava() {
+      var _this = this;
+
       alert('Habilitar-se para o Leilão.');
       window.axios.post('/habilitar', {
-        id_lote: document.getElementById('id_lotes').value,
-        id_leilao: document.getElementById('id_leiloes').value,
-        id_user: document.getElementById('id_users').value
+        id_lote: document.getElementById('habilitacao_id_lotes').value,
+        id_leilao: document.getElementById('habilitacao_id_leiloes').value,
+        id_user: document.getElementById('habilitacao_id_users').value
       }).then(function (response) {
-        console.log(response);
+        _this.visivel = false;
       })["catch"](function (error) {
-        console.log(error);
+        _this.visivel = true;
       });
     }
   }
@@ -64,9 +74,86 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=style&index=0&id=4b9efbdd&scoped=true&lang=css&":
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-lances/LeilaoLances.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/leilao-lances/LeilaoLances.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "LeilaoLances",
+  methods: {
+    grava: function grava() {
+      alert('Lance para o leilão.');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "LeilaoMaiorLance"
+});
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=style&index=0&id=f003df06&scoped=true&lang=css&":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--9-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--9-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=style&index=0&id=4b9efbdd&scoped=true&lang=css& ***!
+  !*** ./node_modules/css-loader??ref--9-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--9-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=style&index=0&id=f003df06&scoped=true&lang=css& ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -76,7 +163,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nform[data-v-4b9efbdd] {\n    display: inline-block;\n}\n", ""]);
+exports.push([module.i, "\nform[data-v-f003df06], div[data-v-f003df06] {\n    display: inline-block;\n}\n.fade-enter-active[data-v-f003df06], .fade-leave-active[data-v-f003df06] {\n    -webkit-transition: opacity 1s;\n    transition: opacity 1s;\n}\n.fade-enter[data-v-f003df06], .fade-leave-to[data-v-f003df06] /* .fade-leave-active below version 2.1.8 */ {\n    opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -33772,15 +33859,15 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=style&index=0&id=4b9efbdd&scoped=true&lang=css&":
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=style&index=0&id=f003df06&scoped=true&lang=css&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--9-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--9-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=style&index=0&id=4b9efbdd&scoped=true&lang=css& ***!
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--9-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--9-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=style&index=0&id=f003df06&scoped=true&lang=css& ***!
   \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--9-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--9-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./HabilitacaoLeilao.vue?vue&type=style&index=0&id=4b9efbdd&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=style&index=0&id=4b9efbdd&scoped=true&lang=css&");
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--9-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--9-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./LeilaoHabilitacao.vue?vue&type=style&index=0&id=f003df06&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=style&index=0&id=f003df06&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -34386,9 +34473,9 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=template&id=4b9efbdd&scoped=true&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=template&id=f003df06&scoped=true&":
 /*!***************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=template&id=4b9efbdd&scoped=true& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=template&id=f003df06&scoped=true& ***!
   \***************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -34401,54 +34488,195 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "form",
-    {
-      on: {
-        submit: function($event) {
-          $event.preventDefault()
-          return _vm.grava()
-        }
-      }
-    },
-    [
-      _c("input", {
-        attrs: { type: "hidden", id: "id_lotes", name: "id_lotes" },
-        domProps: { value: _vm.lote_id },
-        on: {
-          input: function($event) {
-            _vm.habilitacao.id_lote = $event.target.value
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c("input", {
-        attrs: { type: "hidden", id: "id_leiloes", name: "id_leiloes" },
-        domProps: { value: _vm.leilao_id },
-        on: {
-          input: function($event) {
-            _vm.habilitacao.id_leilao = $event.target.value
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c("input", {
-        attrs: { type: "hidden", id: "id_users", name: "id_users" },
-        domProps: { value: _vm.user_id },
-        on: {
-          input: function($event) {
-            _vm.habilitacao.id_user = $event.target.value
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c("button", { staticClass: "btn" }, [
-        _vm._v("HABILITAR-SE PARA O LEILÃO")
-      ])
-    ]
-  )
+  return _c("div", [
+    _vm.habilitado
+      ? _c("button", { staticClass: "btn" }, [_vm._v("Habilitado")])
+      : _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.grava()
+              }
+            }
+          },
+          [
+            _c("input", {
+              attrs: {
+                type: "hidden",
+                id: "habilitacao_id_lotes",
+                name: "habilitacao_id_lotes"
+              },
+              domProps: { value: _vm.lote_id }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: {
+                type: "hidden",
+                id: "habilitacao_id_leiloes",
+                name: "habilitacao_id_leiloes"
+              },
+              domProps: { value: _vm.leilao_id }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: {
+                type: "hidden",
+                id: "habilitacao_id_users",
+                name: "habilitacao_id_users"
+              },
+              domProps: { value: _vm.user_id }
+            }),
+            _vm._v(" "),
+            _c("transition", { attrs: { name: "fade" } }, [
+              _c(
+                "button",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.visivel,
+                      expression: "visivel"
+                    }
+                  ],
+                  staticClass: "btn"
+                },
+                [_vm._v("HABILITAR-SE PARA O LEILÃO")]
+              )
+            ])
+          ],
+          1
+        )
+  ])
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-lances/LeilaoLances.vue?vue&type=template&id=3f73ac7e&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/leilao-lances/LeilaoLances.vue?vue&type=template&id=3f73ac7e&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "lance" }, [
+    _c("div", { staticClass: "texto" }, [
+      _vm._v("\n        Dê seu lance\n    ")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "formulario" }, [
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.grava()
+            }
+          }
+        },
+        [
+          _c("input", {
+            attrs: {
+              type: "hidden",
+              id: "lance_id_lotes",
+              name: "lance_id_lotes"
+            },
+            domProps: { value: _vm.lote_id }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              type: "hidden",
+              id: "lance_id_leiloes",
+              name: "lance_id_leiloes"
+            },
+            domProps: { value: _vm.leilao_id }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              type: "hidden",
+              id: "lance_id_users",
+              name: "lance_id_users"
+            },
+            domProps: { value: _vm.user_id }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "form-control mb-1",
+            attrs: {
+              type: "text",
+              placeholder: "Informe o valor (Ex. R$ 20.000,00)"
+            }
+          }),
+          _vm._v(" "),
+          _c("button", { staticClass: "btn btn-cor-secundaria btn-block" }, [
+            _vm._v("Confirmar lance")
+          ])
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue?vue&type=template&id=3eeed21e&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue?vue&type=template&id=3eeed21e&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "lance_atual" }, [
+      _c("div", { staticClass: "titulo" }, [
+        _vm._v("\n        LANCE ATUAL:\n    ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "valor" }, [_vm._v("\n        R$\n    ")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "data" }, [_vm._v("\n        Data:\n    ")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "usuario" }, [
+        _vm._v("\n        Usuário:\n    ")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -46652,7 +46880,9 @@ __webpack_require__(/*! jquery-mask-plugin */ "./node_modules/jquery-mask-plugin
 
 
 Vue.prototype.$http = window.axios;
-Vue.component('habilitacao-leilao', __webpack_require__(/*! ./components/habilitacao-leilao/HabilitacaoLeilao.vue */ "./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue")["default"]);
+Vue.component('leilao-habilitacao', __webpack_require__(/*! ./components/leilao-habilitacao/LeilaoHabilitacao.vue */ "./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue")["default"]);
+Vue.component('leilao-lances', __webpack_require__(/*! ./components/leilao-lances/LeilaoLances */ "./resources/js/components/leilao-lances/LeilaoLances.vue")["default"]);
+Vue.component('leilao-maior-lance', __webpack_require__(/*! ./components/leilao-maior-lance/LeilaoMaiorLance */ "./resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -46710,18 +46940,18 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue":
+/***/ "./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue":
 /*!**************************************************************************!*\
-  !*** ./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue ***!
+  !*** ./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue ***!
   \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _HabilitacaoLeilao_vue_vue_type_template_id_4b9efbdd_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HabilitacaoLeilao.vue?vue&type=template&id=4b9efbdd&scoped=true& */ "./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=template&id=4b9efbdd&scoped=true&");
-/* harmony import */ var _HabilitacaoLeilao_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HabilitacaoLeilao.vue?vue&type=script&lang=js& */ "./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _HabilitacaoLeilao_vue_vue_type_style_index_0_id_4b9efbdd_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HabilitacaoLeilao.vue?vue&type=style&index=0&id=4b9efbdd&scoped=true&lang=css& */ "./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=style&index=0&id=4b9efbdd&scoped=true&lang=css&");
+/* harmony import */ var _LeilaoHabilitacao_vue_vue_type_template_id_f003df06_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LeilaoHabilitacao.vue?vue&type=template&id=f003df06&scoped=true& */ "./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=template&id=f003df06&scoped=true&");
+/* harmony import */ var _LeilaoHabilitacao_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LeilaoHabilitacao.vue?vue&type=script&lang=js& */ "./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _LeilaoHabilitacao_vue_vue_type_style_index_0_id_f003df06_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LeilaoHabilitacao.vue?vue&type=style&index=0&id=f003df06&scoped=true&lang=css& */ "./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=style&index=0&id=f003df06&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -46732,66 +46962,204 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _HabilitacaoLeilao_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _HabilitacaoLeilao_vue_vue_type_template_id_4b9efbdd_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _HabilitacaoLeilao_vue_vue_type_template_id_4b9efbdd_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _LeilaoHabilitacao_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LeilaoHabilitacao_vue_vue_type_template_id_f003df06_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _LeilaoHabilitacao_vue_vue_type_template_id_f003df06_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "4b9efbdd",
+  "f003df06",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue"
+component.options.__file = "resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************!*\
-  !*** ./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HabilitacaoLeilao_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./HabilitacaoLeilao.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HabilitacaoLeilao_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoHabilitacao_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./LeilaoHabilitacao.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoHabilitacao_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=style&index=0&id=4b9efbdd&scoped=true&lang=css&":
+/***/ "./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=style&index=0&id=f003df06&scoped=true&lang=css&":
 /*!***********************************************************************************************************************************!*\
-  !*** ./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=style&index=0&id=4b9efbdd&scoped=true&lang=css& ***!
+  !*** ./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=style&index=0&id=f003df06&scoped=true&lang=css& ***!
   \***********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_9_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HabilitacaoLeilao_vue_vue_type_style_index_0_id_4b9efbdd_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--9-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--9-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./HabilitacaoLeilao.vue?vue&type=style&index=0&id=4b9efbdd&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=style&index=0&id=4b9efbdd&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_9_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HabilitacaoLeilao_vue_vue_type_style_index_0_id_4b9efbdd_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_9_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HabilitacaoLeilao_vue_vue_type_style_index_0_id_4b9efbdd_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_9_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HabilitacaoLeilao_vue_vue_type_style_index_0_id_4b9efbdd_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_9_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HabilitacaoLeilao_vue_vue_type_style_index_0_id_4b9efbdd_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_9_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HabilitacaoLeilao_vue_vue_type_style_index_0_id_4b9efbdd_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_9_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoHabilitacao_vue_vue_type_style_index_0_id_f003df06_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--9-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--9-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./LeilaoHabilitacao.vue?vue&type=style&index=0&id=f003df06&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=style&index=0&id=f003df06&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_9_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoHabilitacao_vue_vue_type_style_index_0_id_f003df06_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_9_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoHabilitacao_vue_vue_type_style_index_0_id_f003df06_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_9_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoHabilitacao_vue_vue_type_style_index_0_id_f003df06_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_9_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoHabilitacao_vue_vue_type_style_index_0_id_f003df06_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_9_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_9_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoHabilitacao_vue_vue_type_style_index_0_id_f003df06_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=template&id=4b9efbdd&scoped=true&":
+/***/ "./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=template&id=f003df06&scoped=true&":
 /*!*********************************************************************************************************************!*\
-  !*** ./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=template&id=4b9efbdd&scoped=true& ***!
+  !*** ./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=template&id=f003df06&scoped=true& ***!
   \*********************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HabilitacaoLeilao_vue_vue_type_template_id_4b9efbdd_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./HabilitacaoLeilao.vue?vue&type=template&id=4b9efbdd&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/habilitacao-leilao/HabilitacaoLeilao.vue?vue&type=template&id=4b9efbdd&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HabilitacaoLeilao_vue_vue_type_template_id_4b9efbdd_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoHabilitacao_vue_vue_type_template_id_f003df06_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./LeilaoHabilitacao.vue?vue&type=template&id=f003df06&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-habilitacao/LeilaoHabilitacao.vue?vue&type=template&id=f003df06&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoHabilitacao_vue_vue_type_template_id_f003df06_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HabilitacaoLeilao_vue_vue_type_template_id_4b9efbdd_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoHabilitacao_vue_vue_type_template_id_f003df06_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/leilao-lances/LeilaoLances.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/leilao-lances/LeilaoLances.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _LeilaoLances_vue_vue_type_template_id_3f73ac7e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LeilaoLances.vue?vue&type=template&id=3f73ac7e&scoped=true& */ "./resources/js/components/leilao-lances/LeilaoLances.vue?vue&type=template&id=3f73ac7e&scoped=true&");
+/* harmony import */ var _LeilaoLances_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LeilaoLances.vue?vue&type=script&lang=js& */ "./resources/js/components/leilao-lances/LeilaoLances.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LeilaoLances_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LeilaoLances_vue_vue_type_template_id_3f73ac7e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _LeilaoLances_vue_vue_type_template_id_3f73ac7e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "3f73ac7e",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/leilao-lances/LeilaoLances.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/leilao-lances/LeilaoLances.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/leilao-lances/LeilaoLances.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoLances_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./LeilaoLances.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-lances/LeilaoLances.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoLances_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/leilao-lances/LeilaoLances.vue?vue&type=template&id=3f73ac7e&scoped=true&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/leilao-lances/LeilaoLances.vue?vue&type=template&id=3f73ac7e&scoped=true& ***!
+  \***********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoLances_vue_vue_type_template_id_3f73ac7e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./LeilaoLances.vue?vue&type=template&id=3f73ac7e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-lances/LeilaoLances.vue?vue&type=template&id=3f73ac7e&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoLances_vue_vue_type_template_id_3f73ac7e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoLances_vue_vue_type_template_id_3f73ac7e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _LeilaoMaiorLance_vue_vue_type_template_id_3eeed21e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LeilaoMaiorLance.vue?vue&type=template&id=3eeed21e&scoped=true& */ "./resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue?vue&type=template&id=3eeed21e&scoped=true&");
+/* harmony import */ var _LeilaoMaiorLance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LeilaoMaiorLance.vue?vue&type=script&lang=js& */ "./resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LeilaoMaiorLance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LeilaoMaiorLance_vue_vue_type_template_id_3eeed21e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _LeilaoMaiorLance_vue_vue_type_template_id_3eeed21e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "3eeed21e",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoMaiorLance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./LeilaoMaiorLance.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoMaiorLance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue?vue&type=template&id=3eeed21e&scoped=true&":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue?vue&type=template&id=3eeed21e&scoped=true& ***!
+  \********************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoMaiorLance_vue_vue_type_template_id_3eeed21e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./LeilaoMaiorLance.vue?vue&type=template&id=3eeed21e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/leilao-maior-lance/LeilaoMaiorLance.vue?vue&type=template&id=3eeed21e&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoMaiorLance_vue_vue_type_template_id_3eeed21e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeilaoMaiorLance_vue_vue_type_template_id_3eeed21e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

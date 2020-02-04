@@ -51,7 +51,9 @@ require('jquery-mask-plugin');
 
 Vue.prototype.$http = window.axios;
 
-Vue.component('habilitacao-leilao', require('./components/habilitacao-leilao/HabilitacaoLeilao.vue').default);
+Vue.component('leilao-habilitacao', require('./components/leilao-habilitacao/LeilaoHabilitacao.vue').default);
+Vue.component('leilao-lances', require('./components/leilao-lances/LeilaoLances').default);
+Vue.component('leilao-maior-lance', require('./components/leilao-maior-lance/LeilaoMaiorLance').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

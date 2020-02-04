@@ -23,7 +23,13 @@ class LoteHabilitacaoController extends Controller
 
             $leilaoHabilitacao = new LeilaoHabilitacao();
 
-            $leilaoHabilitacao->gravar($dados);
+            //Verifico se já está habilitado para o leilão senão estiver habilito
+            if(!$leilaoHabilitacao->verificaHabilitacao($id_user,$id_lote,$id_leilao)) {
+                $leilaoHabilitacao->gravar($dados);
+            }
+
+
+
         }
     }
 }
