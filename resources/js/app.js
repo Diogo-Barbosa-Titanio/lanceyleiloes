@@ -49,11 +49,13 @@ require('jquery-mask-plugin');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.prototype.$http = window.axios;
+// atribuindo o "axios" a instância do vue.js
+//Vue.prototype.$http = window.axios;
 
 Vue.component('leilao-habilitacao', require('./components/leilao-habilitacao/LeilaoHabilitacao.vue').default);
-Vue.component('leilao-lances', require('./components/leilao-lances/LeilaoLances').default);
-Vue.component('leilao-maior-lance', require('./components/leilao-maior-lance/LeilaoMaiorLance').default);
+Vue.component('leilao-lances', require('./components/leilao-lances/LeilaoLances.vue').default);
+Vue.component('leilao-maior-lance', require('./components/leilao-maior-lance/LeilaoMaiorLance.vue').default);
+Vue.component('leilao-cronometro', require('./components/leilao-cronometro/LeilaoCronometro.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

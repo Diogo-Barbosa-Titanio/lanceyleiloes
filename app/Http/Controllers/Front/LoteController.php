@@ -22,8 +22,12 @@ class LoteController extends Controller
 
         $leilaoHabilitacao = new LeilaoHabilitacao();
 
-        $habilitado = $leilaoHabilitacao->verificaHabilitacao(Auth::id(), $listarLote[0]->id, $listarLote[0]->id_leiloes);
-        $habilitado = $habilitado ? 'true': 'false';
+        $habilitado = 'false';
+
+        if(Auth::check()) {
+            $habilitado = $leilaoHabilitacao->verificaHabilitacao(Auth::id(), $listarLote[0]->id, $listarLote[0]->id_leiloes);
+            $habilitado = $habilitado ? 'true' : 'false';
+        }
 
         $loteFoto = new LoteFoto();
         $listarFotos = $loteFoto->listarCadastro($id_lote);

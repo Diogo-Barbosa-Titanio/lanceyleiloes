@@ -46,7 +46,6 @@
         },
         methods: {
             grava() {
-                alert('Habilitar-se para o Leilão.');
 
                 window.axios.post('/habilitar', {
                     id_lote: document.getElementById('habilitacao_id_lotes').value,

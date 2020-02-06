@@ -28,6 +28,7 @@ Route::get('/quem_somos', function () {
 //Front -(para usuário logado)
 Route::get('/minha_conta/cadastro', 'Front\MinhaContaController@cadastro');
 Route::post('/habilitar','Front\LoteHabilitacaoController@habilitar');
+Route::get('/maior_lance', 'Front\LoteLanceController@maiorLance');
 
 //Admin
 Route::get('/admin','Admin\LoginController@index');

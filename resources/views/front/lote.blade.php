@@ -188,6 +188,7 @@
                                         @endif
 
 
+                                        <leilao-cronometro></leilao-cronometro>
                                     </div>
                                 </div>
                             </div>
