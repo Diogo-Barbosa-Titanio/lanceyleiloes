@@ -9,12 +9,6 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 /**
- * Cronômetro em Javascript para aplicação.
- * http://hilios.github.io/jQuery.countdown/
- */
-require('jquery-countdown');
-
-/**
  * Gráficos de Pizza, Barra, Linha e outros.
  * https://www.chartjs.org/
  */

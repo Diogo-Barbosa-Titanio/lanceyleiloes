@@ -2,9 +2,6 @@
 
 @section('styles')
 
-    <!-- CSS Slideshow -->
-    <link href="{{ asset('/css/slideshow.css') }}" rel="stylesheet">
-
     <link href="{{ asset('/vendor/owl-carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
     <link href="{{ asset('/vendor/owl-carousel/assets/owl.theme.default.min.css') }}" rel="stylesheet">
@@ -166,18 +163,7 @@
 
                                         <div class="data_hora">
                                             <div class="titulo">LEILÃO ENCERRA EM</div>
-                                            <div class="tempo_restante row">
-                                                <div class="valor dias tempo_restante_dias col xl3"></div>
-                                                <div class="valor horas tempo_restante_horas col xl3"></div>
-                                                <div class="valor minutos tempo_restante_minutos col xl3"></div>
-                                                <div class="valor segundos tempo_restante_segundos col xl3"></div>
-                                            </div>
-                                            <div class="texto row">
-                                                <div class="titulo dias col xl3">DIAS</div>
-                                                <div class="titulo horas col xl3">HORAS</div>
-                                                <div class="titulo minutos col xl3">MIN</div>
-                                                <div class="titulo segundos col xl3">SEG</div>
-                                            </div>
+                                            <leilao-cronometro></leilao-cronometro>
 
                                         </div>
 
@@ -188,7 +174,7 @@
                                         @endif
 
 
-                                        <leilao-cronometro></leilao-cronometro>
+
                                     </div>
                                 </div>
                             </div>
@@ -341,61 +327,6 @@
     <script src="{{ asset('/vendor/owl-carousel/owl.carousel.min.js') }}"></script>
 
     <script type="text/javascript">
-
-        const data_fim_contador = new Date('{{ date('Y/m/d',strtotime($lote[0]->data_fim)) }} {{ $lote[0]->hora_fim }}');
-
-          $(".tempo_restante_dias")
-            .countdown(data_fim_contador, function (event) {
-                $(this).text(
-                    event.strftime('%D')
-                );
-
-                console.log(event);
-
-                if (event.type == 'finish') {
-                    console.log('Operação chegou ao final');
-                }
-            });
-
-         $(".tempo_restante_horas")
-            .countdown(data_fim_contador, function (event) {
-                $(this).text(
-                    event.strftime('%H')
-                );
-
-                console.log(event);
-
-                if (event.type == 'finish') {
-                    console.log('Operação chegou ao final');
-                }
-            });
-
-         $(".tempo_restante_minutos")
-            .countdown(data_fim_contador, function (event) {
-                $(this).text(
-                    event.strftime('%M')
-                );
-
-                console.log(event);
-
-                if (event.type == 'finish') {
-                    console.log('Operação chegou ao final');
-                }
-            });
-
-
-        $(".tempo_restante_segundos")
-            .countdown(data_fim_contador, function (event) {
-                $(this).text(
-                    event.strftime('%S')
-                );
-
-                console.log(event);
-
-                if (event.type == 'finish') {
-                    console.log('Operação chegou ao final');
-                }
-            });
 
 
         $(document).ready(function(){

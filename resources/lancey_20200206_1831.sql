@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 31/01/2020 às 21:12
+-- Tempo de geração: 06/02/2020 às 18:31
 -- Versão do servidor: 5.7.29-0ubuntu0.18.04.1
 -- Versão do PHP: 7.3.10-1+ubuntu18.04.1+deb.sury.org+1
 
@@ -146,6 +146,13 @@ CREATE TABLE `leiloes_habilitacoes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Fazendo dump de dados para tabela `leiloes_habilitacoes`
+--
+
+INSERT INTO `leiloes_habilitacoes` (`id`, `id_lotes`, `id_leiloes`, `id_users`, `created_at`, `updated_at`) VALUES
+(15, 6, 2, 1, '2020-02-04 22:02:29', '2020-02-04 22:02:29');
 
 -- --------------------------------------------------------
 
@@ -405,8 +412,17 @@ CREATE TABLE `lotes_lances` (
   `id_users` bigint(20) UNSIGNED DEFAULT NULL,
   `lances` float UNSIGNED DEFAULT NULL,
   `data_lance` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Fazendo dump de dados para tabela `lotes_lances`
+--
+
+INSERT INTO `lotes_lances` (`id`, `id_lotes`, `id_leiloes`, `id_users`, `lances`, `data_lance`, `created_at`, `updated_at`) VALUES
+(1, 6, 2, 1, 33000, '2020-02-05 03:00:00', '2020-02-05 03:00:00', '2020-02-05 03:00:00'),
+(2, 6, 2, 1, 22000, '2020-02-05 03:00:00', '2020-02-05 03:00:00', '2020-02-05 03:00:00');
 
 -- --------------------------------------------------------
 
@@ -491,8 +507,10 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('lakdYK0Q8dBJv222KGv364eTOFVhJaJ4DnApt62U', NULL, '192.168.50.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiaG1kaUhGNEhYcnVUc0o0UDJyZDA3blg0QzNEeU1OTzRjV3F6SFgzcCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1580511249),
-('MyVGgETuaA6rcav7BNLcO1NOq88tHdo6klwMvdW4', 1, '192.168.50.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiOVdUZnlBRnFSRU93aFN0cTU0clJlazlDMnlRMFJTQ2NTWXJPbG8yaCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9kZXYubGFuY2V5bGVpbG9lcy5jb20uYnIvbG90ZS82Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1580515568);
+('5wsIShGXXWZtOOvHc6YAf3kwHW6IOMVeiYuG85X3', NULL, '192.168.50.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoibDVzVUMzVTA4WmNmQzRhTHNLdzh1TmhIblhJNUx1SVBzSVo3VWVPZCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9kZXYubGFuY2V5bGVpbG9lcy5jb20uYnIvbG90ZS82Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1581011874),
+('ew1RPjKpI0e4SmqL17UzYtD0JBT3OkTZnLJtL7vh', 1, '192.168.50.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQW81SUJxWklqZXRCRHBiQUYxOGhObWpvaHJqcmlLREtiaFZpTWJ5byI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9kZXYubGFuY2V5bGVpbG9lcy5jb20uYnIvbG90ZS82Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1580950032),
+('IEDLCh98CYqWKrcSQMMlMnE8b5flWEoZBJc8oHD2', NULL, '192.168.50.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiYzdQVUJWVzMwdmhQZVM5OUZFcmZhS3lSckUyUjFjMnRDdlJENkRyWSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9kZXYubGFuY2V5bGVpbG9lcy5jb20uYnIvbG90ZS82Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1581002184),
+('OrN71FQdeiP23NCVkMjj8p7NWTR8ANS9WJSt8mw1', NULL, '192.168.50.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiaERBZFk4ZXBaczlHdTlsN2s4Y2Y1YkpVRmQ2ekszVUoyRUhvQUVVTSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1581001335);
 
 -- --------------------------------------------------------
 
@@ -852,7 +870,7 @@ ALTER TABLE `leiloes_comitentes`
 -- AUTO_INCREMENT de tabela `leiloes_habilitacoes`
 --
 ALTER TABLE `leiloes_habilitacoes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de tabela `leiloes_naturezas`
 --
@@ -897,7 +915,7 @@ ALTER TABLE `lotes_fotos`
 -- AUTO_INCREMENT de tabela `lotes_lances`
 --
 ALTER TABLE `lotes_lances`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de tabela `lotes_segundas_pracas`
 --
